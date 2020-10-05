@@ -67,13 +67,13 @@ class ProfileFragment : BaseFragment(), ChoiceCallBack {
         profileBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_nav_edit_icon)
         profileBinding.commonToolBar.imgToolbarText.text =
             resources.getString(R.string.view_profile)
-        profileBinding.btnSubmit.setBackgroundTintList(
+        /*profileBinding.btnSubmit.setBackgroundTintList(
             ColorStateList.valueOf(
                 Color.parseColor(
                     GlobalConstants.COLOR_CODE
                 )
-            )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
-        )
+            )*//*mContext.getResources().getColorStateList(R.color.colorOrange)*//*
+        )*/
 
         val name = SharedPrefClass().getPrefValue(
             MyApplication.instance.applicationContext,
@@ -257,12 +257,12 @@ class ProfileFragment : BaseFragment(), ChoiceCallBack {
         profileBinding.etAddress.isEnabled = isEnable
         if (!isEnable) {
             profileBinding.ivEdit.visibility = View.GONE
-            profileBinding.btnSubmit.visibility = View.GONE
+            //profileBinding.btnSubmit.visibility = View.GONE
             profileBinding.commonToolBar.imgRight.visibility = View.VISIBLE
         } else {
             profileBinding.ivEdit.visibility = View.VISIBLE
             profileBinding.commonToolBar.imgRight.visibility = View.GONE
-            profileBinding.btnSubmit.visibility = View.VISIBLE
+            //profileBinding.btnSubmit.visibility = View.VISIBLE
         }
 
     }

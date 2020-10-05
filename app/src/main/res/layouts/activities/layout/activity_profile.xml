@@ -13,6 +13,10 @@
             name="profileModel"
             type="com.example.services.model.LoginResponse.Body" />
 
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+
     </data>
 
     <LinearLayout
@@ -39,7 +43,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#10000000"
+                android:background="@drawable/ic_profile_rect4"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -53,32 +57,20 @@
                     android:orientation="vertical"
                     android:padding="@dimen/dp_10">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_100"
+                        android:src="@drawable/ic_profile_rect4"
+                        android:scaleX="2.0"
+                        android:scaleY="2.0"/>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/img_profile"
-                            android:layout_width="@dimen/dp_100"
-                            android:layout_height="@dimen/dp_100"
-                            android:layout_centerInParent="true"
-                            android:contentDescription="@string/todo"
-                            android:src="@{profileModel.image!=null ?  profileModel.image.toString():@string/todo,default=@drawable/ic_person}" />
 
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/iv_edit"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignEnd="@+id/img_profile"
-                            android:layout_alignRight="@+id/img_profile"
-                            android:layout_alignBottom="@+id/img_profile"
-                            android:background="@drawable/ic_edit_image"
-                            android:elevation="@dimen/dp_10"
-                            android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
-                            android:padding="@dimen/dp_8"
-                            tools:targetApi="lollipop" />
 
                     </RelativeLayout>
 
@@ -96,14 +88,39 @@
 
                 </LinearLayout>
 
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/ic_profile_rect2"
                     android:orientation="vertical"
                     android:padding="@dimen/dp_10">
                     <!--                    android:background="@drawable/ic_profile_back"
                     -->
+
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_profile"
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="@dimen/dp_100"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/todo"
+                        android:src="@{profileModel.image!=null ?  profileModel.image.toString():@string/todo,default=@drawable/ic_person}" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_edit"
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="@dimen/dp_100"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_edit_image"
+                        android:elevation="@dimen/dp_10"
+                        android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
+                        android:padding="@dimen/dp_8"
+                        tools:targetApi="lollipop" />
+
                     <com.google.android.material.textfield.TextInputLayout
 
                         android:layout_width="match_parent"
@@ -112,7 +129,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:hint="@string/first_name"
-                        android:textColorHint="@color/colorPrimary">
+                        android:textColorHint="@color/colorDeepGrn">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_firstname"
@@ -123,7 +140,7 @@
                             android:maxLength="30"
                             android:singleLine="true"
                             android:text="@{profileModel.firstName}"
-                            android:textColor="@color/colorblack"
+                            android:textColor="@color/colorDeepGrn"
                             android:textStyle="bold"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
@@ -159,7 +176,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:hint="@string/last_name"
-                        android:textColorHint="@color/colorPrimary">
+                        android:textColorHint="@color/colorDeepGrn">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_lastname"
@@ -204,7 +221,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:hint="@string/phone_number"
-                        android:textColorHint="@color/colorPrimary">
+                        android:textColorHint="@color/colorDeepGrn">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_phone"
@@ -249,7 +266,7 @@
                         android:layout_marginRight="20dp"
                         android:background="@null"
                         android:hint="@string/email1"
-                        android:textColorHint="@color/colorPrimary">
+                        android:textColorHint="@color/colorDeepGrn">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_email"
@@ -286,8 +303,34 @@
                         app:font="@{`regular`}"
                         tools:ignore="MissingConstraints" />
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:hint="@string/address"
+                        android:textColorHint="@color/colorDeepGrn">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:maxLength="12"
+                            android:singleLine="true"
+                            android:text="@{profileModel.lastName}"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:textStyle="bold"
+                            app:font="@{`regular`}"
+                            tools:ignore="MissingConstraints,TextFields" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
                     <EditText
-                        android:id="@+id/et_address"
+                        android:id="@+id/et_address1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_editttext_bg"
@@ -365,7 +408,7 @@
                          android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
                          android:padding="@dimen/dp_10"
                          android:text="@string/submit" />-->
-                    <Button
+                    <!--<Button
                         android:id="@+id/btn_submit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -378,7 +421,7 @@
                         android:paddingRight="@dimen/dp_20"
                         android:text="@string/continues"
                         android:textAllCaps="true"
-                        android:textColor="@color/colorWhite" />
+                        android:textColor="@color/colorWhite" />-->
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
