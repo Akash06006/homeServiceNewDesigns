@@ -61,10 +61,7 @@ class VendorsListActivity : BaseActivity(), DialogssInterface {
         vendorsViewModel = ViewModelProviders.of(this).get(VendorsViewModel::class.java)
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
-        favoriteBinding.commonToolBar.imgRight.visibility = View.GONE
-        favoriteBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_cart)
-        favoriteBinding.commonToolBar.imgToolbarText.text =
-            resources.getString(R.string.vendor)
+        favoriteBinding.commonToolBar.imgToolbarText.text = resources.getString(R.string.service_providers)
 
         /*if (UtilsFunctions.isNetworkConnected()) {
             startProgressDialog()

@@ -387,6 +387,7 @@
     <string name="done">Done</string>
 
     <string name="vendor">Vendors</string>
+    <string name="service_providers">"Service Providers"</string>
     <string name="status">Status : </string>
     <string name="track_service_agent"> Track Service Agent</string>
     <!--<string name="track_service_agent"> Track Delivery Agent</string>-->

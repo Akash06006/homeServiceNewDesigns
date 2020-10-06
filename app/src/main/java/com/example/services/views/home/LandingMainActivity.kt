@@ -38,6 +38,7 @@ import com.example.services.views.orders.OrdersListFragment
 import com.example.services.views.profile.ProfileActivity
 import com.example.services.views.profile.ProfileFragment
 import com.example.services.views.ratingreviews.AddRatingReviewsListActivity
+import com.example.services.views.search.SearchActivity
 import com.example.services.views.settings.MyAccountsActivity
 import com.example.services.views.settings.WebViewActivity
 import com.google.android.material.navigation.NavigationView
@@ -191,8 +192,11 @@ class LandingMainActivity : BaseActivity(),
                         startActivity(intent)
                     }
                     "tv_nav_setting" -> {
-                        val intent = Intent(this, MyAccountsActivity::class.java)
+                        val intent = Intent(this, SearchActivity::class.java)
                         startActivity(intent)
+
+//                        val intent = Intent(this, MyAccountsActivity::class.java)
+//                        startActivity(intent)
                     }
                     "img_nav_cancel" -> {
                         activityLandingBinding!!.drawerLayout.closeDrawers()

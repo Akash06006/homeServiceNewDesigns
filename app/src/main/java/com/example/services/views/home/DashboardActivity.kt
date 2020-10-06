@@ -105,10 +105,7 @@ class DashboardActivity : BaseActivity(),
             activityDashboardBinding!!.commonToolBar.imgRight.visibility = View.GONE
         }
 
-
         // ic_profile
-
-
     }
 
     override fun onDialogConfirmAction(mView: View?, mKey: String) {
