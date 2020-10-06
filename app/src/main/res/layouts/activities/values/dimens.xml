@@ -7,4 +7,6 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="dp_180">180dp</dimen>
+    <dimen name="dp_220">220dp</dimen>
+    <dimen name="dp_13">13dp</dimen>
 </resources>
