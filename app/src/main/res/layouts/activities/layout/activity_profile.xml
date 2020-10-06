@@ -46,54 +46,30 @@
                 android:background="@drawable/ic_profile_rect4"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/upload_profile_layer"
+
+
+                <TextView
+                    android:id="@+id/iv_profile_picture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dp_20"
-                    android:gravity="center"
-                    android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
-                    android:orientation="vertical"
-                    android:padding="@dimen/dp_10">
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/upload_profile_picture"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlack2"
+                    android:textSize="@dimen/sp_13"
+                    android:visibility="gone"
+                    app:font="@{`regular`}" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/dp_100"
-                        android:src="@drawable/ic_profile_rect4"
-                        android:scaleX="2.0"
-                        android:scaleY="2.0"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-
-
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/iv_profile_picture"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_10"
-                        android:text="@string/upload_profile_picture"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorBlack2"
-                        android:textSize="@dimen/sp_13"
-                        android:visibility="gone"
-                        app:font="@{`regular`}" />
-
-                </LinearLayout>
-
-
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_100"
+                    android:src="@drawable/ic_profile_rect4"
+                    android:scaleX="2.0"
+                    android:scaleY="2.0"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dp_5"
                     android:background="@drawable/ic_profile_rect2"
                     android:orientation="vertical"
                     android:padding="@dimen/dp_10">
