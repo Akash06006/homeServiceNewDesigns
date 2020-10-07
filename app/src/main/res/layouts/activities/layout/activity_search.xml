@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".views.search.SearchActivity">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/icMenu"
         android:src="@drawable/menu_icon"
         android:padding="@dimen/dp_10"
@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
+            android:id="@+id/searchContentEt"
             android:layout_weight="0.9"
             android:padding="@dimen/dp_8"
             android:hint="Search"
@@ -35,7 +36,8 @@
             android:background="@drawable/round_background_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
-        <ImageView
+        <ImageButton
+            android:id="@+id/searchBtn"
             android:padding="8dp"
             android:background="@drawable/round_background_blue_layout"
             android:layout_weight="0.1"
@@ -59,34 +61,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewTopSearch"
+    <GridView
+        android:id="@+id/gv_services2"
+        android:layout_below="@id/topSeachText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_10"
-        android:layout_below="@+id/topSeachText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <TextView
-        android:text="Recent Searches"
-        android:id="@+id/recentSearchText"
-        android:textColor="@color/colorBlack"
-        android:textStyle="bold"
-        android:textSize="@dimen/dimen_20sp"
-        android:layout_marginLeft="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_15"
-        android:layout_below="@+id/recyclerViewTopSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewRecentSearch"
-        android:layout_marginLeft="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_10"
-        android:layout_below="@+id/recentSearchText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@color/colorWhite"
+        android:fadeScrollbars="false"
+        android:horizontalSpacing="0dp"
+        android:numColumns="3"
+        android:padding="@dimen/dp_10"
+        android:scrollbars="none"
+        android:verticalSpacing="0dp" />
 
 </RelativeLayout>
 </layout>

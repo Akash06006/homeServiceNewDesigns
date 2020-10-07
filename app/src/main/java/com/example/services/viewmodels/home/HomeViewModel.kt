@@ -15,6 +15,7 @@ class HomeViewModel : BaseViewModel() {
     private var categoriesList = MutableLiveData<CategoriesListResponse>()
     private var subServicesList = MutableLiveData<CategoriesListResponse>()
     private var clearCart = MutableLiveData<CommonModel>()
+
     /*private var jobsHistoryResponse = MutableLiveData<JobsResponse>()
     private var acceptRejectJob = MutableLiveData<CommonModel>()
     private var startCompleteJob = MutableLiveData<CommonModel>()*/
@@ -35,6 +36,7 @@ class HomeViewModel : BaseViewModel() {
     fun getGetSubServices(): LiveData<CategoriesListResponse> {
         return subServicesList
     }
+
     fun getClearCartRes(): LiveData<CommonModel> {
         return clearCart
     }
@@ -74,5 +76,7 @@ class HomeViewModel : BaseViewModel() {
         }
 
     }
+
+
 
 }
