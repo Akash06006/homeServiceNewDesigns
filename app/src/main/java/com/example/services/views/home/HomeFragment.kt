@@ -120,7 +120,8 @@ HomeFragment : BaseFragment(), SocketInterface {
                             }
                             if (trendingServiceList.size > 0) {
                                 fragmentHomeBinding.trendingLayout.visibility = View.VISIBLE
-                                trendingServiceListViewPager()
+                             //   trendingServiceListViewPager()
+                                setAdapterSearchBy()
                             } else {
                                 fragmentHomeBinding.trendingLayout.visibility = View.GONE
                             }
@@ -128,6 +129,7 @@ HomeFragment : BaseFragment(), SocketInterface {
                             if (offersList.size > 0) {
                                 fragmentHomeBinding.offersLayout.visibility = View.VISIBLE
                                 offerListViewPager()
+
                             } else {
                                 fragmentHomeBinding.offersLayout.visibility = View.GONE
                             }
@@ -221,6 +223,16 @@ HomeFragment : BaseFragment(), SocketInterface {
         })
 
     }
+
+
+    fun setAdapterSearchBy() {
+
+//        val mLayoutManager = GridLayoutManager(activity,2,false)
+        fragmentHomeBinding!!.rvTranding!!.layoutManager =  GridLayoutManager(activity, 2)
+      var trandingAdapter = TrandingAdapter(this@HomeFragment ,trendingServiceList,this)
+        fragmentHomeBinding!!.rvTranding!!.adapter = trandingAdapter
+    }
+
 
     private fun trendingServiceListViewPager() {
         val adapter = TrendingServiceListAdapter(this@HomeFragment, trendingServiceList, activity!!)

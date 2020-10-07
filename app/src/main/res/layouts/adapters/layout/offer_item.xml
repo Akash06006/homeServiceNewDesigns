@@ -19,16 +19,14 @@
     <!---->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="@dimen/dp_5"
         android:elevation="@dimen/dp_20"
         app:cardCornerRadius="@dimen/dp_10"
         app:cardPreventCornerOverlap="true">
-GL
 
         <LinearLayout
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -44,8 +42,8 @@ GL
                 android:gravity="center"
                 android:text="20%"
                 android:textAllCaps="false"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/sp_18"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_22"
                 android:textStyle="bold"
                 app:font="@{`bold`}" />
 
@@ -54,11 +52,11 @@ GL
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_10"
                 android:gravity="center"
                 android:text="Facial"
                 android:textAllCaps="false"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/white"
                 android:textSize="@dimen/sp_10"
                 app:font="@{`regular`}" />
 

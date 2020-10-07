@@ -135,7 +135,7 @@ object GlobalConstants {
     @JvmStatic
     var CART_CATEGORY_TYPE = ""
     @JvmStatic
-    var COLOR_CODE = "#603FB0"
+    var COLOR_CODE = "#07595D"
 
     @JvmStatic
     var ORDERID = "ORDERID"

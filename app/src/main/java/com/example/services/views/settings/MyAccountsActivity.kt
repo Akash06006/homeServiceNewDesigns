@@ -42,7 +42,7 @@ class MyAccountsActivity : BaseActivity() {
                     "tv_faq" -> {
                       /*  val intent1 = Intent(this, FAQListActivity::class.java)
                         startActivity(intent1)*/
-                        val intent1 = Intent(this, WebViewActivity::class.java)
+                        val intent1 = Intent(this, FAQListActivity::class.java)
                         intent1.putExtra("title", getString(R.string.faq))
                         startActivity(intent1)
                         // binding.tvChangePassword.isEnabled = false

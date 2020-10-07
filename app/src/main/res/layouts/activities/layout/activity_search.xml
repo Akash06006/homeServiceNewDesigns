@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.search.SearchActivity">
+
+    <ImageView
+        android:id="@+id/icMenu"
+        android:src="@drawable/menu_icon"
+        android:padding="@dimen/dp_10"
+        android:background="@drawable/round_background_layout"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_below="@+id/icMenu"
+        android:weightSum="1"
+        android:layout_margin="@dimen/dp_8"
+        android:id="@+id/searchParentView"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_weight="0.9"
+            android:padding="@dimen/dp_8"
+            android:hint="Search"
+            android:singleLine="true"
+            android:drawablePadding="@dimen/dp_8"
+            android:drawableLeft="@drawable/ic_search"
+            android:background="@drawable/round_background_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:padding="8dp"
+            android:background="@drawable/round_background_blue_layout"
+            android:layout_weight="0.1"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@drawable/menu_icon"
+            android:tint="@color/colorWhite"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:text="Top Searches"
+        android:id="@+id/topSeachText"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_20sp"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_below="@+id/searchParentView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTopSearch"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_below="@+id/topSeachText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:text="Recent Searches"
+        android:id="@+id/recentSearchText"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_20sp"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_below="@+id/recyclerViewTopSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRecentSearch"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_below="@+id/recentSearchText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
+</layout>

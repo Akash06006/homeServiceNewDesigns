@@ -38,6 +38,7 @@ import com.example.services.views.orders.OrdersListFragment
 import com.example.services.views.profile.ProfileActivity
 import com.example.services.views.profile.ProfileFragment
 import com.example.services.views.ratingreviews.AddRatingReviewsListActivity
+import com.example.services.views.search.SearchActivity
 import com.example.services.views.settings.MyAccountsActivity
 import com.example.services.views.settings.WebViewActivity
 import com.google.android.material.navigation.NavigationView
@@ -63,7 +64,7 @@ class LandingMainActivity : BaseActivity(),
     override fun initViews() {
         activityLandingBinding = viewDataBinding as ActivityLandingBinding
         navigationView = activityLandingBinding!!.navView
-        navigationView!!.alpha = 0.9f
+      //  navigationView!!.alpha = 0.9f
         drawer = activityLandingBinding!!.drawerLayout
         dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         activityLandingBinding!!.dashboardViewModel = dashboardViewModel
@@ -191,6 +192,8 @@ class LandingMainActivity : BaseActivity(),
                         startActivity(intent)
                     }
                     "tv_nav_setting" -> {
+
+
                         val intent = Intent(this, MyAccountsActivity::class.java)
                         startActivity(intent)
                     }

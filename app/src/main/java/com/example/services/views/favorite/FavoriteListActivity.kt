@@ -49,8 +49,8 @@ class FavoriteListActivity : BaseActivity(), DialogssInterface {
         favoriteViewModel = ViewModelProviders.of(this).get(FavoriteViewModel::class.java)
         servicesViewModel = ViewModelProviders.of(this).get(ServicesViewModel::class.java)
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        favoriteBinding.commonToolBar.imgRight.visibility = View.GONE
-        favoriteBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_cart)
+//        favoriteBinding.commonToolBar.imgRight.visibility = View.GONE
+//        favoriteBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_cart)
         favoriteBinding.commonToolBar.imgToolbarText.text =
             resources.getString(R.string.favorite)
         val userId = SharedPrefClass()!!.getPrefValue(

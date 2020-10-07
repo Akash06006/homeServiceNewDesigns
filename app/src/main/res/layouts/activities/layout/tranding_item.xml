@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imgItem"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ef_image_placeholder"
+            card_view:riv_corner_radius_bottom_left="@dimen/dp_10"
+            card_view:riv_corner_radius_bottom_right="@dimen/dp_10"
+            card_view:riv_corner_radius_top_left="@dimen/dp_10"
+            card_view:riv_corner_radius_top_right="@dimen/dp_10" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+
+            android:background="@drawable/rounde_corner_edittext">
+
+            <!--            <View-->
+            <!--                android:id="@+id/shadow_view"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:alpha=".5"-->
+            <!--                android:background="#000000" />-->
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Indian"
+            android:gravity="center"
+            android:id="@+id/itemName"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp_18" />
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

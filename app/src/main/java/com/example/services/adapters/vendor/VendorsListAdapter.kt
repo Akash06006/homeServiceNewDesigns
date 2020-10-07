@@ -30,7 +30,6 @@ import com.example.services.views.vendor.VendorsListActivity
 class VendorsListAdapter(
     context: VendorsListActivity,
     addressList: ArrayList<VendorListResponse.Body>
-    //  var activity: Context
 ) :
     RecyclerView.Adapter<VendorsListAdapter.ViewHolder>() {
     private val mContext: VendorsListActivity
@@ -60,8 +59,6 @@ class VendorsListAdapter(
         holder.binding!!.tvVendorName.text = addressList[position].companyName
         holder.binding!!.tvAddress.text = addressList[position].address1
 
-        // holder.binding.imgFavourite.setImageResource(R.drawable.ic_delete)
-        //holder.binding!!.rBar.setRating(addressList[position].rating?.toFloat())
         Glide.with(mContext)
             .load(addressList[position].logo1)
             .apply(RequestOptions.bitmapTransform(RoundedCorners(20)))
@@ -85,13 +82,6 @@ class VendorsListAdapter(
                 val intent = Intent(mContext, DashboardActivity::class.java)
                 mContext.startActivity(intent)
             }
-            // mContext.callServiceDetail(addressList[position].service?.id!!)
-            /*SharedPrefClass().putObject(
-                mContext,
-                GlobalConstants.COMPANY_ID,
-                addressList[position].id
-
-            )*/
 
         }
 
@@ -109,10 +99,6 @@ class VendorsListAdapter(
         mContext: VendorsListActivity,
         addressList: ArrayList<VendorListResponse.Body>?
     ) : RecyclerView.ViewHolder(v) {
-        /*init {
-            binding.linAddress.setOnClickListener {
-                mContext.deleteAddress(adapterPosition)
-            }
-        }*/
+
     }
 }
