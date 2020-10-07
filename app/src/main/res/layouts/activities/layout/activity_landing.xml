@@ -185,28 +185,21 @@
                 </RelativeLayout>
 
                 <ImageView
+                    android:id="@+id/imgSidePhoneTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/llBottom"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/topBannerLayout"
+                    android:src="@drawable/home2" />
+                <ImageView
                     android:id="@+id/imgSidePhone"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_above="@+id/llBottom"
                     android:layout_below="@+id/topBannerLayout"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="-30dp"
-                    android:scaleType="fitXY"
                     android:src="@drawable/home1" />
-
-                <ImageView
-                    android:id="@+id/imgSidePhoneTwo"
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/llBottom"
-                    android:layout_below="@+id/topBannerLayout"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="-10dp"
-                    android:layout_marginBottom="30dp"
-                    android:layout_toLeftOf="@+id/imgSidePhone"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/home2" />
 
                 <ScrollView
                     android:layout_width="match_parent"

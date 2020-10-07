@@ -3,21 +3,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#18172B">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical" >
+        android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/splsh_hut"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/ic_splash_v1" />
+                android:src="@drawable/ic_splash_v1" />
 
             <!--<ImageView
                 android:id="@+id/splsh_hut"
@@ -36,7 +29,6 @@
                 android:textSize="@dimen/sp_22"
                 android:textStyle="bold" />-->
 
-        </LinearLayout>
 
     </RelativeLayout>
 </layout>

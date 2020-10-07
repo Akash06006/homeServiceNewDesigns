@@ -24,12 +24,18 @@
         android:background="@color/white"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="190dp">
+
+
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="330dp"
+            android:layout_height="180dp"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
+                android:layout_marginBottom="@dimen/dp_10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_home_rect2"
@@ -41,6 +47,7 @@
                     android:background="@color/colorDeepGrn" />
 
                 <LinearLayout
+                    android:layout_margin="@dimen/dp_10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -55,70 +62,71 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/dp_20"
+                        android:layout_marginLeft="@dimen/dp_10"
                         android:text="Sector 59, Phase 4, Mohali"
                         android:textColor="@color/white" />
 
-
                 </LinearLayout>
-
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_200"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:layout_centerInParent="true"
                     android:text="@string/expert"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_25"
                     android:textStyle="bold" />
+            </RelativeLayout>
 
 
-            </LinearLayout>
+        </FrameLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dp_200"
-                android:background="@drawable/ic_home_rect3"
-                android:orientation="horizontal">
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
 
                 <EditText
                     android:id="@+id/txtLoc"
+                    android:layout_marginBottom="@dimen/dp_5"
+
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="@dimen/dp_35"
-                    android:layout_marginBottom="40dp"
-                    android:background="@drawable/ic_home_rect3"
+                    android:layout_marginTop="@dimen/dp_35"
+                    android:layout_marginLeft="@dimen/dp_35"
+                    android:layout_marginRight="@dimen/dp_35"
+                    android:background="@drawable/bg_rounded_white"
                     android:drawableLeft="@drawable/ic_search_home"
                     android:drawablePadding="@dimen/dp_20"
                     android:editable="false"
-                    android:elevation="@dimen/dp_25"
+                    android:elevation="10dp"
                     android:hint="@string/current_location"
-                    android:imeOptions="actionDone"
-                    android:padding="@dimen/dp_13"
+                    android:padding="@dimen/dp_8"
                     android:singleLine="true"
                     android:textColor="@color/colorblack"
                     android:textSize="@dimen/hint_size"
-                    app:font="@{`regular`}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="Autofill,RtlSymmetry" />
+                    app:font="@{`regular`}"/>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
 
-        </FrameLayout>
+        </RelativeLayout>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/services_home"
             android:textSize="@dimen/sp_18"
-            android:gravity="top"
+            android:textColor="@color/colorBlack"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/dp_20"
             android:textStyle="bold"
-            android:padding="@dimen/dp_20"/>
+           />
 
 
         <GridView
