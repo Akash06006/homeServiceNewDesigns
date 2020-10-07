@@ -35,6 +35,7 @@ import com.example.services.utils.DialogssInterface
 import com.example.services.viewmodels.home.CategoriesListResponse
 import com.example.services.viewmodels.home.HomeViewModel
 import com.example.services.viewmodels.home.Services
+import com.example.services.views.search.SearchActivity
 import com.example.services.views.vendor.VendorsListActivity
 import com.github.nkzawa.global.Global
 import com.google.android.gms.location.*
@@ -188,6 +189,14 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
 
                 // }
             }
+
+
+        fragmentHomeBinding.txtLoc.setOnClickListener {
+            var intent=Intent(activity,SearchActivity::class.java)
+            startActivity(intent)
+
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
