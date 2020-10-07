@@ -117,7 +117,6 @@
                     android:background="@drawable/ic_gradient"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/dp_16"
-                    android:paddingRight="@dimen/dp_16"
                     android:paddingBottom="@dimen/dp_16"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
@@ -196,7 +195,6 @@
                     android:id="@+id/imgSidePhone"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_above="@+id/llBottom"
                     android:layout_below="@+id/topBannerLayout"
                     android:layout_alignParentRight="true"
                     android:src="@drawable/home1" />
