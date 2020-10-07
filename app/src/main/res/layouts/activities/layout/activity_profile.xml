@@ -105,7 +105,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:hint="@string/first_name"
-                        android:textColorHint="@color/colorDeepGrn">
+                        android:textColorHint="@color/colorGrey">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_firstname"
@@ -115,8 +115,10 @@
                             android:inputType="text"
                             android:maxLength="30"
                             android:singleLine="true"
+                            android:drawableLeft="@drawable/ic_profiledrawable"
+                            android:drawablePadding="@dimen/dp_10"
+                            android:textColor="@color/payumoney_black"
                             android:text="@{profileModel.firstName}"
-                            android:textColor="@color/colorDeepGrn"
                             android:textStyle="bold"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
@@ -152,7 +154,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:hint="@string/last_name"
-                        android:textColorHint="@color/colorDeepGrn">
+                        android:textColorHint="@color/colorGrey">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_lastname"
@@ -162,8 +164,9 @@
                             android:maxLength="30"
                             android:singleLine="true"
                             android:text="@{profileModel.lastName}"
-                            android:textColor="@color/colorblack"
-                            android:textColorHint="@color/colorGrey"
+                            android:drawableLeft="@drawable/ic_profiledrawable"
+                            android:drawablePadding="@dimen/dp_10"
+                            android:textColor="@color/payumoney_black"
                             android:textStyle="bold"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
@@ -197,7 +200,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:hint="@string/phone_number"
-                        android:textColorHint="@color/colorDeepGrn">
+                        android:textColorHint="@color/colorGrey">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_phone"
@@ -207,8 +210,9 @@
                             android:maxLength="12"
                             android:singleLine="true"
                             android:text="@{profileModel.phoneNumber}"
-                            android:textColor="@color/colorblack"
-                            android:textColorHint="@color/colorGrey"
+                            android:drawableLeft="@drawable/ic_profiledrawable"
+                            android:drawablePadding="@dimen/dp_10"
+                            android:textColor="@color/payumoney_black"
                             android:textStyle="bold"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints,TextFields" />
@@ -242,7 +246,7 @@
                         android:layout_marginRight="20dp"
                         android:background="@null"
                         android:hint="@string/email1"
-                        android:textColorHint="@color/colorDeepGrn">
+                        android:textColorHint="@color/colorGrey">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_email"
@@ -251,8 +255,9 @@
                             android:maxLength="100"
                             android:singleLine="true"
                             android:text="@{profileModel.email}"
-                            android:textColor="@color/colorblack"
-                            android:textColorHint="@color/colorGrey"
+                            android:drawableLeft="@drawable/ic_profiledrawable"
+                            android:drawablePadding="@dimen/dp_10"
+                            android:textColor="@color/payumoney_black"
                             android:textStyle="bold"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
@@ -286,7 +291,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:hint="@string/address"
-                        android:textColorHint="@color/colorDeepGrn">
+                        android:textColorHint="@color/colorGrey">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_address"
@@ -296,8 +301,9 @@
                             android:maxLength="12"
                             android:singleLine="true"
                             android:text="@{profileModel.lastName}"
-                            android:textColor="@color/colorblack"
-                            android:textColorHint="@color/colorGrey"
+                            android:drawableLeft="@drawable/ic_profiledrawable"
+                            android:drawablePadding="@dimen/dp_10"
+                            android:textColor="@color/payumoney_black"
                             android:textStyle="bold"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints,TextFields" />
