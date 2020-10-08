@@ -1,6 +1,8 @@
 package com.example.services.views.settings
 
 import android.content.Intent
+import android.net.Uri
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.services.R
@@ -20,44 +22,59 @@ class MyAccountsActivity : BaseActivity() {
         binding = viewDataBinding as ActivityMyAccountsBinding
         accountsViewModel = ViewModelProviders.of(this).get(MyAccountsViewModel::class.java)
         binding.myaccountsViewModel = accountsViewModel
-        binding.toolbarCommon.imgToolbarText.text = getString(R.string.settings)
+        binding.toolbarCommon.imgToolbarText.visibility= View.GONE
         accountsViewModel!!.isClick().observe(
             this, Observer<String>(function =
             fun(it: String?) {
                 when (it) {
-                    "tv_terms" -> {
+
+
+                    "termsCondition" -> {
                         val intent1 = Intent(this, WebViewActivity::class.java)
                         intent1.putExtra("title", getString(R.string.terms_condition))
                         startActivity(intent1)
-                        // binding.tvChangePassword.isEnabled = false
                     }
-                    "tv_privacy" -> {
+                    "privacyPolicy" -> {
                         val intent1 = Intent(this, WebViewActivity::class.java)
                         intent1.putExtra("title", getString(R.string.privacy_policy))
                         startActivity(intent1)
-                        /*  val intent1 = Intent(this, ChangePasswrodActivity::class.java)
-                          startActivity(intent1)*/
-                        // binding.tvChangePassword.isEnabled = false
                     }
-                    "tv_faq" -> {
-                      /*  val intent1 = Intent(this, FAQListActivity::class.java)
-                        startActivity(intent1)*/
+                    "Faq" -> {
                         val intent1 = Intent(this, FAQListActivity::class.java)
                         intent1.putExtra("title", getString(R.string.faq))
                         startActivity(intent1)
-                        // binding.tvChangePassword.isEnabled = false
                     }
-                    "tv_feedback" -> {
-                        /*  val intent1 = Intent(this, ChangePasswrodActivity::class.java)
-                          startActivity(intent1)*/
-                        // binding.tvChangePassword.isEnabled = false
+
+                    "feedback" -> {
                         showToastSuccess("Coming Soon")
                     }
-                    "tv_contact_us" -> {
-                        /*  val intent1 = Intent(this, ChangePasswrodActivity::class.java)
-                          startActivity(intent1)*/
+                    "contact_us" -> {
+//                        val intent1 = Intent(this, ContactUsActivity::class.java)
+//                        startActivity(intent1)
                         showToastSuccess("Coming Soon")
-                        // binding.tvChangePassword.isEnabled = false
+                    }
+                    "rateThisApp" -> {
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/"/*details?id=$appPackageName*/)
+                            )
+                        )
+                    }
+
+                    "shareApp" -> {
+                        try {
+                            val shareIntent = Intent(Intent.ACTION_SEND)
+                            shareIntent.type = "text/plain"
+                            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Delicio App")
+                            var shareMessage =
+                                "\nLet me recommend you this application\n\n"
+                            shareMessage = shareMessage+" Google.com\n"
+                            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+                            startActivity(Intent.createChooser(shareIntent, "choose one"))
+                        } catch (e: Exception) {
+                            //e.toString();
+                        }
                     }
                 }
 

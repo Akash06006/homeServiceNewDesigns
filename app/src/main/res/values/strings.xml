@@ -34,7 +34,6 @@
     <string name="reset_password">Reset Password</string>
     <string name="service">Service</string>
     <string name="welcome">Welcome</string>
-
     <string name="auto_checkin">Auto Checkin</string>
     <string name="booking_alert">Booking Alert</string>
     <string name="other_alert">Other Alert</string>
@@ -226,6 +225,10 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="address">Address</string>
+    <string name="addresses">Addresses</string>
+    <string name="complete_address">Complete Address</string>
+    <string name="save_address">Save Address</string>
+
     <string name="key_country_code">country_code</string>
     <string name="upload_profile_picture">Upload profile picture</string>
     <string name="upload_with_camera">Upload with camera</string>
@@ -303,6 +306,7 @@
     <string name="add_address">Add Address</string>
     <string name="locations">Locations</string>
     <string name="confirm_location_and_proceed">Confirm Location and Proceed</string>
+    <string name="confirm_and_proceed">Confirm  &amp; Proceed</string>
     <string name="your_address">Your Address</string>
     <string name="select_address">Select Address</string>
     <string name="enter_address_details">Enter address details</string>

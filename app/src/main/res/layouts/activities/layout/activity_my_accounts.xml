@@ -16,18 +16,318 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <include
                 android:id="@+id/toolbarCommon"
-                layout="@layout/common_toolbar_back"
+                layout="@layout/toolbar_back"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_50"
+                android:layout_height="75dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbarCommon"
+                android:layout_margin="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_30"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/dp_20" />
+
+
+                <RelativeLayout
+                    android:onClick="@{(v) -> myaccountsViewModel.clickListener(v)}"
+                    android:id="@+id/termsCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_marginTop="@dimen/dp_20">
+
+                    <ImageView
+                        android:padding="@dimen/dp_5"
+                        android:id="@+id/imgTerms"
+                        android:src="@drawable/ic_terms"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/round_background_green" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_15"
+                        android:layout_toRightOf="@+id/imgTerms"
+                        android:text="Terms Conditions"
+                        android:textSize="@dimen/sp_18" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D6D4D4" />
+
+
+                <RelativeLayout
+                    android:onClick="@{(v) -> myaccountsViewModel.clickListener(v)}"
+
+                    android:id="@+id/privacyPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60">
+
+                    <ImageView
+                        android:id="@+id/imgPrivacyPolicy"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:padding="@dimen/dp_5"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_privacy_policy1"
+                        android:background="@drawable/round_background_green"  />
+
+                    <TextView
+                        android:textColor="@color/colorBlack"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_15"                        android:layout_toRightOf="@+id/imgPrivacyPolicy"
+                        android:text="Privacy Policy"
+                        android:textSize="@dimen/sp_16" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D6D4D4" />
+
+                <RelativeLayout
+                    android:onClick="@{(v) -> myaccountsViewModel.clickListener(v)}"
+
+                    android:id="@+id/Faq"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60">
+
+                    <ImageView
+                        android:id="@+id/imgFaq"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_faq"
+                        android:padding="@dimen/dp_5"
+                        android:background="@drawable/round_background_green"  />
+
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_15"
+                        android:layout_toRightOf="@+id/imgFaq"
+                        android:text="FAQ"
+                        android:textSize="@dimen/sp_16" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D6D4D4" />
+
+
+                <RelativeLayout
+                    android:onClick="@{(v) -> myaccountsViewModel.clickListener(v)}"
+
+                    android:id="@+id/feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60">
+
+                    <ImageView
+                        android:id="@+id/img_feedback"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_feed_back"
+                        android:padding="@dimen/dp_5"
+                        android:background="@drawable/round_background_green"  />
+
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_15"
+                        android:layout_toRightOf="@+id/img_feedback"
+                        android:text="Feedback"
+                        android:textSize="@dimen/sp_16" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D6D4D4" />
+
+                <RelativeLayout
+                    android:onClick="@{(v) -> myaccountsViewModel.clickListener(v)}"
+
+                    android:id="@+id/contact_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60">
+
+                    <ImageView
+                        android:id="@+id/imgContactUs"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_contact_us"
+                        android:padding="@dimen/dp_5"
+                        android:background="@drawable/round_background_green"  />
+
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_15"
+                        android:layout_toRightOf="@+id/imgContactUs"
+                        android:text="Contack Us"
+                        android:textSize="@dimen/sp_16" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D6D4D4" />
+                <RelativeLayout
+                    android:onClick="@{(v) -> myaccountsViewModel.clickListener(v)}"
+
+                    android:id="@+id/rateThisApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60">
+
+                    <ImageView
+                        android:id="@+id/imgRateThis"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_rete_app"
+                        android:padding="@dimen/dp_5"
+                        android:background="@drawable/round_background_green"  />
+
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_15"
+                        android:layout_toRightOf="@+id/imgRateThis"
+                        android:text="Rate This App"
+                        android:textSize="@dimen/sp_16" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D6D4D4" />
+                <RelativeLayout
+                    android:onClick="@{(v) -> myaccountsViewModel.clickListener(v)}"
+
+                    android:id="@+id/shareApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60">
+
+                    <ImageView
+                        android:id="@+id/imgShareApp"
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_share_app"
+                        android:padding="@dimen/dp_5"
+                        android:background="@drawable/round_background_green"  />
+
+                    <TextView
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp_15"
+                        android:layout_toRightOf="@+id/imgShareApp"
+                        android:text="Share App"
+                        android:textSize="@dimen/sp_16" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D6D4D4" />
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/const_1"
@@ -38,6 +338,7 @@
                 android:layout_marginRight="@dimen/dp_10"
                 android:background="@drawable/shape_square_stroke"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbarCommon">
@@ -243,7 +544,7 @@
 
                 </RelativeLayout>
             </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 

@@ -24,7 +24,7 @@ class WebViewActivity : BaseActivity() {
         //binding.webView.webViewClient = MyWebViewClient(this)
         //binding.webView.loadUrl("https://www.javatpoint.com/")
         val title = intent.extras.get("title").toString()
-        binding.commonToolBar.imgToolbarText.setText(title)
+        binding.toolbarCommon.imgToolbarText.setText(title)
         binding.webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 view?.loadUrl(url)

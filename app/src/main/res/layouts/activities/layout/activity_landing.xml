@@ -5,11 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="dashboardViewModel"
             type="com.example.services.views.home.DashboardViewModel" />
-
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout

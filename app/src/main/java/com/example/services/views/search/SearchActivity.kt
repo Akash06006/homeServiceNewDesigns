@@ -27,17 +27,9 @@ class SearchActivity : BaseActivity() {
     override fun initViews() {
 
         activitySearchBinding = viewDataBinding as ActivitySearchBinding
-
         searchViewModel = ViewModelProviders.of(this).get(SearchViewModel::class.java)
-
-
-
         activitySearchBinding!!.searchBtn.setOnClickListener{
-
-
             searchViewModel.search(searchContentEt.text.toString())
-
-
             searchViewModel!!.search().observe(this,
                 Observer<SearchResponse> { searchResponse ->
                     this.stopProgressDialog()

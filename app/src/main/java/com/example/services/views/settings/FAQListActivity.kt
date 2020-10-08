@@ -16,12 +16,17 @@ import com.example.services.sharedpreference.SharedPrefClass
 import com.example.services.utils.BaseActivity
 import com.example.services.viewmodels.faq.FAQViewModel
 import com.uniongoods.adapters.FAQListAdapter
+import com.uniongoods.adapters.FaqCategoryListAdapter
 
 class FAQListActivity : BaseActivity() {
     lateinit var faqListBinding: ActivityFaqListBinding
     lateinit var faqViewModel: FAQViewModel
     private var notificationList = ArrayList<FAQListResponse.Data>()
     var userId = ""
+    private var faqList = ArrayList<FAQListResponse.Data>()
+    private var categoryList = ArrayList<FAQListResponse.Category>()
+    var faqCategoryListAdapter: FaqCategoryListAdapter? = null
+
     override fun getLayoutId(): Int {
         return R.layout.activity_faq_list
     }
@@ -50,16 +55,31 @@ class FAQListActivity : BaseActivity() {
                     val message = response.message
                     when {
                         response.code == 200 -> {
-                            if (response.data != null && response.data!!.size > 0) {
-                                notificationList.addAll(response.data!!)
+
+                            if (response.data != null && response.data!!.category?.size!! > 0) {
+                                // categoryList.clear()
+                                if (categoryList.size == 0) {
+                                    categoryList.addAll(response.data!!.category!!)
+                                    categoryList[0].selected = "true"
+                                    faqListBinding.rvHeaders.visibility = View.VISIBLE
+                                    initHeadersRecyclerView()
+                                }
+                            } else {
+                                faqListBinding.rvHeaders.visibility = View.GONE
+
+                            }
+
+                            if (response.data != null && response.data!!.faqList?.size!! > 0) {
+                                faqList.clear()
+                                faqList.addAll(response.data!!.faqList!!)
                                 faqListBinding.rvNotification.visibility = View.VISIBLE
                                 faqListBinding.tvNoRecord.visibility = View.GONE
                                 faqListBinding.title.visibility = View.GONE
                                 initRecyclerView()
                             } else {
-                                message?.let {
-                                    UtilsFunctions.showToastError(message)
-                                }
+                                /* message?.let {
+                                     UtilsFunctions.showToastError(message)
+                                 }*/
                                 faqListBinding.rvNotification.visibility = View.GONE
                                 faqListBinding.tvNoRecord.visibility = View.VISIBLE
                                 faqListBinding.title.visibility = View.VISIBLE
@@ -87,7 +107,7 @@ class FAQListActivity : BaseActivity() {
         var faqListAdapter =
             FAQListAdapter(
                 this@FAQListActivity,
-                notificationList,
+                faqList,
                 this@FAQListActivity
             )
         val linearLayoutManager = LinearLayoutManager(this)
@@ -100,6 +120,36 @@ class FAQListActivity : BaseActivity() {
 
             }
         })
+    }
+
+    private fun initHeadersRecyclerView() {
+        faqCategoryListAdapter = FaqCategoryListAdapter(
+            this@FAQListActivity,
+            categoryList,
+            this@FAQListActivity
+        )
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = RecyclerView.HORIZONTAL
+        faqListBinding.rvHeaders.layoutManager = linearLayoutManager
+        faqListBinding.rvHeaders.adapter = faqCategoryListAdapter
+        faqListBinding.rvHeaders.addOnScrollListener(object :
+            RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+
+            }
+        })
+    }
+    fun selectedHeaders(position: Int) {
+
+        for (i in 0 until categoryList.size) {
+            categoryList[i].selected = "false"
+        }
+        categoryList[position].selected = "true"
+        faqCategoryListAdapter?.notifyDataSetChanged()
+        if (UtilsFunctions.isNetworkConnected()) {
+            faqViewModel.getFAQList(categoryList[position].id.toString())
+            startProgressDialog()
+        }
     }
 
 }

@@ -21,11 +21,11 @@
 
         <include
 
-                android:id="@+id/common_tool_bar"
-                layout="@layout/common_toolbar_back"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="@{(v) -> addressViewModel.clickListener(v)}" />
+            android:id="@+id/common_tool_bar"
+            layout="@layout/toolbar_back"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:onClick="@{(v) -> addressViewModel.clickListener(v)}" />
 
         <TextView
                 android:layout_width="wrap_content"
@@ -61,40 +61,40 @@
                 app:font="@{`regular`}"
                 tools:ignore="MissingConstraints" />
 
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_marginTop="@dimen/dp_10"
-                android:padding="@dimen/dp_5">
+<!--        <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:layout_marginTop="@dimen/dp_10"-->
+<!--                android:padding="@dimen/dp_5">-->
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/saved_locations"
-                    android:drawablePadding="@dimen/dp_5"
-                    android:drawableLeft="@drawable/ic_location"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/sp_16"
-                    android:textStyle="bold"
-                    app:font="@{`bold`}" />
+<!--            <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/saved_locations"-->
+<!--                    android:drawablePadding="@dimen/dp_5"-->
+<!--                    android:drawableLeft="@drawable/ic_location"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:textSize="@dimen/sp_16"-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:font="@{`bold`}" />-->
 
-            <TextView
-                    android:id="@+id/tv_add_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/btn_bg_shape_colored"
-                    android:paddingLeft="@dimen/dp_10"
-                    android:paddingTop="@dimen/dp_5"
-                    android:onClick="@{(v) -> addressViewModel.clickListener(v)}"
-                    android:paddingRight="@dimen/dp_10"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/add_a_location"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/sp_12" />
+<!--            <TextView-->
+<!--                    android:id="@+id/tv_add_address"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:background="@drawable/btn_bg_shape_colored"-->
+<!--                    android:paddingLeft="@dimen/dp_10"-->
+<!--                    android:paddingTop="@dimen/dp_5"-->
+<!--                    android:onClick="@{(v) -> addressViewModel.clickListener(v)}"-->
+<!--                    android:paddingRight="@dimen/dp_10"-->
+<!--                    android:paddingBottom="@dimen/dp_5"-->
+<!--                    android:text="@string/add_a_location"-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:textSize="@dimen/sp_12" />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <RelativeLayout
                 android:layout_width="match_parent"
@@ -131,6 +131,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
+            <ImageView
+                android:id="@+id/tv_add_address"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_80"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:onClick="@{(v) -> addressViewModel.clickListener(v)}"
+                android:src="@drawable/ic_add_address" />
+
         </RelativeLayout>
+
+
+
     </LinearLayout>
 </layout>
