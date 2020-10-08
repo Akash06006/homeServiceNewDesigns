@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.services.common.UtilsFunctions
 import com.example.services.model.CommonModel
+import com.example.services.model.search.SearchResponse
 import com.example.services.repositories.search.SearchJobsRepository
 import com.example.services.viewmodels.BaseViewModel
 
@@ -15,7 +16,7 @@ class SearchViewModel : BaseViewModel() {
     private val isClick = MutableLiveData<String>()
     private var searchRepository = SearchJobsRepository()
 
-    private var searchData = MutableLiveData<CommonModel>()
+    private var searchData = MutableLiveData<SearchResponse>()
 
     /*private var jobsHistoryResponse = MutableLiveData<JobsResponse>()
     private var acceptRejectJob = MutableLiveData<CommonModel>()
@@ -28,7 +29,7 @@ class SearchViewModel : BaseViewModel() {
 
     }
 
-    fun search(): LiveData<CommonModel> {
+    fun search(): LiveData<SearchResponse> {
         return searchData
     }
 

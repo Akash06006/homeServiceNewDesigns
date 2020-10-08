@@ -1,25 +1,18 @@
 package com.example.services.views.search
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.services.R
-import com.example.services.constants.GlobalConstants
-import com.example.services.databinding.ActivityLandingBinding
 import com.example.services.databinding.ActivitySearchBinding
-import com.example.services.model.CommonModel
-import com.example.services.sharedpreference.SharedPrefClass
+import com.example.services.model.search.SearchResponse
 import com.example.services.utils.BaseActivity
-import com.example.services.viewmodels.home.HomeViewModel
 import com.example.services.viewmodels.search.SearchViewModel
-import com.example.services.views.authentication.LoginActivity
-import com.example.services.views.home.DashboardViewModel
+import com.uniongoods.adapters.SearchGridListAdapter
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : BaseActivity() {
+
+    private var searchList: List<SearchResponse.ServiceDatum>? = null
 
     var activitySearchBinding: ActivitySearchBinding? = null
 
@@ -40,7 +33,7 @@ class SearchActivity : BaseActivity() {
 
 
             searchViewModel!!.search().observe(this,
-                Observer<CommonModel> { searchResponse ->
+                Observer<SearchResponse> { searchResponse ->
                     this.stopProgressDialog()
 
                     if (searchResponse != null) {
@@ -48,8 +41,9 @@ class SearchActivity : BaseActivity() {
 
                         if (searchResponse.code == 200) {
 
-
-                            showToastSuccess("Success")
+                            searchList = (searchResponse.body!!.responseData!!.serviceData)
+                            //showToastSuccess("Success")
+                            initRecyclerView()
 
                         } else {
                             showToastError(message)
@@ -62,6 +56,15 @@ class SearchActivity : BaseActivity() {
 
 
 
+    }
+
+    private fun initRecyclerView() {
+        val adapter = SearchGridListAdapter(
+            this,
+            searchList,
+            this
+        )
+        activitySearchBinding!!.gvServices2.adapter = adapter
     }
 
     override fun getLayoutId(): Int {

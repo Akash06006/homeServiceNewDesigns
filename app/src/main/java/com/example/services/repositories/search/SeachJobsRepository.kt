@@ -9,6 +9,7 @@ import com.example.services.api.ApiService
 import com.example.services.application.MyApplication
 import com.example.services.common.UtilsFunctions
 import com.example.services.model.CommonModel
+import com.example.services.model.search.SearchResponse
 import com.example.services.viewmodels.home.CategoriesListResponse
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
@@ -16,7 +17,7 @@ import retrofit2.Response
 
 class SearchJobsRepository {
 
-    private var searchData: MutableLiveData<CommonModel>? = null
+    private var searchData: MutableLiveData<SearchResponse>? = null
     private val gson = GsonBuilder().serializeNulls().create()
 
     init {
@@ -24,7 +25,7 @@ class SearchJobsRepository {
     }
 
 
-    fun search(jsonObject : String?) : MutableLiveData<CommonModel> {
+    fun search(jsonObject : String?) : MutableLiveData<SearchResponse> {
         if (!TextUtils.isEmpty(jsonObject)) {
             var searchObject = JsonObject()
             searchObject.addProperty(
@@ -35,14 +36,14 @@ class SearchJobsRepository {
                 object : ApiResponse<JsonObject> {
                     override fun onResponse(mResponse : Response<JsonObject>) {
                         val searchResponse = if (mResponse.body() != null)
-                            gson.fromJson<CommonModel>(
+                            gson.fromJson<SearchResponse>(
                                 "" + mResponse.body(),
-                                CommonModel::class.java
+                                SearchResponse::class.java
                             )
                         else {
-                            gson.fromJson<CommonModel>(
+                            gson.fromJson<SearchResponse>(
                                 mResponse.errorBody()!!.charStream(),
-                                CommonModel::class.java
+                                SearchResponse::class.java
                             )
                         }
                         searchData!!.postValue(searchResponse)
