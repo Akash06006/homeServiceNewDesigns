@@ -1,6 +1,7 @@
 package com.example.services.views.notifications
 
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +34,14 @@ class NotificationsListActivity : BaseActivity() {
         notificationsListBinding.notificationViewModel = notificationsViewModel
         notificationsListBinding.commonToolBar.imgToolbarText.text =
             resources.getString(R.string.notifications)
+        notificationsListBinding.commonToolBar.toolbar.visibility =View.GONE
+        notificationsListBinding.commonToolBar.btnMenu.visibility =View.VISIBLE
+        notificationsListBinding.commonToolBar.imgDelete.visibility =View.VISIBLE
+        notificationsListBinding.commonToolBar.imgDelete.setOnClickListener {
+            startProgressDialog()
+            notificationsViewModel.clearAllNotification(userId)
+        }
+
         userId = SharedPrefClass()!!.getPrefValue(
             MyApplication.instance,
             GlobalConstants.USERID
@@ -54,7 +63,7 @@ class NotificationsListActivity : BaseActivity() {
                                 notificationsListBinding.title.visibility = View.GONE
                                 notificationsListBinding.title.visibility = View.GONE
                                 notificationsListBinding.rvNotification.visibility = View.VISIBLE
-                                notificationsListBinding.tvNoRecord.visibility = View.GONE
+                             //   notificationsListBinding.tvNoRecord.visibility = View.GONE
                                 initRecyclerView()
                             } else {
                                 message?.let {
@@ -62,7 +71,7 @@ class NotificationsListActivity : BaseActivity() {
                                 }
                                 notificationsListBinding.rvNotification.visibility = View.GONE
                                 notificationsListBinding.title.visibility = View.VISIBLE
-                                notificationsListBinding.tvNoRecord.visibility = View.VISIBLE
+                             //   notificationsListBinding.tvNoRecord.visibility = View.VISIBLE
                                 notificationsListBinding.title.visibility = View.VISIBLE
                                 notificationsListBinding.btnClear.visibility = View.GONE
                             }
@@ -73,7 +82,7 @@ class NotificationsListActivity : BaseActivity() {
                         else -> message?.let {
                             UtilsFunctions.showToastError(message)
                             notificationsListBinding.rvNotification.visibility = View.GONE
-                            notificationsListBinding.tvNoRecord.visibility = View.VISIBLE
+                           // notificationsListBinding.tvNoRecord.visibility = View.VISIBLE
                             notificationsListBinding.title.visibility = View.VISIBLE
                             notificationsListBinding.btnClear.visibility = View.GONE
                         }
@@ -93,7 +102,7 @@ class NotificationsListActivity : BaseActivity() {
                             notificationList.clear()
                             notificationsListBinding.rvNotification.visibility = View.GONE
                             notificationsListBinding.title.visibility = View.VISIBLE
-                            notificationsListBinding.tvNoRecord.visibility = View.VISIBLE
+                         //   notificationsListBinding.tvNoRecord.visibility = View.VISIBLE
                             notificationsListBinding.btnClear.visibility = View.GONE
 
                         }
