@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:padding="@dimen/dp_5"
-                        android:src="@drawable/ic_unfavorite" />
+                        android:src="@drawable/ic_fav_new" />
 
                     <TextView
                         android:id="@+id/tv_duration"
@@ -85,10 +85,11 @@
                         android:layout_below="@+id/tv_cat_name"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_marginRight="@dimen/dp_5"
+                        android:layout_marginTop="@dimen/dp_15"
                         android:singleLine="true"
                         android:text="Duration: 2 hrs"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorGrey"
                         app:font="@{`regular`}" />
 
                     <RatingBar
@@ -104,18 +105,7 @@
                         android:theme="@style/RatingBar"
                         android:visibility="gone" />
 
-                    <TextView
-                        android:id="@+id/tv_offer_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/dp_10"
-                        android:layout_marginTop="@dimen/dp_5"
-                        android:layout_marginBottom="@dimen/dp_5"
-                        android:text="Rs.100"
-                        android:textColor="@color/colorPrice"
-                        android:textStyle="bold" />
+
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -145,10 +135,23 @@
                     </RelativeLayout>
 
                     <TextView
+                        android:id="@+id/tv_offer_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:layout_marginBottom="@dimen/dp_5"
+                        android:text="Rs.100"
+                        android:textColor="@color/payumoney_black"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/tv_add"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:layout_margin="@dimen/dp_5"
                         android:background="@drawable/btn_bg_shape_colored"

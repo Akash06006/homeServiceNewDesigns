@@ -79,6 +79,13 @@ class ServicesListActivity : BaseActivity() {
             startProgressDialog()
         }
 
+
+        servicesBinding.fabBtnServices.setOnClickListener{
+            val intent = Intent(this, CartListActivity::class.java)
+            startActivity(intent)
+        }
+
+
         val subcat = Headers("0", "", catId, "All", "All", "true")
         subCategoryList.add(subcat)
         //  initSubCatRecyclerView()

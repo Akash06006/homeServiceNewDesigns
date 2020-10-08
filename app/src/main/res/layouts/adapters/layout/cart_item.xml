@@ -9,6 +9,14 @@
 
         <import type="com.example.services.common.BindingUtils" />
 
+        <variable
+            name="servicesViewModel"
+            type="com.example.services.viewmodels.services.ServicesViewModel" />
+
+        <variable
+            name="serviceDetail"
+            type="com.example.services.model.services.ServicesDetailResponse.Body" />
+
     </data>
 
     <RelativeLayout
@@ -67,7 +75,7 @@
                             android:textColor="@android:color/black"
                             app:font="@{`bold`}" />
 
-                        <TextView
+                        <!--<TextView
                             android:id="@+id/tvQuantity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -79,9 +87,9 @@
                             android:text="@string/quantity"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textColor="@android:color/black"
-                            app:font="@{`bold`}" />
+                            app:font="@{`bold`}" />-->
 
-                        <RatingBar
+                        <!--<RatingBar
                             android:id="@+id/rBar"
                             style="@android:style/Widget.Material.RatingBar.Small"
                             android:layout_width="wrap_content"
@@ -92,18 +100,66 @@
                             android:numStars="5"
                             android:stepSize="0.5"
                             android:theme="@style/RatingBar"
-                            android:visibility="gone" />
+                            android:visibility="gone" />-->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:orientation="horizontal"
+                            android:layout_below="@id/tv_cat_name"
+                            android:background="@drawable/ic_rect_plus_minus">
+
+                            <ImageView
+                                android:id="@+id/imgMinusNew"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:onClick="@{(v) -> servicesViewModel.clickListener(v)}"
+                                android:padding="@dimen/dp_5"
+                                android:scaleX="0.7"
+                                android:src="@drawable/ic_minus_new"
+                                android:layout_weight="@integer/int_1"/>
+
+                            <TextView
+                                android:id="@+id/tv_quantityNew"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textAllCaps="false"
+                                android:textStyle="bold"
+                                app:font="@{`regular`}"
+                                tools:ignore="AllCaps"
+                                android:layout_weight="@integer/int_1"/>
+
+                            <ImageView
+                                android:id="@+id/imgPlusNew"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:onClick="@{(v) -> servicesViewModel.clickListener(v)}"
+                                android:padding="@dimen/dp_5"
+                                android:scaleX="0.7"
+                                android:scaleY="0.7"
+                                android:src="@drawable/ic_plus_new"
+                                android:layout_weight="@integer/int_1"/>
+
+
+                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/tv_offer_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/tvQuantity"
+                            android:layout_below="@+id/tv_cat_name"
                             android:layout_marginLeft="@dimen/dp_10"
                             android:layout_marginTop="@dimen/dp_5"
                             android:layout_marginBottom="@dimen/dp_5"
+                            android:layout_alignParentRight="true"
                             android:text="Rs.100"
-                            android:textColor="@color/colorPrice"
+                            android:textColor="@color/payumoney_black"
                             android:textStyle="bold" />
 
                         <RelativeLayout
@@ -133,7 +189,7 @@
                                 android:background="@color/colorGrey" />
                         </RelativeLayout>
 
-                        <ImageView
+                        <!--<ImageView
 
                             android:id="@+id/img_remove"
                             android:layout_width="wrap_content"
@@ -142,7 +198,7 @@
                             android:layout_centerVertical="true"
                             android:layout_margin="@dimen/dp_5"
                             android:scaleType="fitXY"
-                            android:src="@drawable/ic_delete" />
+                            android:src="@drawable/ic_delete" />-->
 
                     </RelativeLayout>
                 </LinearLayout>

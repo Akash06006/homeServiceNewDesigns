@@ -27,12 +27,17 @@ import com.example.services.utils.DialogssInterface
 import com.example.services.viewmodels.promocode.PromoCodeViewModel
 import com.example.services.views.chat.ChatActivity
 import com.example.services.views.home.DashboardActivity
+import com.example.services.views.ratingreviews.ReviewsListActivity
 import com.google.gson.JsonObject
 import com.uniongoods.adapters.CartListAdapter
 
 class CartListActivity : BaseActivity(), DialogssInterface {
     lateinit var cartBinding: ActivityCartListBinding
     lateinit var cartViewModel: CartViewModel
+    var cartId = "false"
+    var quantityCount = 0
+    var priceAmount = "false"
+    var price = 0
     lateinit var servicesViewModel: ServicesViewModel
     var cartList = ArrayList<CartListResponse.Data>()
     var myJobsListAdapter: CartListAdapter? = null
@@ -52,8 +57,8 @@ class CartListActivity : BaseActivity(), DialogssInterface {
         cartBinding = viewDataBinding as ActivityCartListBinding
         cartViewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
         servicesViewModel = ViewModelProviders.of(this).get(ServicesViewModel::class.java)
-        cartBinding.commonToolBar.imgRight.visibility = View.GONE
-        cartBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_nav_edit_icon)
+        cartBinding.commonToolBar.imgRight.visibility = View.VISIBLE
+        cartBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_del_new)
         cartBinding.commonToolBar.imgToolbarText.text =
             resources.getString(R.string.cart)
         cartBinding.cartViewModel = cartViewModel
@@ -76,6 +81,12 @@ class CartListActivity : BaseActivity(), DialogssInterface {
                 )
             )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
         )
+
+
+
+
+
+
 
         cartViewModel.getCartListRes().observe(this,
             Observer<CartListResponse> { response ->
@@ -189,6 +200,7 @@ class CartListActivity : BaseActivity(), DialogssInterface {
 
                 }
             })
+
 
         cartViewModel.isClick().observe(
             this, Observer<String>(function =

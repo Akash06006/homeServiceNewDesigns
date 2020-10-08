@@ -35,7 +35,9 @@ import com.example.services.utils.DialogssInterface
 import com.example.services.viewmodels.home.CategoriesListResponse
 import com.example.services.viewmodels.home.HomeViewModel
 import com.example.services.viewmodels.home.Services
+import com.example.services.views.cart.CartListActivity
 import com.example.services.views.search.SearchActivity
+import com.example.services.views.subcategories.ServiceDetailActivity
 import com.example.services.views.vendor.VendorsListActivity
 import com.github.nkzawa.global.Global
 import com.google.android.gms.location.*
@@ -166,6 +168,12 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
                     }
                 }
             })
+
+        fragmentHomeBinding.fabBtn.setOnClickListener {
+            val intent = Intent(activity, CartListActivity::class.java)
+            startActivity(intent)
+        }
+
         fragmentHomeBinding.gvServices.onItemClickListener =
             AdapterView.OnItemClickListener { parent, v, position, id ->
 
