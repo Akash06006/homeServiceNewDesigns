@@ -175,6 +175,11 @@
             android:name=".views.settings.FAQListActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".adapters.faq.FAQDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.authentication.RegisterActivity"
             android:launchMode="singleTop"
