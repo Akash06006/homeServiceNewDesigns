@@ -32,6 +32,17 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_5">
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabBtnServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:backgroundTint="@color/colorDeepGrn"
+                android:src="@drawable/ic_cart"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_20"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_subcategories"
                 android:layout_width="match_parent"

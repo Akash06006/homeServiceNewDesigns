@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.services.R
+import com.example.services.common.UtilsFunctions
 import com.example.services.constants.GlobalConstants
 import com.example.services.databinding.CartItemBinding
 import com.example.services.model.cart.CartListResponse
@@ -25,6 +26,11 @@ class CartListAdapter(
     private val mContext: CartListActivity
     private var viewHolder: ViewHolder? = null
     private var addressList: ArrayList<CartListResponse.Data>
+    var cartId = "false"
+    var quantityCount = 0
+    var priceAmount = "false"
+    var price = 0
+
 
     init {
         this.mContext = context
@@ -45,7 +51,7 @@ class CartListAdapter(
     override fun onBindViewHolder(@NonNull holder: ViewHolder, position: Int) {
         viewHolder = holder
         holder.binding!!.tvCatName.text = addressList[position].service?.name
-        holder.binding!!.tvQuantity.setText(mContext.resources.getString(R.string.quantity) + ": " + addressList[position].quantity)
+        //holder.binding!!.tvQuantity.setText(mContext.resources.getString(R.string.quantity) + ": " + addressList[position].quantity)
         holder.binding!!.tvOfferPrice.setText(
                 GlobalConstants.Currency + " " + addressList[position].price.toString()
         )
@@ -56,7 +62,7 @@ class CartListAdapter(
                 .placeholder(R.drawable.ic_category)
                 .into(holder.binding.imgCart)
         //img_cat
-        holder.binding!!.imgRemove.setOnClickListener {
+        holder.binding!!.imgMinusNew.setOnClickListener {
             //intent.putExtra("orderId", cartList[position].id.toString())
 
             mContext.addRemoveToCart(position/*, holder.binding!!.imgCart.getText().toString()*/)
@@ -82,10 +88,82 @@ class CartListAdapter(
             mContext: CartListActivity,
             addressList: ArrayList<CartListResponse.Data>?
     ) : RecyclerView.ViewHolder(v) {
-        /*init {
-            binding.linAddress.setOnClickListener {
-                mContext.deleteAddress(adapterPosition)
+
+
+
+
+        /*servicesViewModel.isClick().observe(
+        this, Observer<String>(function =
+        fun(it: String?) {
+            when (it) {
+                "img_right" -> {
+                    if (UtilsFunctions.isNetworkConnected()) {
+                        servicesViewModel.removeCart(cartId)
+                        startProgressDialog()
+                    }
+                }
+
+                "imgMinus" -> {
+                    if (quantityCount > 0) {
+                        quantityCount--
+                        price = quantityCount * priceAmount.toInt()
+                        cartBinding.tvOfferPrice.setText(GlobalConstants.Currency + " " + price.toString())
+                        //callGetTimeSlotsApi()
+                    }
+                    if (quantityCount == 0) {
+                        cartBinding.tvOfferPrice.setText("0")
+
+                    }
+                    cartBinding.tvOfferPrice.setText(quantityCount.toString())
+                }
+                "imgPlus" -> {
+                    if (quantityCount <= 5) {
+                        quantityCount++
+                        // serviceDetailBinding.btnSubmit.isEnabled = false
+                        cartBinding.tvOfferPrice.setText(quantityCount.toString())
+                        //   serviceDetailBinding.btnSubmit.visibility = View.VISIBLE
+                        //callGetTimeSlotsApi()
+                        price = quantityCount * priceAmount.toInt()
+                        cartBinding.tvOfferPrice.setText(GlobalConstants.Currency + " " + price.toString())
+                    }
+
+
+                }
             }
-        }*/
+
+        })
+        )*/
+
+        init {
+            binding!!.imgMinusNew.setOnClickListener {
+
+                if (quantityCount > 0) {
+                    quantityCount--
+                    price = quantityCount * priceAmount.toInt()
+                    binding.tvOfferPrice.setText(GlobalConstants.Currency + " " + price.toString())
+                    //callGetTimeSlotsApi()
+                }
+                if (quantityCount == 0) {
+                    binding.tvOfferPrice.setText("0")
+
+                }
+                binding.tvOfferPrice.setText(quantityCount.toString())
+            }
+
+            binding!!.imgPlusNew.setOnClickListener {
+                if (quantityCount <= 5) {
+                    quantityCount++
+                    // serviceDetailBinding.btnSubmit.isEnabled = false
+                    binding.tvOfferPrice.setText(quantityCount.toString())
+                    //   serviceDetailBinding.btnSubmit.visibility = View.VISIBLE
+                    //callGetTimeSlotsApi()
+                    price = quantityCount * priceAmount.toInt()
+                    binding.tvOfferPrice.setText(GlobalConstants.Currency + " " + price.toString())
+                }
+
+            }
+
+            }
+
+        }
     }
-}
