@@ -83,11 +83,6 @@ class CartListActivity : BaseActivity(), DialogssInterface {
         )
 
 
-
-
-
-
-
         cartViewModel.getCartListRes().observe(this,
             Observer<CartListResponse> { response ->
                 stopProgressDialog()

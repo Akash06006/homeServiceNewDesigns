@@ -40,10 +40,10 @@ class CartListAdapter(
     @NonNull
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = DataBindingUtil.inflate(
-                LayoutInflater.from(parent.context),
-                R.layout.cart_item,
-                parent,
-                false
+            LayoutInflater.from(parent.context),
+            R.layout.cart_item,
+            parent,
+            false
         ) as CartItemBinding
         return ViewHolder(binding.root, viewType, binding, mContext, addressList)
     }
@@ -53,14 +53,14 @@ class CartListAdapter(
         holder.binding!!.tvCatName.text = addressList[position].service?.name
         //holder.binding!!.tvQuantity.setText(mContext.resources.getString(R.string.quantity) + ": " + addressList[position].quantity)
         holder.binding!!.tvOfferPrice.setText(
-                GlobalConstants.Currency + " " + addressList[position].price.toString()
+            GlobalConstants.Currency + " " + addressList[position].price.toString()
         )
         //holder.binding!!.rBar.setRating(addressList[position].rating?.toFloat())
         Glide.with(mContext)
-                .load(addressList[position].service?.icon)
-                .apply(RequestOptions.bitmapTransform(RoundedCorners(20)))
-                .placeholder(R.drawable.ic_category)
-                .into(holder.binding.imgCart)
+            .load(addressList[position].service?.icon)
+            .apply(RequestOptions.bitmapTransform(RoundedCorners(20)))
+            .placeholder(R.drawable.ic_category)
+            .into(holder.binding.imgCart)
         //img_cat
         holder.binding!!.imgMinusNew.setOnClickListener {
             //intent.putExtra("orderId", cartList[position].id.toString())
@@ -82,59 +82,15 @@ class CartListAdapter(
     }
 
     inner class ViewHolder//This constructor would switch what to findViewBy according to the type of viewType
-    (
-            v: View, val viewType: Int, //These are the general elements in the RecyclerView
-            val binding: CartItemBinding?,
-            mContext: CartListActivity,
-            addressList: ArrayList<CartListResponse.Data>?
+        (
+        v: View, val viewType: Int, //These are the general elements in the RecyclerView
+        val binding: CartItemBinding?,
+        mContext: CartListActivity,
+        addressList: ArrayList<CartListResponse.Data>?
     ) : RecyclerView.ViewHolder(v) {
 
-
-
-
-        /*servicesViewModel.isClick().observe(
-        this, Observer<String>(function =
-        fun(it: String?) {
-            when (it) {
-                "img_right" -> {
-                    if (UtilsFunctions.isNetworkConnected()) {
-                        servicesViewModel.removeCart(cartId)
-                        startProgressDialog()
-                    }
-                }
-
-                "imgMinus" -> {
-                    if (quantityCount > 0) {
-                        quantityCount--
-                        price = quantityCount * priceAmount.toInt()
-                        cartBinding.tvOfferPrice.setText(GlobalConstants.Currency + " " + price.toString())
-                        //callGetTimeSlotsApi()
-                    }
-                    if (quantityCount == 0) {
-                        cartBinding.tvOfferPrice.setText("0")
-
-                    }
-                    cartBinding.tvOfferPrice.setText(quantityCount.toString())
-                }
-                "imgPlus" -> {
-                    if (quantityCount <= 5) {
-                        quantityCount++
-                        // serviceDetailBinding.btnSubmit.isEnabled = false
-                        cartBinding.tvOfferPrice.setText(quantityCount.toString())
-                        //   serviceDetailBinding.btnSubmit.visibility = View.VISIBLE
-                        //callGetTimeSlotsApi()
-                        price = quantityCount * priceAmount.toInt()
-                        cartBinding.tvOfferPrice.setText(GlobalConstants.Currency + " " + price.toString())
-                    }
-
-
-                }
-            }
-
-        })
-        )*/
-
         init {
+
             binding!!.imgMinusNew.setOnClickListener {
 
                 if (quantityCount > 0) {
@@ -144,26 +100,26 @@ class CartListAdapter(
                     //callGetTimeSlotsApi()
                 }
                 if (quantityCount == 0) {
-                    binding.tvOfferPrice.setText("0")
+                    binding.tvQuantityNew.setText("0")
 
                 }
-                binding.tvOfferPrice.setText(quantityCount.toString())
+                binding.tvQuantityNew.setText(quantityCount.toString())
             }
 
             binding!!.imgPlusNew.setOnClickListener {
                 if (quantityCount <= 5) {
                     quantityCount++
                     // serviceDetailBinding.btnSubmit.isEnabled = false
-                    binding.tvOfferPrice.setText(quantityCount.toString())
+                    binding.tvQuantityNew.setText(quantityCount.toString())
                     //   serviceDetailBinding.btnSubmit.visibility = View.VISIBLE
                     //callGetTimeSlotsApi()
                     price = quantityCount * priceAmount.toInt()
                     binding.tvOfferPrice.setText(GlobalConstants.Currency + " " + price.toString())
                 }
 
-            }
 
             }
 
         }
     }
+}
