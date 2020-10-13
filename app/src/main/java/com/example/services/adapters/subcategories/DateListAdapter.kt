@@ -13,8 +13,8 @@ import com.example.services.R
 import com.example.services.constants.GlobalConstants
 import com.example.services.databinding.TimeItemBinding
 import com.example.services.model.services.DateSlotsResponse
+import com.example.services.utils.Utils
 import com.example.services.views.cart.CheckoutAddressActivity
-import com.example.services.views.subcategories.ServiceDetailActivity
 
 class DateListAdapter(
         context: CheckoutAddressActivity,
@@ -25,10 +25,17 @@ class DateListAdapter(
     private val mContext: CheckoutAddressActivity
     private var viewHolder: ViewHolder? = null
     private var dateList: ArrayList<DateSlotsResponse.Body>
+    private var day: ArrayList<DateSlotsResponse.Body>?=null
+    private var month: ArrayList<DateSlotsResponse.Body>?=null
+    private var year: ArrayList<DateSlotsResponse.Body>?=null
 
     init {
         this.mContext = context
         this.dateList = addressList
+        day= addressList
+        month=addressList
+        year=addressList
+
     }
 
     @NonNull
@@ -44,7 +51,26 @@ class DateListAdapter(
 
     override fun onBindViewHolder(@NonNull holder: ViewHolder, position: Int) {
         viewHolder = holder
-        holder.binding!!.tvCatName.text = dateList[position].date
+        day!!.get(position).date = Utils(mContext).getDateLocal(
+            "EEE MMM dd HH:mm:ss zzzz yyyy",
+            mContext.getDaysAgo(position).toString(),
+            "DD")
+        month!!.get(position).date = Utils(mContext).getDateLocal(
+            "EEE MMM dd HH:mm:ss zzzz yyyy",
+            mContext.getDaysAgo(position).toString(),
+            "mm")
+
+        dateList!!.get(position).date = Utils(mContext).getDateLocal(
+            "EEE MMM dd HH:mm:ss zzzz yyyy",
+            mContext.getDaysAgo(position).toString(),
+            "dd-mm-yyyy")
+//        year!!.get(position).date = Utils(mContext).getDateLocal(
+//            "EEE MMM dd HH:mm:ss zzzz yyyy",
+//            mContext.getDaysAgo(position).toString(),
+//            "YYYY")
+
+//        holder.binding!!.tvCatName.text =  "05\nSep\n2020"
+        holder.binding!!.tvCatName.text =  dateList!!.get(position).date
 
 
         if (dateList[position].selected.equals("true")) {
@@ -71,6 +97,13 @@ class DateListAdapter(
         holder.binding!!.tvCatName.setOnClickListener {
             mContext.selectDatelot(position)
         }
+    }
+
+    fun dataFormate(position: Int,formate: String) {
+        dateList[position].date=Utils(mContext).getDateLocal(
+            "EEE MMM dd HH:mm:ss zzzz yyyy",
+            mContext.getDaysAgo(position).toString(),
+           formate)
     }
 
     override fun getItemCount(): Int {

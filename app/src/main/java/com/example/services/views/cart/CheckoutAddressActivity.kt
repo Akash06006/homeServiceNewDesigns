@@ -134,11 +134,11 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
         for (i in 0..4) {
             val item = DateSlotsResponse()
             dateList.add(item.Body())
-            dateList[i].date = Utils(this).getDateLocal(
-                "EEE MMM dd HH:mm:ss zzzz yyyy",
-                getDaysAgo(i).toString(),
-                "MM-dd-YYYY"
-            )
+//            dateList[i].date = Utils(this).getDateLocal(
+//                "EEE MMM dd HH:mm:ss zzzz yyyy",
+//                getDaysAgo(i).toString(),
+//                "MM-dd-YYYY"
+//            )
             //dateList[i].date = getDaysAgo(i).toString()
             dateList[i].selected = "false"
         }
