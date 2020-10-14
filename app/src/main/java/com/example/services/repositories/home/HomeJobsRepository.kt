@@ -32,6 +32,9 @@ class HomeJobsRepository {
         mApiService.get(
             object : ApiResponse<JsonObject> {
                 override fun onResponse(mResponse: Response<JsonObject>) {
+                    try {
+
+
                     val loginResponse = if (mResponse.body() != null)
                         gson.fromJson<CategoriesListResponse>(
                             "" + mResponse.body(),
@@ -45,6 +48,10 @@ class HomeJobsRepository {
                     }
 
                     data!!.postValue(loginResponse)
+                    }catch (e:Exception){
+
+                    }
+
 
                 }
 

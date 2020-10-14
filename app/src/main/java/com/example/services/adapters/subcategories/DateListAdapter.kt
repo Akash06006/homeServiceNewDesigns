@@ -1,8 +1,11 @@
 package com.uniongoods.adapters
 
+
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.text.format.DateFormat.format
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +18,10 @@ import com.example.services.databinding.TimeItemBinding
 import com.example.services.model.services.DateSlotsResponse
 import com.example.services.utils.Utils
 import com.example.services.views.cart.CheckoutAddressActivity
+import okhttp3.internal.Util.format
+import org.slf4j.helpers.MessageFormatter.format
+import java.lang.String.format
+import java.text.MessageFormat.format
 
 class DateListAdapter(
         context: CheckoutAddressActivity,
@@ -49,34 +56,30 @@ class DateListAdapter(
         return ViewHolder(binding.root, viewType, binding, mContext, dateList)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(@NonNull holder: ViewHolder, position: Int) {
         viewHolder = holder
-        day!!.get(position).date = Utils(mContext).getDateLocal(
-            "EEE MMM dd HH:mm:ss zzzz yyyy",
-            mContext.getDaysAgo(position).toString(),
-            "DD")
-        month!!.get(position).date = Utils(mContext).getDateLocal(
-            "EEE MMM dd HH:mm:ss zzzz yyyy",
-            mContext.getDaysAgo(position).toString(),
-            "mm")
+
 
         dateList!!.get(position).date = Utils(mContext).getDateLocal(
             "EEE MMM dd HH:mm:ss zzzz yyyy",
             mContext.getDaysAgo(position).toString(),
             "dd-mm-yyyy")
-//        year!!.get(position).date = Utils(mContext).getDateLocal(
-//            "EEE MMM dd HH:mm:ss zzzz yyyy",
-//            mContext.getDaysAgo(position).toString(),
-//            "YYYY")
+        val day = Utils(mContext).getDateLocal("EEE MMM dd HH:mm:ss zzzz yyyy", mContext.getDaysAgo(position).toString(), "dd")
+        val month = Utils(mContext).getDateLocal("EEE MMM dd HH:mm:ss zzzz yyyy", mContext.getDaysAgo(position).toString(), "MMM")
+        val year = Utils(mContext).getDateLocal("EEE MMM dd HH:mm:ss zzzz yyyy", mContext.getDaysAgo(position).toString(), "yyyy")
 
 //        holder.binding!!.tvCatName.text =  "05\nSep\n2020"
-        holder.binding!!.tvCatName.text =  dateList!!.get(position).date
+//        holder.binding!!.tvCatName.text =  dateList!!.get(position).date
+        holder.binding!!.tvCatName.text = day+"\n"+month+"\n"+year
+
 
 
         if (dateList[position].selected.equals("true")) {
             // holder.binding.topLay.setBackgroundResource(R.drawable.btn_bg_shape_colored)
             // holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackground))
             holder.binding.tvCatName.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(GlobalConstants.COLOR_CODE))/*mContext.getResources().getColorStateList(R.color.colorOrange)*/)
+
 
             holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorWhite))
         } else {

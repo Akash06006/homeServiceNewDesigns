@@ -59,6 +59,13 @@ class ServicesDetailResponse {
         @SerializedName("rating")
         @Expose
         var rating: String? = null
+
+        @SerializedName("gallery")
+        @Expose
+        val gallery: ArrayList<Gallery>?=null
+
+
+
         /* @SerializedName("category")
          @Expose
          var category: String? = null*/
@@ -78,4 +85,13 @@ class ServicesDetailResponse {
         val rating : Int,
         val category : String*/
     }
+
+    data class Gallery(
+        val mediaHttpUrl: String,
+        val id: String,
+        val mediaType: String,
+        val createdAt: String,
+        val title: String,
+        val description: String
+    )
 }

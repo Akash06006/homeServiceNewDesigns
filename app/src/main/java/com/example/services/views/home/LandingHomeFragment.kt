@@ -90,58 +90,58 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
         mJsonObject.addProperty(
             "acceptStatus", "1"
         )
-        if (UtilsFunctions.isNetworkConnected()) {
-            baseActivity.startProgressDialog()
-        }
-        homeViewModel.getJobs().observe(this,
-            Observer<CategoriesListResponse> { response ->
-                baseActivity.stopProgressDialog()
-                if (response != null) {
-                    val message = response.message
-                    when {
-                        response.code == 200 -> {
-                            GlobalConstants.Currency = response.body.currency
-                            GlobalConstants.CART_CATEGORY_TYPE = response.body.cartCategoryType
-                            cartCategoryTypeId = response.body.cartCategoryType
-                            GlobalConstants.ABOUT_US = response.body.aboutUsLink
-                            GlobalConstants.TERMS_CONDITION = response.body.termsLink
-                            GlobalConstants.COMPANY_ID = response.body.cartCategoryCompany
-                            GlobalConstants.PRIVACY_POLICY = response.body.privacyLink
-                            if (TextUtils.isEmpty(cartCategoryTypeId)) {
-                                SharedPrefClass().putObject(
-                                    activity!!,
-                                    GlobalConstants.isCartAdded,
-                                    "false"
-                                )
-                                (activity as LandingMainActivity).onResumedForFragment()
-                            } else {
-                                SharedPrefClass().putObject(
-                                    activity!!,
-                                    GlobalConstants.isCartAdded,
-                                    "true"
-                                )
-                                (activity as LandingMainActivity).onResumedForFragment()
-                            }
-                            categoriesList.clear()
-                            offersList.clear()
-                            categoriesList?.addAll(response.body.services)
-                            fragmentHomeBinding.gvServices.visibility = View.VISIBLE
-                            initRecyclerView()
-                            offersList.addAll(response.body.banners)
-                            if (offersList.size > 0) {
-                                offerListViewPager()
-                                fragmentHomeBinding.offersViewpager.visibility = View.VISIBLE
-                            } else {
-                                fragmentHomeBinding.offersViewpager.visibility = View.GONE
-                            }
-                        }
-                        else -> message?.let {
-                            showToastError(it)
-                            fragmentHomeBinding.gvServices.visibility = View.GONE
-                        }
-                    }
-                }
-            })
+//        if (UtilsFunctions.isNetworkConnected()) {
+//            baseActivity.startProgressDialog()
+//        }
+//        homeViewModel.getJobs().observe(this,
+//            Observer<CategoriesListResponse> { response ->
+//                baseActivity.stopProgressDialog()
+//                if (response != null) {
+//                    val message = response.message
+//                    when {
+//                        response.code == 200 -> {
+//                            GlobalConstants.Currency = response.body.currency
+//                            GlobalConstants.CART_CATEGORY_TYPE = response.body.cartCategoryType
+//                            cartCategoryTypeId = response.body.cartCategoryType
+//                            GlobalConstants.ABOUT_US = response.body.aboutUsLink
+//                            GlobalConstants.TERMS_CONDITION = response.body.termsLink
+//                            GlobalConstants.COMPANY_ID = response.body.cartCategoryCompany
+//                            GlobalConstants.PRIVACY_POLICY = response.body.privacyLink
+//                            if (TextUtils.isEmpty(cartCategoryTypeId)) {
+//                                SharedPrefClass().putObject(
+//                                    activity!!,
+//                                    GlobalConstants.isCartAdded,
+//                                    "false"
+//                                )
+//                                (activity as LandingMainActivity).onResumedForFragment()
+//                            } else {
+//                                SharedPrefClass().putObject(
+//                                    activity!!,
+//                                    GlobalConstants.isCartAdded,
+//                                    "true"
+//                                )
+//                                (activity as LandingMainActivity).onResumedForFragment()
+//                            }
+//                            categoriesList.clear()
+//                            offersList.clear()
+//                            categoriesList?.addAll(response.body.services)
+//                            fragmentHomeBinding.gvServices.visibility = View.VISIBLE
+//                            initRecyclerView()
+//                            offersList.addAll(response.body.banners)
+//                            if (offersList.size > 0) {
+//                                offerListViewPager()
+//                                fragmentHomeBinding.offersViewpager.visibility = View.VISIBLE
+//                            } else {
+//                                fragmentHomeBinding.offersViewpager.visibility = View.GONE
+//                            }
+//                        }
+//                        else -> message?.let {
+//                            showToastError(it)
+//                            fragmentHomeBinding.gvServices.visibility = View.GONE
+//                        }
+//                    }
+//                }
+//            })
 
         homeViewModel.getClearCartRes().observe(this,
             Observer<CommonModel> { response ->
@@ -353,6 +353,9 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
     private fun getAddress(loc: LatLng?) {
         // Geocoder geocoder
         //  List<Address> addresses;
+
+        try {
+
         val geocoder = Geocoder(activity, Locale.getDefault());
         var addresses = geocoder.getFromLocation(
             loc?.latitude!!,
@@ -371,6 +374,10 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
             var knownName = addresses.get(0).getFeatureName()
             fragmentHomeBinding.txtLoc.setText(address)
             // addressBinding.tvAddress.setText(address)
+        }
+
+        }catch (e:Exception){
+
         }
     }
     //endregion

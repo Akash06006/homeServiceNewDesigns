@@ -12,11 +12,13 @@ import android.widget.RadioGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.services.R
+import com.example.services.adapters.home.AddImagesActivity
 import com.example.services.application.MyApplication
 import com.example.services.common.UtilsFunctions
 import com.example.services.constants.GlobalConstants
@@ -32,6 +34,7 @@ import com.example.services.sharedpreference.SharedPrefClass
 import com.example.services.utils.DialogClass
 import com.example.services.utils.DialogssInterface
 import com.example.services.views.cart.CartListActivity
+import com.example.services.views.ratingreviews.AddRatingReviewsListActivity
 import com.example.services.views.ratingreviews.ReviewsListActivity
 import com.google.gson.JsonObject
 import com.uniongoods.adapters.*
@@ -79,11 +82,15 @@ class ServiceDetailActivity : BaseActivity(), DialogssInterface {
     override fun getLayoutId(): Int {
         return R.layout.activity_service_detail
     }
+    var detailList:ArrayList<DetailModel>?=null
+    private var galleryList = ArrayList<ServicesDetailResponse.Gallery>()
 
     override fun initViews() {
         serviceDetailBinding = viewDataBinding as ActivityServiceDetailBinding
         servicesViewModel = ViewModelProviders.of(this).get(ServicesViewModel::class.java)
+        detailList=ArrayList()
 
+        serviceDetailBinding.btnBack.setOnClickListener { finish() }
         serviceDetailBinding.commonToolBar.imgRight.visibility = View.GONE
         serviceDetailBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_cart)
         serviceDetailBinding.commonToolBar.imgToolbarText.text =
@@ -140,31 +147,35 @@ class ServiceDetailActivity : BaseActivity(), DialogssInterface {
                             // isfav = response.data!!.favorite!!
                             // isCart = response.data!!.cart!!
                             // currency = response.data!!.currency.toString()
-                            var detailList = ArrayList<DetailModel>()
-                            var detail =
-                                DetailModel("Duration", response.data!!.duration.toString())
-                            detailList.add(detail)
+                             detailList = ArrayList<DetailModel>()
+                            var detail = DetailModel("Duration", response.data!!.duration.toString())
+                            detailList!!.add(detail)
                             detail = DetailModel("Pricing", response.data!!.type.toString())
-                            detailList.add(detail)
-
-
+                            detailList!!.add(detail)
                             if (!TextUtils.isEmpty(response.data!!.includedServices.toString())) {
                                 detail = DetailModel(
                                     "Included Services",
                                     response.data!!.includedServices.toString()
                                 )
-                                detailList.add(detail)
+                                detailList!!.add(detail)
+
                             }
+                            galleryList.clear()
+
+                            galleryList=response.data!!.gallery!!
+
+                            serviceDetailBinding.rvJobs.visibility = View.VISIBLE
+                            initRecyclerView()
 
                             if (!TextUtils.isEmpty(response.data!!.excludedServices.toString())) {
                                 detail = DetailModel(
                                     "Excluded Services",
                                     response.data!!.excludedServices.toString()
                                 )
-                                detailList.add(detail)
+                                detailList!!.add(detail)
                             }
 
-                            initRecyclerView(detailList)
+                            initRecyclerView(detailList!!)
                             priceAmount = response.data!!.price.toString()
                             serviceDetailBinding.tvOfferPrice.setText(GlobalConstants.Currency + " " + priceAmount)
                             serviceDetailBinding.rBar.setRating(response.data!!.rating!!.toFloat())
@@ -193,6 +204,8 @@ class ServiceDetailActivity : BaseActivity(), DialogssInterface {
                         }
                         else -> message?.let {
                             UtilsFunctions.showToastError(it)
+                            serviceDetailBinding.rvJobs.visibility = View.GONE
+
                         }
                     }
 
@@ -333,14 +346,62 @@ class ServiceDetailActivity : BaseActivity(), DialogssInterface {
 
                     }
                     "img_add_favorite" -> {
-                        // addRemovefav()
+                     //    addRemovefav()
                     }
+
+                    "addReview" -> {
+                        //addRating()
+                        if (UtilsFunctions.isNetworkConnected()) {
+                            val intent = Intent(this, AddRatingReviewsListActivity::class.java)
+                            intent.putExtra("orderId", serviceId)
+                            startActivity(intent)
+                        }
+                    }
+
+                    "txtAddImge" -> {
+                        val intent = Intent(this!!, AddImagesActivity::class.java)
+                        //intent.putExtra("catId", ""/*categoriesList[position].id*/)
+                        startActivity(intent)
+                    }
+
+
                 }
 
             })
         )
 
     }
+
+
+    private fun initRecyclerView() {
+        /*val adapter = CategoriesGridListAdapter(this@HomeFragment, categoriesList, activity!!)
+        fragmentHomeBinding.gridview.adapter = adapter*/
+        if (galleryList.size > 0) {
+            serviceDetailBinding.foodGallery.visibility = View.VISIBLE
+        } else {
+            serviceDetailBinding.foodGallery.visibility = View.GONE
+        }
+        val vendorsListAdapter = GalleryImageAdapter(this@ServiceDetailActivity, galleryList)
+        // val` linearLayoutManager = LinearLayoutManager(this)
+        //val gridLayoutManager = GridLayoutManager(activity!!, 4)
+        // fragmentHomeBinding.rvJobs.layoutManager = gridLayoutManager
+        val controller = AnimationUtils.loadLayoutAnimation(this, R.anim.layout_animation_from_bottom)
+        serviceDetailBinding.rvJobs.setLayoutAnimation(controller);
+        serviceDetailBinding.rvJobs.scheduleLayoutAnimation();
+        serviceDetailBinding.rvJobs.setHasFixedSize(true)
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = RecyclerView.HORIZONTAL
+        serviceDetailBinding.rvJobs.layoutManager = linearLayoutManager
+        serviceDetailBinding.rvJobs.adapter = vendorsListAdapter
+        serviceDetailBinding.rvJobs.addOnScrollListener(object :
+            RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+
+            }
+        })
+
+    }
+
 
 
     private fun initRecyclerView(detailList: ArrayList<DetailModel>) {
