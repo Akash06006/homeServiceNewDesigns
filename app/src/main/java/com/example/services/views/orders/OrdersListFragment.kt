@@ -14,6 +14,7 @@ import com.example.services.application.MyApplication
 import com.example.services.common.UtilsFunctions
 import com.example.services.common.UtilsFunctions.showToastSuccess
 import com.example.services.constants.GlobalConstants
+import com.example.services.databinding.ActivityOrderList2Binding
 import com.example.services.utils.BaseActivity
 import com.example.services.databinding.ActivityOrderListBinding
 import com.example.services.model.CommonModel
@@ -27,12 +28,13 @@ import com.example.services.views.ratingreviews.AddRatingReviewsListActivity
 import com.google.gson.JsonObject
 import com.uniongoods.adapters.OrderListAdapter
 import com.uniongoods.adapters.OrderListFragmentAdapter
+import com.uniongoods.adapters.OrderListFragmentAdapter2
 
 class OrdersListFragment : BaseFragment(), DialogssInterface {
-    lateinit var orderBinding: ActivityOrderListBinding
+    lateinit var orderBinding: ActivityOrderList2Binding
     lateinit var ordersViewModel: OrdersViewModel
     var orderList = ArrayList<OrdersListResponse.Body>()
-    var orderListAdapter: OrderListFragmentAdapter? = null
+    var orderListAdapter: OrderListFragmentAdapter2? = null
     private var confirmationDialog: Dialog? = null
     private var mDialogClass = DialogClass()
     var cancelOrderObject = JsonObject()
@@ -43,12 +45,12 @@ class OrdersListFragment : BaseFragment(), DialogssInterface {
     private val SECOND_ACTIVITY_REQUEST_CODE = 0
 
     override fun getLayoutResId(): Int {
-        return R.layout.activity_order_list
+        return R.layout.activity_order_list2
     }
 
 
     override fun initView() {
-        orderBinding = viewDataBinding as ActivityOrderListBinding
+        orderBinding = viewDataBinding as ActivityOrderList2Binding
         ordersViewModel = ViewModelProviders.of(this).get(OrdersViewModel::class.java)
         orderBinding.commonToolBar.imgRight.visibility = View.GONE
         orderBinding.commonToolBar.topToolbar.visibility = View.GONE
@@ -274,7 +276,7 @@ class OrdersListFragment : BaseFragment(), DialogssInterface {
 
 
     private fun initRecyclerView() {
-        orderListAdapter = OrderListFragmentAdapter(baseActivity, orderList, this)
+        orderListAdapter = OrderListFragmentAdapter2(baseActivity, orderList, this)
         val linearLayoutManager = LinearLayoutManager(activity!!)
         //  val gridLayoutManager = GridLayoutManager(this, 2)
         //cartBinding.rvSubcategories.layoutManager = gridLayoutManager
