@@ -354,6 +354,9 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
     private fun getAddress(loc: LatLng?) {
         // Geocoder geocoder
         //  List<Address> addresses;
+
+        try {
+
         val geocoder = Geocoder(activity, Locale.getDefault());
         var addresses = geocoder.getFromLocation(
             loc?.latitude!!,
@@ -372,6 +375,10 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
             var knownName = addresses.get(0).getFeatureName()
             fragmentHomeBinding.txtLoc.setText(address)
             // addressBinding.tvAddress.setText(address)
+        }
+
+        }catch (e:Exception){
+
         }
     }
     //endregion

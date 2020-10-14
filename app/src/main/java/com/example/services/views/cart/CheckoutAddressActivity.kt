@@ -92,9 +92,9 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
 
     override fun onResume() {
         super.onResume()
-        if (cartBinding.tvChange.getText().toString().equals(getString(R.string.add_address))) {
-            addressViewModel.addressList()
-        }
+//        if (cartBinding.tvChange.getText().toString().equals(getString(R.string.add_address))) {
+//            addressViewModel.addressList()
+//        }
     }
 
     override fun initViews() {
@@ -116,13 +116,13 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
             startProgressDialog()
             //cartViewModel.getcartList(userId)
         }
-        cartBinding.tvChange.setBackgroundTintList(
-            ColorStateList.valueOf(
-                Color.parseColor(
-                    GlobalConstants.COLOR_CODE
-                )
-            )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
-        )
+//        cartBinding.tvChange.setBackgroundTintList(
+//            ColorStateList.valueOf(
+//                Color.parseColor(
+//                    GlobalConstants.COLOR_CODE
+//                )
+//            )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
+//        )
         cartBinding.btnCheckout.setBackgroundTintList(
             ColorStateList.valueOf(
                 Color.parseColor(
@@ -134,11 +134,11 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
         for (i in 0..4) {
             val item = DateSlotsResponse()
             dateList.add(item.Body())
-            dateList[i].date = Utils(this).getDateLocal(
-                "EEE MMM dd HH:mm:ss zzzz yyyy",
-                getDaysAgo(i).toString(),
-                "MM-dd-YYYY"
-            )
+//            dateList[i].date = Utils(this).getDateLocal(
+//                "EEE MMM dd HH:mm:ss zzzz yyyy",
+//                getDaysAgo(i).toString(),
+//                "MM-dd-YYYY"
+//            )
             //dateList[i].date = getDaysAgo(i).toString()
             dateList[i].selected = "false"
         }
@@ -267,7 +267,7 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
                         response.code == 200 -> {
                             addressesList.addAll(response.data!!)
                             var default = "false"
-                            cartBinding.tvChange.setText(getString(R.string.change))
+                           // cartBinding.tvChange.setText(getString(R.string.change))
                             for (item in addressesList) {
                                 if (item.default.equals("1")) {
                                     default = "true"
@@ -307,7 +307,7 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
                             /*message?.let {
                                 UtilsFunctions.showToastError(it)
                             }*/
-                            cartBinding.tvChange.setText(getString(R.string.add_address))
+                            //cartBinding.tvChange.setText(getString(R.string.add_address))
                             cartBinding.addressItem.visibility = View.GONE
                         }
                     }
@@ -354,7 +354,7 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
                         }
                     }
                     "tvChange" -> {
-                        if (cartBinding.tvChange.getText().toString().equals(getString(R.string.add_address))) {
+                        if (TextUtils.isEmpty(addressId)) {
                             val intent = Intent(this, AddAddressActivity::class.java)
                             startActivity(intent)
                         } else {

@@ -274,4 +274,6 @@ class AddRatingReviewsListActivity : BaseActivity(), DialogssInterface {
         confirmationDialog?.show()
     }
 
+
+
 }

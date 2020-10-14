@@ -13,11 +13,15 @@ import com.example.services.model.ratnigreviews.ReviewsListResponse
 import com.example.services.repositories.ratingreviews.RatingReviewsRepository
 import com.example.services.viewmodels.BaseViewModel
 import com.google.android.gms.common.internal.service.Common
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.util.HashMap
 
 class RatingReviewsViewModel : BaseViewModel() {
     private var data: MutableLiveData<LoginResponse>? = null
     private var addressDetail = MutableLiveData<AddressResponse>()
     private var deleteAddress = MutableLiveData<CommonModel>()
+    private var addImages = MutableLiveData<CommonModel>()
 
     private var reviewsList = MutableLiveData<ReviewsListResponse>()
     private var orderDetail = MutableLiveData<OrdersDetailResponse>()
@@ -28,6 +32,11 @@ class RatingReviewsViewModel : BaseViewModel() {
 
     init {
         if (UtilsFunctions.isNetworkConnectedWithoutToast()) {
+
+            addImages = ratingReviewsRepository.addImages(
+                null,
+                null
+            )
             reviewsList = ratingReviewsRepository.reviewsListList("", "")
             orderDetail = ratingReviewsRepository.getOrderDetail("")
             ratingReview= ratingReviewsRepository.addRatings(null)
@@ -35,6 +44,11 @@ class RatingReviewsViewModel : BaseViewModel() {
         }
 
     }
+
+    fun addImagesRes(): LiveData<CommonModel> {
+        return addImages
+    }
+
 
     fun getReviewsRes(): LiveData<ReviewsListResponse> {
         return reviewsList
@@ -83,5 +97,14 @@ class RatingReviewsViewModel : BaseViewModel() {
 
     }
 
+    fun addImages(
+        imagesParts: Array<MultipartBody.Part?>?,
+        mHashMap: HashMap<String, RequestBody>
+    ) {
+        if (UtilsFunctions.isNetworkConnected()) {
+            ratingReview = ratingReviewsRepository.addImages(imagesParts, mHashMap)
+            mIsUpdating.postValue(true)
+        }
 
+    }
 }

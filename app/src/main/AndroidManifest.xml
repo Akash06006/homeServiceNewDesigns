@@ -77,6 +77,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".adapters.home.AddImagesActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".views.orders.OrdersListActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
@@ -173,6 +177,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".views.settings.FAQListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".adapters.faq.FAQDetailActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity

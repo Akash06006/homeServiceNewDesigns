@@ -16,7 +16,8 @@
     <color name="colorSuccess">#07595D</color>
     <color name="colorRed">#E72F1A</color>
 
-    <color name="colorStatus">#07595D</color>
+    <color name="colorStatus">#F39600</color>
+    <color name="buttonTextColor">#ffffff</color>
 
     <color name="colorButton">#474747</color>
     <color name="colorBlack2">#464646</color>

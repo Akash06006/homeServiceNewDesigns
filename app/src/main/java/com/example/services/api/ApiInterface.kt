@@ -125,6 +125,11 @@ interface ApiInterface {
 
     @POST("mobile/rating/addRating")
     fun addRatings(@Body mJsonObject: RatingReviewListInput): Call<JsonObject>
+    @Multipart
+    @POST("mobile/company/gallery/add")
+    fun addImages(
+        @PartMap partMap: HashMap<String, RequestBody>?, @Part imagesParts: Array<MultipartBody.Part?>?
+    ): Call<JsonObject>
 
     //    {id}
 //service_id

@@ -18,7 +18,10 @@ import com.example.services.model.ratnigreviews.RatingReviewListInput
 import com.example.services.model.ratnigreviews.ReviewsListResponse
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
+import java.util.HashMap
 
 class RatingReviewsRepository {
     private var data1: MutableLiveData<ReviewsListResponse>? = null
@@ -131,6 +134,41 @@ class RatingReviewsRepository {
         return data3!!
 
     }
+    fun addImages(
+        imagesParts: Array<MultipartBody.Part?>?,
+        mHashMap: HashMap<String, RequestBody>?
+    ): MutableLiveData<CommonModel> {
+        if (imagesParts != null) {
+            val mApiService = ApiService<JsonObject>()
+            mApiService.get(
+                object : ApiResponse<JsonObject> {
+                    override fun onResponse(mResponse: Response<JsonObject>) {
+                        val loginResponse = if (mResponse.body() != null)
+                            gson.fromJson<CommonModel>(
+                                "" + mResponse.body(),
+                                CommonModel::class.java
+                            )
+                        else {
+                            gson.fromJson<CommonModel>(
+                                mResponse.errorBody()!!.charStream(),
+                                CommonModel::class.java
+                            )
+                        }
+                        data3!!.postValue(loginResponse)
+                    }
 
+                    override fun onError(mKey: String) {
+                        UtilsFunctions.showToastError(MyApplication.instance.getString(R.string.internal_server_error))
+                        data3!!.postValue(null)
+                    }
+
+                },
+                ApiClient.getApiInterface().addImages(/*id*/mHashMap, imagesParts)
+            )
+
+        }
+        return data3!!
+
+    }
 
 }
