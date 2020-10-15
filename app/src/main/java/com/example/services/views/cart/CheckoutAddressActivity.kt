@@ -95,6 +95,16 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
 //        if (cartBinding.tvChange.getText().toString().equals(getString(R.string.add_address))) {
 //            addressViewModel.addressList()
 //        }
+
+        //        if (cartBinding.tvChange.getText().toString().equals(getString(R.string.add_address))) {
+//            addressViewModel.addressList()
+//        }
+        //        if (cartBinding.tvChange.getText().toString().equals(getString(R.string.add_address))) {
+//            addressViewModel.addressList()
+//        }
+        //        if (cartBinding.tvChange.getText().toString().equals(getString(R.string.add_address))) {
+//            addressViewModel.addressList()
+//        }
     }
 
     override fun initViews() {
