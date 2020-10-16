@@ -1,6 +1,5 @@
 package com.example.services.repositories.search
 
-import android.text.TextUtils
 import androidx.lifecycle.MutableLiveData
 import com.example.services.R
 import com.example.services.api.ApiClient
@@ -8,9 +7,7 @@ import com.example.services.api.ApiResponse
 import com.example.services.api.ApiService
 import com.example.services.application.MyApplication
 import com.example.services.common.UtilsFunctions
-import com.example.services.model.CommonModel
 import com.example.services.model.search.SearchResponse
-import com.example.services.viewmodels.home.CategoriesListResponse
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import retrofit2.Response
@@ -25,12 +22,8 @@ class SearchJobsRepository {
     }
 
 
-    fun search(jsonObject : String?) : MutableLiveData<SearchResponse> {
-        if (!TextUtils.isEmpty(jsonObject)) {
-            var searchObject = JsonObject()
-            searchObject.addProperty(
-                "search", jsonObject
-            )
+    fun search(jsonObject: JsonObject?) : MutableLiveData<SearchResponse> {
+        if (jsonObject != null) {
             val mApiService = ApiService<JsonObject>()
             mApiService.get(
                 object : ApiResponse<JsonObject> {
@@ -54,7 +47,7 @@ class SearchJobsRepository {
                         searchData!!.postValue(null)
                     }
 
-                }, ApiClient.getApiInterface().search(jsonObject!!)
+                }, ApiClient.getApiInterface().search(jsonObject)
             )
 
         }

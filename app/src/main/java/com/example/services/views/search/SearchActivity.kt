@@ -13,6 +13,7 @@ import com.example.services.utils.BaseActivity
 import com.example.services.viewmodels.search.SearchViewModel
 import com.example.services.views.subcategories.ServiceDetailActivity
 import com.example.services.views.vendor.VendorsListActivity
+import com.google.gson.JsonObject
 import com.uniongoods.adapters.SearchGridListAdapter
 import kotlinx.android.synthetic.main.activity_search.*
 
@@ -29,7 +30,10 @@ class SearchActivity : BaseActivity() {
         activitySearchBinding = viewDataBinding as ActivitySearchBinding
         searchViewModel = ViewModelProviders.of(this).get(SearchViewModel::class.java)
         activitySearchBinding!!.searchBtn.setOnClickListener{
-            searchViewModel.search(searchContentEt.text.toString())
+
+            var jsonObject: JsonObject? = JsonObject()
+            jsonObject!!.addProperty("search", searchContentEt.text.toString())
+            searchViewModel.search(jsonObject)
             searchViewModel!!.search().observe(this,
                 Observer<SearchResponse> { searchResponse ->
                     this.stopProgressDialog()

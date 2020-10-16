@@ -28,9 +28,9 @@ class SearchResponse {
         @Expose
         var serviceData: List<ServiceDatum>? = null
 
-        @SerializedName("cartCategoryType")
+        /*@SerializedName("cartCategoryType")
         @Expose
-        var cartCategoryType: String? = null
+        var cartCategoryType: String? = null*/
     }
 
     class ServiceDatum {

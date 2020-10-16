@@ -1,15 +1,13 @@
 package com.example.services.viewmodels.search
 
-import com.example.services.viewmodels.home.CategoriesListResponse
-
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.services.common.UtilsFunctions
-import com.example.services.model.CommonModel
 import com.example.services.model.search.SearchResponse
 import com.example.services.repositories.search.SearchJobsRepository
 import com.example.services.viewmodels.BaseViewModel
+import com.google.gson.JsonObject
 
 class SearchViewModel : BaseViewModel() {
     private val mIsUpdating = MutableLiveData<Boolean>()
@@ -24,7 +22,7 @@ class SearchViewModel : BaseViewModel() {
 
     init {
         if (UtilsFunctions.isNetworkConnectedWithoutToast()) {
-            searchData = searchRepository.search("")
+            searchData = searchRepository.search(null)
         }
 
     }
@@ -48,9 +46,9 @@ class SearchViewModel : BaseViewModel() {
 
 
 
-    fun search(s: String) {
+    fun search(mJsonObject: JsonObject) {
         if (UtilsFunctions.isNetworkConnected()) {
-            searchData = searchRepository.search(s)
+            searchData = searchRepository.search(mJsonObject)
             mIsUpdating.postValue(true)
         }
 
