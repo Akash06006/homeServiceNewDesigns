@@ -101,9 +101,9 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
                     when {
                         response.code == 200 -> {
                             GlobalConstants.Currency = response.body.currency
-                            if(response.body.cartCategoryType != null){
-                            GlobalConstants.CART_CATEGORY_TYPE = response.body.cartCategoryType}
-                            cartCategoryTypeId = response.body.cartCategoryType
+                           // if(response.body.cartCategoryType != null){
+                           // GlobalConstants.CART_CATEGORY_TYPE = response.body.cartCategoryType}
+                           // cartCategoryTypeId = response.body.cartCategoryType
                             GlobalConstants.ABOUT_US = response.body.aboutUsLink
                             GlobalConstants.TERMS_CONDITION = response.body.termsLink
                             GlobalConstants.COMPANY_ID = response.body.cartCategoryCompany

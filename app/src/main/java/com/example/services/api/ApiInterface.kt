@@ -47,7 +47,7 @@ interface ApiInterface {
     @GET("mobile/profile/getprofile")
     fun getProfile(): Call<JsonObject>
 
-    @GET("mobile/services/searchService?")
+    @POST("mobile/services/searchService?")
     fun search(@Query("search") searchContent: String): Call<JsonObject>
 
 
