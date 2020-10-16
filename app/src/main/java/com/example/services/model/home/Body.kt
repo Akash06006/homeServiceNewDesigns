@@ -7,7 +7,7 @@ data class Body(
     val subcat: List<Subcat>,
     val offers: List<Offers>,
     val trending: List<Trending>,
-    val cartCategoryType: String,
+    //val cartCategoryType: String,
     val currency: String,
     val cartCategoryCompany: String,
     val aboutUsLink: String,
