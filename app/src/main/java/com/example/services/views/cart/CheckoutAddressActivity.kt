@@ -116,7 +116,7 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
         cartBinding.commonToolBar.imgRight.visibility = View.GONE
         cartBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_cart)
         cartBinding.commonToolBar.imgToolbarText.text =
-            resources.getString(R.string.checkout)
+            resources.getString(R.string.avalibility)
         cartBinding.cartViewModel = cartViewModel
         val userId = SharedPrefClass()!!.getPrefValue(
             MyApplication.instance,
@@ -495,6 +495,8 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
             confirmationDialog?.dismiss()
         }
         confirmationDialog?.show()
+
+
     }
 
     fun selectAddress(position: Int) {

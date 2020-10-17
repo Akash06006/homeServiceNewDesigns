@@ -21,9 +21,9 @@
         <include
 
             android:id="@+id/common_tool_bar"
-            layout="@layout/common_toolbar_back"
+            layout="@layout/toolbar_back"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp_60"
             android:onClick="@{(v) -> cartViewModel.clickListener(v)}" />
 
 <!--        <ScrollView-->
@@ -289,7 +289,7 @@
                                         android:paddingLeft="@dimen/dp_3"
                                         android:text="Home"
                                         android:textAllCaps="false"
-                                        android:textColor="@color/colorBlack"
+                                        android:textColor="@color/colorGrey1"
                                         android:textSize="@dimen/sp_12"
                                         app:font="@{`bold`}" />
 
@@ -320,7 +320,7 @@
                                         android:layout_marginLeft="@dimen/dp_2"
                                         android:text="Facial and Clean up"
                                         android:textAllCaps="false"
-                                        android:textColor="@color/colorGreyLight"
+                                        android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/sp_12"
                                         app:font="@{`regular`}" />
 
@@ -343,9 +343,9 @@
                             android:layout_below="@+id/view"
                             android:layout_marginLeft="@dimen/dp_20"
                             android:layout_marginRight="@dimen/dp_20"
+                            android:layout_marginTop="@dimen/dp_15"
                             android:background="@drawable/round_back_transparent"
-                            android:backgroundTint="@color/payumoney_app_background_color"
-                            android:elevation="@dimen/dp_5"
+                            android:backgroundTint="@color/payumoney_separator_color"
                             android:gravity="center_vertical"
                             android:onClick="@{(v) -> cartViewModel.clickListener(v)}"
                             android:paddingLeft="@dimen/dp_10"

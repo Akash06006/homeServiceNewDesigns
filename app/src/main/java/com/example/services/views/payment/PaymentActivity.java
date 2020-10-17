@@ -60,8 +60,9 @@ public class PaymentActivity extends BaseActivity {
         TextView tvTotalItems = findViewById(R.id.tvTotalItems);
         TextView tvOfferPrice = findViewById(R.id.tv_offer_price);
         TextView img_toolbar_text = findViewById(R.id.img_toolbar_text);
+        ImageView imgRight = findViewById(R.id.img_right);
         ImageView toolbar = findViewById(R.id.toolbar);
-
+        imgRight.setVisibility(View.GONE);
         img_toolbar_text.setText("Payment Screen");
         tvOfferPrice.setText(currency + " " + amount);
         tvTotalItems.setText(totalItems);

@@ -186,15 +186,20 @@ class ServiceDetailActivity : BaseActivity(), DialogssInterface {
                                 .into(serviceDetailBinding.imgService)
                             serviceDetailBinding.imgAddFavorite.bringToFront()
                             serviceDetailBinding.rBar.bringToFront()
-                            if (TextUtils.isEmpty(response.data!!.cart) || response.data!!.cart.equals(
-                                    "null"
-                                ) || response.data!!.cart.equals("false")
-                            ) {
+                            if(response.data!!.cart!=null){
+                                if (TextUtils.isEmpty(response.data!!.cart!!.id) || response.data!!.cart!!.equals(
+                                        "null"
+                                    ) || response.data!!.cart!!.equals("false")
+                                ) {
+                                    serviceDetailBinding.AddCart.setText(getString(R.string.add_to_cart))
+                                } else {
+                                    cartId = response.data!!.cart!!.id!!
+                                    serviceDetailBinding.AddCart.setText(getString(R.string.remove_to_cart))
+                                }
+                            } else{
                                 serviceDetailBinding.AddCart.setText(getString(R.string.add_to_cart))
-                            } else {
-                                cartId = response.data!!.cart!!
-                                serviceDetailBinding.AddCart.setText(getString(R.string.remove_to_cart))
                             }
+
                             if (TextUtils.isEmpty(response.data!!.favourite)) {
                                 serviceDetailBinding.imgAddFavorite.setImageResource(R.drawable.ic_unfavorite)
                             } else {

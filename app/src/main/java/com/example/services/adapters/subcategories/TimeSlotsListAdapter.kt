@@ -46,35 +46,35 @@ class TimeSlotsListAdapter(
         viewHolder = holder
         holder.binding!!.tvCatName.text = addressList[position].slot
         if (addressList[position].status.equals("1")) {
-            if (!TextUtils.isEmpty(addressList[position].selected) && addressList[position].selected.equals(
-                    "true"
-                )
-            ) {
-                // holder.binding.topLay.setBackgroundResource(R.drawable.btn_bg_shape_colored)
-                //holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackground))
-                holder.binding.tvCatName.setBackgroundTintList(
-                    ColorStateList.valueOf(
-                        Color.parseColor(
-                            GlobalConstants.COLOR_CODE
-                        )
-                    )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
-                )
+            if (addressList[position].selected.equals("true")) {
+
+                holder.binding.tvCatName.background=mContext.resources.getDrawable(R.drawable.shape_orange_full_round)
                 holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorWhite))
+
             } else {
-                // holder.binding.topLay.setBackgroundResource(R.drawable.shape_round_corner)
-                holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorBlack))
+              /*   holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorBlack))
                 holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackgroundWhite))
                 holder.binding.tvCatName.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
                         R.color.colorWhite
                     )
-                )
+                )*/
 
+                holder.binding.tvCatName.background=mContext.resources.getDrawable(R.drawable.full_round_checkout_layout)
+                holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.dateColor))
+//                holder.binding.tvCatName.setBackgroundTintList(
+//                    mContext.getResources().getColorStateList(
+//                        R.color.colorWhite
+//                    )
+//                )
             }
         } else if (addressList[position].status.equals("0")) {
             holder.binding.tvCatName.isEnabled = false
+           /* holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorBlack))
+            holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackgroundWhite))*/
+            holder.binding.tvCatName.background=mContext.resources.getDrawable(R.drawable.full_round_checkout_layout)
             holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorBlack))
-            holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackgroundWhite))
+
             holder.binding.tvCatName.setBackgroundTintList(
                 mContext.getResources().getColorStateList(
                     R.color.colorGrey
@@ -82,13 +82,9 @@ class TimeSlotsListAdapter(
             )
         } else {
             holder.binding.tvCatName.isEnabled = false
-            holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorWhite))
-            holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackgroundWhite))
-            holder.binding.tvCatName.setBackgroundTintList(
-                mContext.getResources().getColorStateList(
-                    R.color.colorRed
-                )
-            )
+            holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.dateColor))
+            holder.binding.tvCatName.background=mContext.resources.getDrawable(R.drawable.full_round_checkout_layout)
+            holder.binding.tvCatName.setBackgroundTintList(mContext.getResources().getColorStateList(R.color.colorRed))
         }
 
         holder.binding!!.tvCatName.setOnClickListener {
@@ -107,10 +103,6 @@ class TimeSlotsListAdapter(
         mContext: CheckoutAddressActivity,
         addressList: ArrayList<TimeSlotsResponse.Slots>?
     ) : RecyclerView.ViewHolder(v) {
-        /*init {
-            binding.linAddress.setOnClickListener {
-                mContext.deleteAddress(adapterPosition)
-            }
-        }*/
+
     }
 }

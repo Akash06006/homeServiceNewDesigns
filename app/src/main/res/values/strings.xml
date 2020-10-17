@@ -356,6 +356,7 @@
     <string name="at_home">At Home</string>
     <string name="quantity">Quantity</string>
     <string name="checkout">Checkout</string>
+    <string name="avalibility">Availability</string>
     <string name="items">Item(s)</string>
     <string name="select_quantity_msg">Please select Quantity</string>
     <string name="apply">Apply</string>

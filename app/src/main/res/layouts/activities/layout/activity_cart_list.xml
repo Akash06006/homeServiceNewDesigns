@@ -22,9 +22,9 @@
         <include
 
             android:id="@+id/common_tool_bar"
-            layout="@layout/common_toolbar_back"
+            layout="@layout/toolbar_back"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp_60"
             android:onClick="@{(v) -> cartViewModel.clickListener(v)}" />
 
         <RelativeLayout

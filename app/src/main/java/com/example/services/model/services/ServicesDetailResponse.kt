@@ -52,7 +52,7 @@ class ServicesDetailResponse {
         var turnaroundTime: String? = null
         @SerializedName("cart")
         @Expose
-        var cart: String? = null
+        var cart: Cart? = null
         @SerializedName("favourite")
         @Expose
         var favourite: String? = null
@@ -85,6 +85,9 @@ class ServicesDetailResponse {
         val rating : Int,
         val category : String*/
     }
+
+    data class Cart( val id: String,
+                     val quantity: String)
 
     data class Gallery(
         val mediaHttpUrl: String,

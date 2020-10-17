@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.services.R
 import com.example.services.constants.GlobalConstants
-import com.example.services.databinding.TimeItemBinding
+import com.example.services.databinding.DateItemBinding
 import com.example.services.model.services.DateSlotsResponse
 import com.example.services.utils.Utils
 import com.example.services.views.cart.CheckoutAddressActivity
@@ -49,10 +49,10 @@ class DateListAdapter(
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.time_item,
+                R.layout.date_item,
                 parent,
                 false
-        ) as TimeItemBinding
+        ) as DateItemBinding
         return ViewHolder(binding.root, viewType, binding, mContext, dateList)
     }
 
@@ -64,7 +64,7 @@ class DateListAdapter(
         dateList!!.get(position).date = Utils(mContext).getDateLocal(
             "EEE MMM dd HH:mm:ss zzzz yyyy",
             mContext.getDaysAgo(position).toString(),
-            "dd-mm-yyyy")
+            "dd-MMM-yyyy")
         val day = Utils(mContext).getDateLocal("EEE MMM dd HH:mm:ss zzzz yyyy", mContext.getDaysAgo(position).toString(), "dd")
         val month = Utils(mContext).getDateLocal("EEE MMM dd HH:mm:ss zzzz yyyy", mContext.getDaysAgo(position).toString(), "MMM")
         val year = Utils(mContext).getDateLocal("EEE MMM dd HH:mm:ss zzzz yyyy", mContext.getDaysAgo(position).toString(), "yyyy")
@@ -74,11 +74,25 @@ class DateListAdapter(
         holder.binding!!.tvCatName.text = day+"\n"+month+"\n"+year
 
 
-
         if (dateList[position].selected.equals("true")) {
             // holder.binding.topLay.setBackgroundResource(R.drawable.btn_bg_shape_colored)
             // holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackground))
-            holder.binding.tvCatName.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(GlobalConstants.COLOR_CODE))/*mContext.getResources().getColorStateList(R.color.colorOrange)*/)
+            holder.binding.tvCatName.background=mContext.resources.getDrawable(R.drawable.shape_orange_full_round)
+            holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.white))
+            /*mContext.getResources().getColorStateList(R.color.colorOrange)*/
+
+         } else {
+            // holder.binding.topLay.setBackgroundResource(R.drawable.shape_round_corner)
+            holder.binding.tvCatName.background=mContext.resources.getDrawable(R.drawable.full_round_checkout_layout)
+            holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.dateColor))
+          //  holder.binding.tvCatName.setBackgroundTintList(mContext.getResources().getColorStateList(R.color.colorWhite))
+        }
+
+
+      /*  if (dateList[position].selected.equals("true")) {
+            // holder.binding.topLay.setBackgroundResource(R.drawable.btn_bg_shape_colored)
+            // holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackground))
+            holder.binding.tvCatName.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(GlobalConstants.COLOR_CODE))*//*mContext.getResources().getColorStateList(R.color.colorOrange)*//*)
 
 
             holder.binding.tvCatName.setTextColor(mContext.resources.getColor(R.color.colorWhite))
@@ -88,8 +102,9 @@ class DateListAdapter(
             holder.binding.tvCatName.setBackgroundColor(mContext.resources.getColor(R.color.btnBackgroundWhite))
             holder.binding.tvCatName.setBackgroundTintList(mContext.getResources().getColorStateList(R.color.colorWhite))
 
-        }
+        }*/
 
+        //old already comment
         /*  if(dateList[position].status.equals("Open")){
               holder.binding.tvCatName.isEnabled=true
               //  holder.binding.mainLayout.setBackgroundColor(mContext.resources.getColor(R.color.colorSuccess))
@@ -116,7 +131,7 @@ class DateListAdapter(
     inner class ViewHolder//This constructor would switch what to findViewBy according to the type of viewType
     (
             v: View, val viewType: Int, //These are the general elements in the RecyclerView
-            val binding: TimeItemBinding?,
+            val binding: DateItemBinding?,
             mContext: CheckoutAddressActivity,
             addressList: ArrayList<DateSlotsResponse.Body>?
     ) : RecyclerView.ViewHolder(v) {

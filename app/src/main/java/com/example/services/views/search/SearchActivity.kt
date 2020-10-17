@@ -2,6 +2,7 @@ package com.example.services.views.search
 
 import android.content.Intent
 import android.text.TextUtils
+import android.view.View
 import android.widget.AdapterView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -29,14 +30,17 @@ class SearchActivity : BaseActivity() {
 
         activitySearchBinding = viewDataBinding as ActivitySearchBinding
         searchViewModel = ViewModelProviders.of(this).get(SearchViewModel::class.java)
+        activitySearchBinding!!.icMenu.setOnClickListener {
+            finish()
+        }
         activitySearchBinding!!.searchBtn.setOnClickListener{
-
+            startProgressDialog()
             var jsonObject: JsonObject? = JsonObject()
             jsonObject!!.addProperty("search", searchContentEt.text.toString())
             searchViewModel.search(jsonObject)
             searchViewModel!!.search().observe(this,
                 Observer<SearchResponse> { searchResponse ->
-                    this.stopProgressDialog()
+                    stopProgressDialog()
 
                     if (searchResponse != null) {
                         val message = searchResponse.message
@@ -45,10 +49,23 @@ class SearchActivity : BaseActivity() {
 
                             searchList = (searchResponse.body!!.responseData!!.serviceData)
                             //showToastSuccess("Success")
-                            initRecyclerView()
+
+                            if (searchList!!.size > 0) {
+                                activitySearchBinding!!.tvNoRecord.visibility = View.GONE
+                                activitySearchBinding!!.gvServices2.visibility = View.VISIBLE
+                                activitySearchBinding!!.tvNoRecord1.visibility = View.GONE
+                                initRecyclerView()
+                            } else {
+                                activitySearchBinding!!.tvNoRecord.visibility = View.GONE
+                                activitySearchBinding!!.gvServices2.visibility = View.GONE
+                                activitySearchBinding!!.tvNoRecord1.visibility = View.VISIBLE
+                            }
 
                         } else {
                             showToastError(message)
+                            activitySearchBinding!!.tvNoRecord.visibility = View.GONE
+                            activitySearchBinding!!.gvServices2.visibility = View.GONE
+                            activitySearchBinding!!.tvNoRecord1.visibility = View.VISIBLE
                         }
                     }
                 })
@@ -60,9 +77,6 @@ class SearchActivity : BaseActivity() {
             AdapterView.OnItemClickListener { parent, v, position, id ->
                 searchList?.get(position)?.id?.let { this.callServiceDetail(it) }
             }
-
-
-
     }
 
     private fun initRecyclerView() {

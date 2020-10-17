@@ -54,7 +54,7 @@ class TimeSlotsResponse {
         var bookings: String? = null
         @SerializedName("selected")
         @Expose
-        var selected: String? = null
+        var selected: String? = "false"
         @SerializedName("status")
         @Expose
         var status: String? = null

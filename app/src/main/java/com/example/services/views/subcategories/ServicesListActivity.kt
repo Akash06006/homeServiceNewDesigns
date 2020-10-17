@@ -48,11 +48,11 @@ class ServicesListActivity : BaseActivity() {
                 MyApplication.instance,
                 GlobalConstants.isCartAdded
         ).toString()
-        if (isCart.equals("true")) {
-            servicesBinding.commonToolBar.imgRight.visibility = View.VISIBLE
-        } else {
-            servicesBinding.commonToolBar.imgRight.visibility = View.GONE
-        }
+//        if (isCart.equals("true")) {
+//            servicesBinding.commonToolBar.imgRight.visibility = View.VISIBLE
+//        } else {
+//            servicesBinding.commonToolBar.imgRight.visibility = View.GONE
+//        }
     }
 
     override fun initViews() {
@@ -60,7 +60,7 @@ class ServicesListActivity : BaseActivity() {
         servicesBinding = viewDataBinding as ActivityServicesBinding
         servicesViewModel = ViewModelProviders.of(this).get(ServicesViewModel::class.java)
 
-        servicesBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_cart)
+        servicesBinding.commonToolBar.imgRight.visibility = View.GONE
         servicesBinding.commonToolBar.imgToolbarText.text =
                 resources.getString(R.string.services)
         servicesBinding.servicesViewModel = servicesViewModel
