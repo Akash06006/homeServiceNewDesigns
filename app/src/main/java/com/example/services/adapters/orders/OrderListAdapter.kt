@@ -76,6 +76,8 @@ class OrderListAdapter(
          } else {
              holder.binding!!.tvCancel.visibility = View.VISIBLE
          }*/
+
+
         val orderListAdapter =
             OrderServicesListAdapter(mContext, addressList[position].suborders, addressList, mContext)
         val linearLayoutManager = LinearLayoutManager(mContext)
