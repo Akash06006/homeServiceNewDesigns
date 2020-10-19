@@ -37,13 +37,12 @@ import com.example.services.viewmodels.home.HomeViewModel
 import com.example.services.viewmodels.home.Services
 import com.example.services.views.cart.CartListActivity
 import com.example.services.views.search.SearchActivity
-import com.example.services.views.subcategories.ServiceDetailActivity
 import com.example.services.views.vendor.VendorsListActivity
-import com.github.nkzawa.global.Global
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.gson.JsonObject
-import com.uniongoods.adapters.*
+import com.uniongoods.adapters.LandingHomeCategoriesGridListAdapter
+import com.uniongoods.adapters.LandingHomeOffersListAdapter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -85,6 +84,11 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
         fragmentHomeBinding = viewDataBinding as FragmentHomeLandingBinding
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         fragmentHomeBinding.homeViewModel = homeViewModel
+
+        fragmentHomeBinding.drawableBtn.setOnClickListener {
+            (activity as LandingMainActivity?)!!.openDrower()
+
+        }
         categoriesList?.clear()
         val mJsonObject = JsonObject()
         mJsonObject.addProperty(
@@ -373,7 +377,7 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
             var country = addresses.get(0).getCountryName()
             var postalCode = addresses.get(0).getPostalCode()
             var knownName = addresses.get(0).getFeatureName()
-            fragmentHomeBinding.txtLoc.setText(address)
+            fragmentHomeBinding.tvAddress.setText(address)
             // addressBinding.tvAddress.setText(address)
         }
 

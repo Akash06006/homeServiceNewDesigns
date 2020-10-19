@@ -47,6 +47,7 @@ class FAQListActivity : BaseActivity() {
             faqViewModel.getFAQList(userId)
             startProgressDialog()
         }
+        faqListBinding.btnBack.setOnClickListener { finish() }
 
         faqViewModel.getFAQList().observe(this,
             Observer<FAQListResponse> { response ->

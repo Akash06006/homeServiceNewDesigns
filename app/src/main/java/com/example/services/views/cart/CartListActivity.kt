@@ -57,8 +57,8 @@ class CartListActivity : BaseActivity(), DialogssInterface {
         cartBinding = viewDataBinding as ActivityCartListBinding
         cartViewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
         servicesViewModel = ViewModelProviders.of(this).get(ServicesViewModel::class.java)
-        cartBinding.commonToolBar.imgRight.visibility = View.VISIBLE
-        cartBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_del_new)
+        cartBinding.commonToolBar.imgDelete.visibility = View.VISIBLE
+        cartBinding.commonToolBar.imgDelete.setImageResource(R.drawable.ic_del_new)
         cartBinding.commonToolBar.imgToolbarText.text =
             resources.getString(R.string.cart)
         cartBinding.cartViewModel = cartViewModel

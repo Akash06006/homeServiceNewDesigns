@@ -48,7 +48,7 @@ class FAQDetailActivity : BaseActivity() {
             this, Observer<String>(function =
             fun(it: String?) {
                 when (it) {
-                    "imgBack" -> {
+                    "btnBack" -> {
                         finish()
                     }
                     "txtYes" -> {

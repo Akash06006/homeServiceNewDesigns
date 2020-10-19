@@ -246,12 +246,12 @@ class ProfileActivity : BaseActivity(), ChoiceCallBack {
         profileBinding.etAddress.isEnabled = isEnable
         if (!isEnable) {
             profileBinding.ivEdit.visibility = View.GONE
-            //profileBinding.btnSubmit.visibility = View.GONE
+            profileBinding.btnSubmit.visibility = View.GONE
             profileBinding.commonToolBar.imgRight.visibility = View.VISIBLE
         } else {
             profileBinding.ivEdit.visibility = View.VISIBLE
             profileBinding.commonToolBar.imgRight.visibility = View.GONE
-            //profileBinding.btnSubmit.visibility = View.VISIBLE
+            profileBinding.btnSubmit.visibility = View.VISIBLE
         }
 
     }

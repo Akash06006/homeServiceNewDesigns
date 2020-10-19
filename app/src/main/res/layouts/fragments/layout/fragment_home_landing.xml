@@ -67,13 +67,15 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/drawableBtn"
+                        android:layout_width="@dimen/dp_35"
+                        android:layout_height="@dimen/dimen_35dp"
                         android:layout_gravity="left"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:src="@drawable/ic_profileburger" />
 
                     <TextView
+                        android:id="@+id/tvAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -118,7 +120,7 @@
                     android:drawablePadding="@dimen/dp_20"
                     android:editable="false"
                     android:elevation="10dp"
-                    android:hint="@string/current_location"
+                    android:hint="Search Category"
                     android:padding="@dimen/dp_8"
                     android:singleLine="true"
                     android:textColor="@color/colorblack"
@@ -168,6 +170,7 @@
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
     <!-- </ScrollView>-->
+
 
     </RelativeLayout>
 

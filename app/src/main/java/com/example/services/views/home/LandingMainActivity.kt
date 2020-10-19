@@ -406,6 +406,14 @@ class LandingMainActivity : BaseActivity(),
 
     }
 
+    fun openDrower(){
+        if (drawer!!.isDrawerOpen(GravityCompat.START)) {
+            drawer!!.closeDrawer(Gravity.LEFT) //CLOSE Nav Drawer!
+        } else {
+            drawer!!.openDrawer(Gravity.LEFT)
+        }
+    }
+
     override fun onDialogConfirmAction(mView: View?, mKey: String) {
         when (mKey) {
             "logout" -> {

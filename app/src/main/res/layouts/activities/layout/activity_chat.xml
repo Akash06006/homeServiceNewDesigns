@@ -10,9 +10,9 @@
     <include
 
         android:id="@+id/common_tool_bar"
-        layout="@layout/common_toolbar_back"
+        layout="@layout/toolbar_back"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="@dimen/dp_60" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reyclerview_message_list"

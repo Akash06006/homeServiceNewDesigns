@@ -67,20 +67,22 @@ class VendorsListAdapter(
 
 
         holder.binding!!.tvVendorImage.setOnClickListener {
-            if (!TextUtils.isEmpty(addressList[position].cartCompanyId) && !addressList[position].cartCompanyId.equals(
-                    addressList[position].id
-                )
-            ) {
-                mContext.clearCartDialog()
-            } else {
-                /* SharedPrefClass().putObject(
+            if(addressList.size>0) {
+                if (!TextUtils.isEmpty(addressList[position].cartCompanyId) && !addressList[position].cartCompanyId.equals(
+                        addressList[position].id
+                    )
+                ) {
+                    mContext.clearCartDialog()
+                } else {
+                    /* SharedPrefClass().putObject(
                      mContext,
                      GlobalConstants.COMPANY_ID,
                      addressList[position].id
                  )*/
-                GlobalConstants.COMPANY_ID = addressList[position].id.toString()
-                val intent = Intent(mContext, DashboardActivity::class.java)
-                mContext.startActivity(intent)
+                    GlobalConstants.COMPANY_ID = addressList[position].id.toString()
+                    val intent = Intent(mContext, DashboardActivity::class.java)
+                    mContext.startActivity(intent)
+                }
             }
 
         }

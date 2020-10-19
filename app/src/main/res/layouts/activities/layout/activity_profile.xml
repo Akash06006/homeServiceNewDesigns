@@ -22,17 +22,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/common_tool_bar"
-            layout="@layout/common_toolbar_back"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{(v) -> profileViewModel.clickListener(v)}" />
 
         <ScrollView
             android:id="@+id/parent_layout"
@@ -41,371 +34,393 @@
             android:fillViewport="true">
 
             <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_profile_rect4"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
 
-
-                <TextView
-                    android:id="@+id/iv_profile_picture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/upload_profile_picture"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorBlack2"
-                    android:textSize="@dimen/sp_13"
-                    android:visibility="gone"
-                    app:font="@{`regular`}" />
-
-                <ImageView
+                <include
+                    android:id="@+id/common_tool_bar"
+                    layout="@layout/common_toolbar_back"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_100"
-                    android:src="@drawable/ic_profile_rect4"
-                    android:scaleX="2.0"
-                    android:scaleY="2.0"/>
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v) -> profileViewModel.clickListener(v)}" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ic_profile_rect2"
-                    android:orientation="vertical"
-                    android:padding="@dimen/dp_10">
-                    <!--                    android:background="@drawable/ic_profile_back"
-                    -->
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
 
 
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/img_profile"
-                        android:layout_width="@dimen/dp_100"
-                        android:layout_height="@dimen/dp_100"
-                        android:layout_gravity="center_horizontal"
-                        android:contentDescription="@string/todo"
-                        android:src="@{profileModel.image!=null ?  profileModel.image.toString():@string/todo,default=@drawable/ic_person}" />
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/iv_edit"
-                        android:layout_width="@dimen/dp_100"
-                        android:layout_height="@dimen/dp_100"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_edit_image"
-                        android:elevation="@dimen/dp_10"
-                        android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
-                        android:padding="@dimen/dp_8"
-                        tools:targetApi="lollipop" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/iv_profile_picture"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:hint="@string/first_name"
-                        android:textColorHint="@color/colorGrey">
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="@string/upload_profile_picture"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorBlack2"
+                        android:textSize="@dimen/sp_13"
+                        android:visibility="gone"
+                        app:font="@{`regular`}" />
+                    <RelativeLayout
+                        android:background="#07595D"
+                        android:scaleX="2.0"
+                        android:scaleY="2.0"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_100">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_100"
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_firstname"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:src="@drawable/ic_profile_rect4" />
+                    </RelativeLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_profile_rect2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_10">
+                        <!--                    android:background="@drawable/ic_profile_back"
+                        -->
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/img_profile"
+                            android:layout_width="@dimen/dp_100"
+                            android:layout_height="@dimen/dp_100"
+                            android:layout_gravity="center_horizontal"
+                            android:contentDescription="@string/todo"
+                            android:src="@{profileModel.image!=null ?  profileModel.image.toString():@string/todo,default=@drawable/ic_person}" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/iv_edit"
+                            android:layout_width="@dimen/dp_100"
+                            android:layout_height="@dimen/dp_100"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/ic_edit_image"
+                            android:elevation="@dimen/dp_10"
+                            android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
+                            android:padding="@dimen/dp_8"
+                            tools:targetApi="lollipop" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="20dp"
+                            android:hint="@string/first_name"
+                            android:textColorHint="@color/colorGrey">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_firstname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_20"
+                                android:drawableLeft="@drawable/ic_profiledrawable"
+                                android:drawablePadding="@dimen/dp_10"
+                                android:inputType="text"
+                                android:maxLength="30"
+                                android:singleLine="true"
+                                android:text="@{profileModel.firstName}"
+                                android:textColor="@color/payumoney_black"
+                                android:textStyle="bold"
+                                app:font="@{`regular`}"
+                                tools:ignore="MissingConstraints" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <!--                            android:background="@drawable/ic_editttext_bg"
+                        -->
+                        <EditText
+                            android:id="@+id/et_firstname1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp_20"
+                            android:background="@drawable/ic_editttext_bg"
+                            android:elevation="@dimen/dp_5"
+                            android:hint="@string/first_name"
                             android:inputType="text"
                             android:maxLength="30"
+                            android:paddingLeft="@dimen/dp_15"
+                            android:paddingRight="@dimen/dp_15"
                             android:singleLine="true"
-                            android:drawableLeft="@drawable/ic_profiledrawable"
-                            android:drawablePadding="@dimen/dp_10"
-                            android:textColor="@color/payumoney_black"
                             android:text="@{profileModel.firstName}"
-                            android:textStyle="bold"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <!--                            android:background="@drawable/ic_editttext_bg"
-                    -->
-                    <EditText
-                        android:id="@+id/et_firstname1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_20"
-                        android:background="@drawable/ic_editttext_bg"
-                        android:elevation="@dimen/dp_5"
-                        android:hint="@string/first_name"
-                        android:inputType="text"
-                        android:maxLength="30"
-                        android:paddingLeft="@dimen/dp_15"
-                        android:paddingRight="@dimen/dp_15"
-                        android:singleLine="true"
-                        android:text="@{profileModel.firstName}"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorGrey"
-                        android:textSize="@dimen/sp_14"
-                        android:visibility="gone"
-                        app:font="@{`regular`}"
-                        tools:ignore="MissingConstraints" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:hint="@string/last_name"
-                        android:textColorHint="@color/colorGrey">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_lastname"
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
+                            android:hint="@string/last_name"
+                            android:textColorHint="@color/colorGrey">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_lastname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_profiledrawable"
+                                android:drawablePadding="@dimen/dp_10"
+                                android:inputType="text"
+                                android:maxLength="30"
+                                android:singleLine="true"
+                                android:text="@{profileModel.lastName}"
+                                android:textColor="@color/payumoney_black"
+                                android:textStyle="bold"
+                                app:font="@{`regular`}"
+                                tools:ignore="MissingConstraints" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <EditText
+                            android:id="@+id/et_lastname1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_editttext_bg"
+                            android:elevation="@dimen/dp_5"
+                            android:hint="@string/last_name"
                             android:inputType="text"
                             android:maxLength="30"
+                            android:paddingLeft="@dimen/dp_15"
+                            android:paddingRight="@dimen/dp_15"
                             android:singleLine="true"
                             android:text="@{profileModel.lastName}"
-                            android:drawableLeft="@drawable/ic_profiledrawable"
-                            android:drawablePadding="@dimen/dp_10"
-                            android:textColor="@color/payumoney_black"
-                            android:textStyle="bold"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <EditText
-                        android:id="@+id/et_lastname1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_editttext_bg"
-                        android:elevation="@dimen/dp_5"
-                        android:hint="@string/last_name"
-                        android:inputType="text"
-                        android:maxLength="30"
-                        android:paddingLeft="@dimen/dp_15"
-                        android:paddingRight="@dimen/dp_15"
-                        android:singleLine="true"
-                        android:text="@{profileModel.lastName}"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorGrey"
-                        android:textSize="@dimen/sp_14"
-                        android:visibility="gone"
-                        app:font="@{`regular`}"
-                        tools:ignore="MissingConstraints" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:hint="@string/phone_number"
-                        android:textColorHint="@color/colorGrey">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_phone"
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
+                            android:hint="@string/phone_number"
+                            android:textColorHint="@color/colorGrey">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_profiledrawable"
+                                android:drawablePadding="@dimen/dp_10"
+                                android:inputType="phone"
+                                android:maxLength="12"
+                                android:singleLine="true"
+                                android:text="@{profileModel.phoneNumber}"
+                                android:textColor="@color/payumoney_black"
+                                android:textStyle="bold"
+                                app:font="@{`regular`}"
+                                tools:ignore="MissingConstraints,TextFields" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <EditText
+                            android:id="@+id/et_phone1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="@dimen/dp_5"
+                            android:hint="@string/phone_number"
                             android:inputType="phone"
                             android:maxLength="12"
+                            android:paddingLeft="@dimen/dp_15"
+                            android:paddingRight="@dimen/dp_15"
                             android:singleLine="true"
                             android:text="@{profileModel.phoneNumber}"
-                            android:drawableLeft="@drawable/ic_profiledrawable"
-                            android:drawablePadding="@dimen/dp_10"
-                            android:textColor="@color/payumoney_black"
-                            android:textStyle="bold"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:visibility="gone"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints,TextFields" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <EditText
-                        android:id="@+id/et_phone1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:elevation="@dimen/dp_5"
-                        android:hint="@string/phone_number"
-                        android:inputType="phone"
-                        android:maxLength="12"
-                        android:paddingLeft="@dimen/dp_15"
-                        android:paddingRight="@dimen/dp_15"
-                        android:singleLine="true"
-                        android:text="@{profileModel.phoneNumber}"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorGrey"
-                        android:visibility="gone"
-                        app:font="@{`regular`}"
-                        tools:ignore="MissingConstraints,TextFields" />
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@null"
-                        android:hint="@string/email1"
-                        android:textColorHint="@color/colorGrey">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_email"
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@null"
+                            android:hint="@string/email1"
+                            android:textColorHint="@color/colorGrey">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_profiledrawable"
+                                android:drawablePadding="@dimen/dp_10"
+                                android:maxLength="100"
+                                android:singleLine="true"
+                                android:text="@{profileModel.email}"
+                                android:textColor="@color/payumoney_black"
+                                android:textStyle="bold"
+                                app:font="@{`regular`}"
+                                tools:ignore="MissingConstraints" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <EditText
+                            android:id="@+id/et_email1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_editttext_bg"
+                            android:elevation="@dimen/dp_5"
+                            android:hint="@string/email1"
                             android:maxLength="100"
+                            android:paddingLeft="@dimen/dp_15"
+                            android:paddingRight="@dimen/dp_15"
                             android:singleLine="true"
                             android:text="@{profileModel.email}"
-                            android:drawableLeft="@drawable/ic_profiledrawable"
-                            android:drawablePadding="@dimen/dp_10"
-                            android:textColor="@color/payumoney_black"
-                            android:textStyle="bold"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone"
                             app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                    <EditText
-                        android:id="@+id/et_email1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_editttext_bg"
-                        android:elevation="@dimen/dp_5"
-                        android:hint="@string/email1"
-                        android:maxLength="100"
-                        android:paddingLeft="@dimen/dp_15"
-                        android:paddingRight="@dimen/dp_15"
-                        android:singleLine="true"
-                        android:text="@{profileModel.email}"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorGrey"
-                        android:textSize="@dimen/sp_14"
-                        android:visibility="gone"
-                        app:font="@{`regular`}"
-                        tools:ignore="MissingConstraints" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
-                        android:hint="@string/address"
-                        android:textColorHint="@color/colorGrey">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_address"
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="phone"
-                            android:maxLength="12"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
+                            android:hint="@string/address"
+                            android:textColorHint="@color/colorGrey">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_profiledrawable"
+                                android:drawablePadding="@dimen/dp_10"
+                                android:inputType="phone"
+                                android:maxLength="12"
+                                android:singleLine="true"
+                                android:text="@{profileModel.lastName}"
+                                android:textColor="@color/payumoney_black"
+                                android:textStyle="bold"
+                                app:font="@{`regular`}"
+                                tools:ignore="MissingConstraints,TextFields" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <EditText
+                            android:id="@+id/et_address1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_editttext_bg"
+                            android:elevation="@dimen/dp_10"
+                            android:hint="@string/address"
+                            android:maxLength="80"
+                            android:maxLines="5"
+                            android:paddingLeft="@dimen/dp_15"
+                            android:paddingRight="@dimen/dp_15"
                             android:singleLine="true"
-                            android:text="@{profileModel.lastName}"
-                            android:drawableLeft="@drawable/ic_profiledrawable"
-                            android:drawablePadding="@dimen/dp_10"
-                            android:textColor="@color/payumoney_black"
-                            android:textStyle="bold"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone"
                             app:font="@{`regular`}"
-                            tools:ignore="MissingConstraints,TextFields" />
+                            tools:ignore="MissingConstraints" />
+                        <!--android:text="@{profileModel.address}"-->
+                        <EditText
+                            android:id="@+id/et_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_40"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:background="@drawable/ic_edit_back"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:maxLength="20"
+                            android:paddingLeft="@dimen/dp_15"
+                            android:paddingRight="@dimen/dp_15"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone"
+                            app:font="@{`regular`}"
+                            tools:ignore="MissingConstraints" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                        <TextView
+                            android:id="@+id/tv_regex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/dp_10"
+                            android:text="@string/regex_message"
+                            android:textColor="@color/colorBlack2"
+                            android:textSize="@dimen/sp_10"
+                            android:visibility="gone"
+                            app:font="@{`regular`}" />
 
+                        <EditText
+                            android:id="@+id/et_confirm_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_40"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:background="@drawable/ic_edit_back"
+                            android:hint="@string/confirm_password"
+                            android:inputType="textPassword"
+                            android:maxLength="20"
+                            android:paddingLeft="@dimen/dp_15"
+                            android:paddingRight="@dimen/dp_15"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorGrey"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone"
+                            app:font="@{`regular`}"
+                            tools:ignore="MissingConstraints" />
 
-                    <EditText
-                        android:id="@+id/et_address1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_editttext_bg"
-                        android:elevation="@dimen/dp_10"
-                        android:hint="@string/address"
-                        android:maxLength="80"
-                        android:maxLines="5"
-                        android:paddingLeft="@dimen/dp_15"
-                        android:paddingRight="@dimen/dp_15"
-                        android:singleLine="true"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorGrey"
-                        android:textSize="@dimen/sp_14"
-                        android:visibility="gone"
-                        app:font="@{`regular`}"
-                        tools:ignore="MissingConstraints" />
-                    <!--android:text="@{profileModel.address}"-->
-                    <EditText
-                        android:id="@+id/et_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_40"
-                        android:layout_marginTop="@dimen/dp_20"
-                        android:background="@drawable/ic_edit_back"
-                        android:hint="@string/password"
-                        android:inputType="textPassword"
-                        android:maxLength="20"
-                        android:paddingLeft="@dimen/dp_15"
-                        android:paddingRight="@dimen/dp_15"
-                        android:singleLine="true"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorGrey"
-                        android:textSize="@dimen/sp_14"
-                        android:visibility="gone"
-                        app:font="@{`regular`}"
-                        tools:ignore="MissingConstraints" />
-
-                    <TextView
-                        android:id="@+id/tv_regex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="@dimen/dp_10"
-                        android:text="@string/regex_message"
-                        android:textColor="@color/colorBlack2"
-                        android:textSize="@dimen/sp_10"
-                        android:visibility="gone"
-                        app:font="@{`regular`}" />
-
-                    <EditText
-                        android:id="@+id/et_confirm_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_40"
-                        android:layout_marginTop="@dimen/dp_20"
-                        android:background="@drawable/ic_edit_back"
-                        android:hint="@string/confirm_password"
-                        android:inputType="textPassword"
-                        android:maxLength="20"
-                        android:paddingLeft="@dimen/dp_15"
-                        android:paddingRight="@dimen/dp_15"
-                        android:singleLine="true"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorGrey"
-                        android:textSize="@dimen/sp_14"
-                        android:visibility="gone"
-                        app:font="@{`regular`}"
-                        tools:ignore="MissingConstraints" />
-
-                    <!-- <Button
-                         android:id="@+id/btn_submit"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_gravity="center"
-                         android:layout_marginTop="@dimen/dp_20"
-                         android:contentDescription="@string/todo"
-                         android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
-                         android:padding="@dimen/dp_10"
-                         android:text="@string/submit" />-->
-                    <!--<Button
-                        android:id="@+id/btn_submit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="@dimen/dp_20"
-                        android:background="@drawable/btn_bg_shape_colored"
-                        android:elevation="@dimen/dp_10"
-                        android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
-                        android:paddingLeft="@dimen/dp_20"
-                        android:paddingRight="@dimen/dp_20"
-                        android:text="@string/continues"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite" />-->
+                        <!-- <Button
+                             android:id="@+id/btn_submit"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="center"
+                             android:layout_marginTop="@dimen/dp_20"
+                             android:contentDescription="@string/todo"
+                             android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
+                             android:padding="@dimen/dp_10"
+                             android:text="@string/submit" />-->
+                        <Button
+                            android:id="@+id/btn_submit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/dp_20"
+                            android:background="@drawable/btn_bg_shape_colored"
+                            android:elevation="@dimen/dp_10"
+                            android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
+                            android:paddingLeft="@dimen/dp_20"
+                            android:paddingRight="@dimen/dp_20"
+                            android:text="Update"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
         </ScrollView>
 
     </LinearLayout>

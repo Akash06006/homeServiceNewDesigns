@@ -38,6 +38,7 @@
     <color name="btnBackgroundWhite">#F8F8F8</color>
     <color name="colorPrice">#1DBB2D</color>
     <color name="purple">#B77CB4</color>
+    <color name="dateColor">#80000000</color>
 
 
 </resources>
