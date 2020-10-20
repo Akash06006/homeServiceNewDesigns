@@ -82,6 +82,12 @@ class CartListActivity : BaseActivity(), DialogssInterface {
             )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
         )
 
+        cartBinding.commonToolBar.imgDelete.setOnClickListener {
+
+            addRemoveToCart(0)
+
+        }
+
 
         cartViewModel.getCartListRes().observe(this,
             Observer<CartListResponse> { response ->

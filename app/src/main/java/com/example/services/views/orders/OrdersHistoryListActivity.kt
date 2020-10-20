@@ -2,6 +2,8 @@ package com.example.services.views.orders
 
 import android.app.Dialog
 import android.view.View
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,7 @@ import com.example.services.utils.DialogssInterface
 import com.example.services.viewmodels.orders.OrdersViewModel
 import com.google.gson.JsonObject
 import com.uniongoods.adapters.OrderListAdapter
+import kotlinx.android.synthetic.main.activity_order_list.*
 
 class OrdersHistoryListActivity : BaseActivity() {
     lateinit var orderBinding: ActivityOrderListBinding
@@ -43,6 +46,44 @@ class OrdersHistoryListActivity : BaseActivity() {
             orderList.clear()
             // ordersViewModel.getOrderList()
         }
+
+
+        getOrdersHistoryListDefault()
+
+
+
+        orderBinding.rdComCancelled.setOnCheckedChangeListener(
+            RadioGroup.OnCheckedChangeListener { group, checkedId ->
+                val radio: RadioButton = findViewById(checkedId)
+                if (radio == rdCompleted) {
+                    //startProgressDialog()
+                    rdCompleted.setTextColor(resources.getColor(R.color.colorWhite))
+                    rdCancelled.setTextColor(resources.getColor(R.color.colorBlack))
+                    rdCompleted.setBackgroundResource(R.drawable.ic_round1)
+                    rdCancelled.setBackgroundResource(R.color.transparent)
+                    if (UtilsFunctions.isNetworkConnected()) {
+                        // baseActivity.startProgressDialog()
+                        startProgressDialog()
+                        ordersViewModel.getOrderHistoryList("5")
+                    }
+                } else if (radio == rdCancelled) {
+                    rdCancelled.setTextColor(resources.getColor(R.color.colorWhite))
+                    rdCancelled.setBackgroundResource(R.drawable.ic_round1)
+                    rdCompleted.setTextColor(resources.getColor(R.color.colorBlack))
+                    rdCompleted.setBackgroundResource(R.color.transparent)
+                    if (UtilsFunctions.isNetworkConnected()) {
+                        startProgressDialog()
+                        //getOrdersHistoryListDefault()
+                        ordersViewModel.getOrderHistoryList("0")
+                    }
+                }
+
+            })
+
+
+    }
+
+    private fun getOrdersHistoryListDefault() {
         ordersViewModel.getOrdersHistoryListRes().observe(this,
             Observer<OrdersListResponse> { response ->
                 stopProgressDialog()
@@ -75,7 +116,6 @@ class OrdersHistoryListActivity : BaseActivity() {
 
                 }
             })
-
     }
 
     private fun initRecyclerView() {

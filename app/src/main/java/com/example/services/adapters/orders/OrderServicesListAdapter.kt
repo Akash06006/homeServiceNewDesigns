@@ -68,13 +68,13 @@ class OrderServicesListAdapter(
         }*/
         holder.binding!!.tvTotal.setText(GlobalConstants.Currency + " " + addressList1!![position].totalOrderPrice)
 ////0-Pending/Not Confirmed, 1-> Confirmed , 2->Cancelled , 3->Processing,4//cancelled by company, 5->Completed
-        if (addressList1?.get(position)!!.cancellable.equals("true")) {
-            holder.binding!!.tvCancel.setText("Cancel Order"/*addressList[position].progressStatus*/)
+        /*if (addressList1?.get(position)!!.cancellable.equals("true")) {
+            holder.binding!!.tvCancel.setText("Cancel Order"*//*addressList[position].progressStatus*//*)
             holder.binding!!.tvCancel.isEnabled = true
         } else {
 
             if (addressList1?.get(position)!!.progressStatus.equals("0")) {
-                holder.binding!!.tvCancel.setText("Pending"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Pending"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
@@ -83,7 +83,7 @@ class OrderServicesListAdapter(
                 )
 
             } else if (addressList1?.get(position)!!.progressStatus.equals("1")) {
-                holder.binding!!.tvCancel.setText("Confirmed"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Confirmed"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
@@ -92,7 +92,7 @@ class OrderServicesListAdapter(
                 )
 
             } else if (addressList1?.get(position)!!.progressStatus.equals("2")) {
-                holder.binding!!.tvCancel.setText("Cancelled"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Cancelled"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.isEnabled = false
             } else if (addressList1?.get(position)!!.progressStatus.equals("3")) {
                 holder.binding!!.tvCancel.isEnabled = true
@@ -102,13 +102,13 @@ class OrderServicesListAdapter(
                     )
                 )
 
-                holder.binding!!.tvCancel.setText("Processing"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Processing"*//*addressList[position].progressStatus*//*)
             } else if (addressList1?.get(position)!!.progressStatus.equals("4")) {
                 holder.binding!!.tvCancel.isEnabled = false
-                holder.binding!!.tvCancel.setText("Cancelled by company"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Cancelled by company"*//*addressList[position].progressStatus*//*)
             } else if (addressList1?.get(position)!!.progressStatus.equals("5")) {
                 holder.binding!!.tvCancel.isEnabled = false
-                holder.binding!!.tvCancel.setText("Completed"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Completed"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
                         R.color.colorSuccess
@@ -116,7 +116,7 @@ class OrderServicesListAdapter(
                 )
 
             }
-        }
+        }*/
 
         /*holder.binding!!.tvCancel.setOnClickListener {
             if (addressList1?.get(position)!!.cancellable.equals("true")) {
@@ -145,13 +145,13 @@ class OrderServicesListAdapter(
         }*/
         holder.binding!!.tvTotal.setText(GlobalConstants.Currency + " " + addressList1?.get(position)!!.totalOrderPrice)
 ////0-Pending/Not Confirmed, 1-> Confirmed , 2->Cancelled , 3->Processing,4//cancelled by company, 5->Completed
-        if (addressList1?.get(position)?.cancellable.equals("true")) {
-            holder.binding!!.tvCancel.setText("Cancel Order"/*addressList[position].progressStatus*/)
+        /*if (addressList1?.get(position)?.cancellable.equals("true")) {
+            holder.binding!!.tvCancel.setText("Cancel Order"*//*addressList[position].progressStatus*//*)
             holder.binding!!.tvCancel.isEnabled = true
         } else {
 
             if (addressList1!![position].progressStatus.equals("0")) {
-                holder.binding!!.tvCancel.setText("Pending"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Pending"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
@@ -160,7 +160,7 @@ class OrderServicesListAdapter(
                 )
 
             } else if (addressList1!![position].progressStatus.equals("1")) {
-                holder.binding!!.tvCancel.setText("Confirmed"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Confirmed"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
@@ -169,7 +169,7 @@ class OrderServicesListAdapter(
                 )
 
             } else if (addressList1!![position].progressStatus.equals("2")) {
-                holder.binding!!.tvCancel.setText("Cancelled"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Cancelled"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.isEnabled = false
             } else if (addressList1!![position].progressStatus.equals("3")) {
                 holder.binding!!.tvCancel.isEnabled = true
@@ -179,13 +179,13 @@ class OrderServicesListAdapter(
                     )
                 )
 
-                holder.binding!!.tvCancel.setText("Processing"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Processing"*//*addressList[position].progressStatus*//*)
             } else if (addressList1!![position].progressStatus.equals("4")) {
                 holder.binding!!.tvCancel.isEnabled = false
-                holder.binding!!.tvCancel.setText("Cancelled by company"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Cancelled by company"*//*addressList[position].progressStatus*//*)
             } else if (addressList1!![position].progressStatus.equals("5")) {
                 holder.binding!!.tvCancel.isEnabled = false
-                holder.binding!!.tvCancel.setText("Completed"/*addressList[position].progressStatus*/)
+                holder.binding!!.tvCancel.setText("Completed"*//*addressList[position].progressStatus*//*)
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
                         R.color.colorSuccess
@@ -193,7 +193,7 @@ class OrderServicesListAdapter(
                 )
 
             }
-        }
+        }*/
 
         /*holder.binding!!.tvCancel.setOnClickListener {
             if (addressList1!![position].cancellable.equals("true")) {

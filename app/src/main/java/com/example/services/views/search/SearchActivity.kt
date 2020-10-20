@@ -70,13 +70,19 @@ class SearchActivity : BaseActivity() {
                     }
                 })
 
+            activitySearchBinding!!.gvServices2.onItemClickListener =
+                AdapterView.OnItemClickListener { parent, v, position, id ->
+                    val intent = Intent(this, VendorsListActivity::class.java)
+                    intent.putExtra("catId", searchList?.get(position)?.id)
+                    intent.putExtra("name", searchList?.get(position)?.name)
+                    GlobalConstants.CATEGORY_SELECTED = searchList?.get(position)?.id.toString()
+                    GlobalConstants.CATEGORY_SELECTED_NAME = searchList?.get(position)?.name.toString()
+                    startActivity(intent)
+                }
 
         }
 
-        activitySearchBinding!!.gvServices2.onItemClickListener =
-            AdapterView.OnItemClickListener { parent, v, position, id ->
-                searchList?.get(position)?.id?.let { this.callServiceDetail(it) }
-            }
+
     }
 
     private fun initRecyclerView() {

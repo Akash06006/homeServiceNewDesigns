@@ -65,7 +65,7 @@ class OrdersRepository {
 
     }
 
-    fun orderHistoryList(/*mJsonObject : String*/): MutableLiveData<OrdersListResponse> {
+    fun orderHistoryList(mJsonObject : String): MutableLiveData<OrdersListResponse> {
         //if (!TextUtils.isEmpty(mJsonObject)) {
         val mApiService = ApiService<JsonObject>()
         mApiService.get(
@@ -90,7 +90,7 @@ class OrdersRepository {
                         data3!!.postValue(null)
                     }
 
-                }, ApiClient.getApiInterface().orderHistroyList("2,4,5")
+                }, ApiClient.getApiInterface().orderHistroyList(mJsonObject)
         )
 
         //}
