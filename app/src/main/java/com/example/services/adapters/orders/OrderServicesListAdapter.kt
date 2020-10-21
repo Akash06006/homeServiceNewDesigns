@@ -1,6 +1,7 @@
 package com.uniongoods.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,8 @@ import com.example.services.databinding.OrderServiceItemBinding
 import com.example.services.model.orders.OrdersListResponse
 import com.example.services.utils.BaseActivity
 import com.example.services.utils.Utils
+import com.example.services.views.chat.ChatActivity
+import com.example.services.views.ratingreviews.AddRatingReviewsListActivity
 
 class OrderServicesListAdapter(
     context: BaseActivity,
@@ -204,6 +207,13 @@ class OrderServicesListAdapter(
             }
         }*/
 
+
+        holder.binding!!.ordersRate.setOnClickListener {
+            val intent = Intent(mContext, AddRatingReviewsListActivity::class.java)
+            intent.putExtra("orderId", addressList?.get(position)?.serviceId.toString())
+            intent.putExtra("from", "list")
+            mContext.startActivity(intent)
+        }
 
         holder.binding!!.tvServiceName.text = addressList!![position].service?.name
         holder.binding!!.tvQuantity.setText(mContext.resources.getString(R.string.quantity) + ": " + addressList!![position].quantity)

@@ -14,28 +14,27 @@ import com.example.services.R
 import com.example.services.application.MyApplication
 import com.example.services.common.UtilsFunctions
 import com.example.services.constants.GlobalConstants
-import com.example.services.utils.BaseActivity
-import com.example.services.viewmodels.cart.CartViewModel
-import com.example.services.viewmodels.services.ServicesViewModel
 import com.example.services.databinding.ActivityCartListBinding
 import com.example.services.model.CommonModel
 import com.example.services.model.cart.CartListResponse
 import com.example.services.model.orders.CreateOrdersResponse
 import com.example.services.sharedpreference.SharedPrefClass
+import com.example.services.utils.BaseActivity
 import com.example.services.utils.DialogClass
 import com.example.services.utils.DialogssInterface
-import com.example.services.viewmodels.promocode.PromoCodeViewModel
-import com.example.services.views.chat.ChatActivity
+import com.example.services.viewmodels.cart.CartViewModel
+import com.example.services.viewmodels.services.ServicesViewModel
 import com.example.services.views.home.DashboardActivity
-import com.example.services.views.ratingreviews.ReviewsListActivity
+import com.example.services.views.subcategories.ServiceDetailActivity
 import com.google.gson.JsonObject
 import com.uniongoods.adapters.CartListAdapter
+import kotlinx.android.synthetic.main.cart_item.*
 
 class CartListActivity : BaseActivity(), DialogssInterface {
     lateinit var cartBinding: ActivityCartListBinding
     lateinit var cartViewModel: CartViewModel
     var cartId = "false"
-    var quantityCount = 0
+    var quantityCount = 1
     var priceAmount = "false"
     var price = 0
     lateinit var servicesViewModel: ServicesViewModel
@@ -43,6 +42,7 @@ class CartListActivity : BaseActivity(), DialogssInterface {
     var myJobsListAdapter: CartListAdapter? = null
     private var confirmationDialog: Dialog? = null
     private var mDialogClass = DialogClass()
+    private var detailClass = ServiceDetailActivity()
     var cartObject = JsonObject()
     var pos = "0"
     var couponCode = ""
@@ -88,6 +88,51 @@ class CartListActivity : BaseActivity(), DialogssInterface {
 
         }
 
+        cartBinding!!.rvCart.addOnItemTouchListener(
+            RecyclerTouchListener(
+                this,
+                cartBinding!!.rvCart,
+                object : RecyclerTouchListener.ClickListener {
+                    override fun onClick(view: View?, position: Int) {
+
+                        imgPlusNew.setOnClickListener {
+                            tv_quantityNew.setText((quantityCount++).toString())
+                            /*startProgressDialog()
+                            callAddRemoveCartApi(true, cartList.get(position).serviceId)
+                            stopProgressDialog()*/
+                        }
+
+                        imgMinusNew.setOnClickListener {
+
+                            tv_quantityNew.setText((quantityCount--).toString())
+                            if(quantityCount < 1) {
+                                addRemoveToCart(position)
+                            }
+                            /*startProgressDialog()
+                            callAddRemoveCartApi(true, cartList.get(position).serviceId)
+                            stopProgressDialog()*/
+
+                        }
+
+                        //   Toast.makeText(getActivity(), position+ " is selected successfully", Toast.LENGTH_SHORT).show();
+
+                        //handle click event
+                    }
+
+                    override fun onLongClick(view: View?, position: Int) {}
+                })
+        )
+
+        /*cartBinding!!.rvCart.addOnItemTouchListener =
+            RecyclerView.RecyclerListener { parent, v, position, id ->
+                val intent = Intent(this, VendorsListActivity::class.java)
+                intent.putExtra("catId", searchList?.get(position)?.id)
+                intent.putExtra("name", searchList?.get(position)?.name)
+                GlobalConstants.CATEGORY_SELECTED = searchList?.get(position)?.id.toString()
+                GlobalConstants.CATEGORY_SELECTED_NAME = searchList?.get(position)?.name.toString()
+                startActivity(intent)
+            }
+*/
 
         cartViewModel.getCartListRes().observe(this,
             Observer<CartListResponse> { response ->
@@ -312,4 +357,40 @@ class CartListActivity : BaseActivity(), DialogssInterface {
             "Remove Cart" -> confirmationDialog?.dismiss()
         }
     }
+
+    private fun callAddRemoveCartApi(isAdd: Boolean, serviceId: String?) {
+        /* if (serviceDetailBinding.AddCart.getText().toString().equals(getString(R.string.add_to_cart))) {
+             isCart = "true"
+         } else {
+             isCart = "false"
+         }*/
+        if (isAdd) {
+            var cartObject = JsonObject()
+            cartObject.addProperty(
+                "serviceId", serviceId
+            )
+            /* cartObject.addProperty(
+                     "status", isCart
+             )*/
+            cartObject.addProperty(
+                "orderPrice", priceAmount
+            )
+            cartObject.addProperty(
+                "orderTotalPrice", price
+            )
+            cartObject.addProperty(
+                "quantity", quantityCount
+            )
+
+            if (UtilsFunctions.isNetworkConnected()) {
+                servicesViewModel.addCart(cartObject)
+            }
+        } else {
+            if (UtilsFunctions.isNetworkConnected()) {
+                servicesViewModel.removeCart(cartId)
+            }
+        }
+
+    }
+
 }

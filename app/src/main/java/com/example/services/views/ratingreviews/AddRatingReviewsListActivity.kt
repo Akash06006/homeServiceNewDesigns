@@ -1,7 +1,6 @@
 package com.example.services.views.ratingreviews
 
 import android.app.Dialog
-import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -27,26 +26,31 @@ import com.example.services.model.orders.OrdersDetailResponse
 import com.example.services.model.ratnigreviews.EmpRatingData
 import com.example.services.model.ratnigreviews.RatingData
 import com.example.services.model.ratnigreviews.RatingReviewListInput
+import com.example.services.model.ratnigreviews.ReviewsListResponse
+import com.example.services.model.services.Body
+import com.example.services.model.services.ServicesDetailResponse
 import com.example.services.utils.BaseActivity
 import com.example.services.utils.DialogClass
 import com.example.services.utils.DialogssInterface
 import com.example.services.viewmodels.ratingreviews.RatingReviewsViewModel
-import com.example.services.views.cart.CartListActivity
+import com.example.services.viewmodels.services.ServicesViewModel
 import com.google.gson.JsonObject
 import com.uniongoods.adapters.AddRatingReviewsListAdapter
-import com.uniongoods.adapters.CheckoutAddressListAdapter
-import com.uniongoods.adapters.ReviewsListAdapter
+import com.uniongoods.adapters.ImagesListAdapter
 
 class AddRatingReviewsListActivity : BaseActivity(), DialogssInterface {
     lateinit var reviewsBinding: ActivityReviewsListBinding
     lateinit var reviewsViewModel: RatingReviewsViewModel
+    lateinit var servicesViewModel: ServicesViewModel
     var reviewsAdapter: AddRatingReviewsListAdapter? = null
     var cartObject = JsonObject()
     var count = 0
     var orderId = ""
     var mLoadMoreViewCheck = true
+    var imagesList = ArrayList<String>()
+    var imagesListAdapter: ImagesListAdapter? = null
     lateinit var linearLayoutManager: LinearLayoutManager
-    var suborders: ArrayList<OrdersDetailResponse.Suborders>? = null
+    var suborders: ArrayList<Body>? = null
     val ratingData = RatingReviewListInput()
     private var confirmationDialog: Dialog? = null
     private var mDialogClass = DialogClass()
@@ -87,6 +91,7 @@ class AddRatingReviewsListActivity : BaseActivity(), DialogssInterface {
 
         reviewsBinding = viewDataBinding as ActivityReviewsListBinding
         reviewsViewModel = ViewModelProviders.of(this).get(RatingReviewsViewModel::class.java)
+        servicesViewModel = ViewModelProviders.of(this).get(ServicesViewModel::class.java)
         linearLayoutManager = LinearLayoutManager(this)
         reviewsBinding.commonToolBar.imgRight.visibility = View.GONE
         reviewsBinding.commonToolBar.imgRight.setImageResource(R.drawable.ic_cart)
@@ -104,14 +109,14 @@ class AddRatingReviewsListActivity : BaseActivity(), DialogssInterface {
             )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
         )
         if (UtilsFunctions.isNetworkConnected()) {
-            reviewsViewModel.orderDetail(orderId)
+            servicesViewModel.getServiceDetail(orderId)
             startProgressDialog()
         }
         // initRecyclerView()
 
         UtilsFunctions.hideKeyBoard(reviewsBinding.tvNoRecord)
-        reviewsViewModel.getOrderDetail().observe(this,
-            Observer<OrdersDetailResponse> { response ->
+        servicesViewModel.getServiceDetailRes().observe(this,
+            Observer<ServicesDetailResponse> { response ->
                 stopProgressDialog()
                 if (response != null) {
                     mLoadMoreViewCheck = true
@@ -122,18 +127,16 @@ class AddRatingReviewsListActivity : BaseActivity(), DialogssInterface {
                             // var ratingReviewInput = RatingReviewListInput("orderId", null)
 
                             ratingData.orderId = response.data?.id
-                            suborders = response.data?.suborders
-                            if (suborders?.size!! > 0) {
-                                for (item in suborders!!) {
+
                                     val rating = RatingData()
                                     rating.rating = "0"
                                     rating.review = ""
-                                    rating.name = item.service?.name
-                                    rating.icon = item.service?.icon
-                                    rating.serviceId = item.service?.id
+                                    rating.name = response.data?.name
+                                    rating.icon = response.data?.icon
+                                    rating.serviceId = response.data?.id
                                     ratingData.ratingData?.add(rating)
-                                }
-                                val emp = response.data?.assignedEmployees
+
+                                /*val emp = response.data?.assignedEmployees
                                 val rating = RatingData()
                                 rating.rating = "0"
                                 rating.review = ""
@@ -141,13 +144,13 @@ class AddRatingReviewsListActivity : BaseActivity(), DialogssInterface {
                                     emp!![0].employee?.firstName + " " + emp[0]?.employee?.lastName
                                 rating.icon = emp[0]?.employee?.image
                                 rating.serviceId = emp[0]?.employee?.id
-                                ratingData.ratingData.add(rating)
+                                ratingData.ratingData.add(rating)*/
                                 initRecyclerView()
                                 reviewsBinding.rvReviews.visibility = View.VISIBLE
                                 reviewsBinding.tvNoRecord.visibility = View.GONE
                                 reviewsBinding.title.visibility = View.GONE
                                 reviewsAdapter?.notifyDataSetChanged()
-                            }
+
                         }
                         else -> message?.let {
                             UtilsFunctions.showToastError(it)
@@ -274,6 +277,19 @@ class AddRatingReviewsListActivity : BaseActivity(), DialogssInterface {
         confirmationDialog?.show()
     }
 
+    fun removeImage(pos: Int) {
+        imagesList.removeAt(pos)
+        if (imagesList.size < 4) {
+            reviewsBinding.imgAddImage.visibility = View.VISIBLE
+        } else {
+            reviewsBinding.imgAddImage.visibility = View.GONE
+        }
+        imagesListAdapter?.notifyDataSetChanged()
+        /*  Glide.with(this)
+              .load(path)
+              .placeholder(R.drawable.user)
+              .into(profileBinding.imgProfile)*/
+    }
 
 
 }

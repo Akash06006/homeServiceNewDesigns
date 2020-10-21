@@ -91,7 +91,7 @@ class CartListAdapter(
 
         init {
 
-            binding!!.imgMinusNew.setOnClickListener {
+            /*binding!!.imgMinusNew.setOnClickListener {
 
                 if (quantityCount > 0) {
                     quantityCount--
@@ -118,7 +118,7 @@ class CartListAdapter(
                 }
 
 
-            }
+            }*/
 
         }
     }

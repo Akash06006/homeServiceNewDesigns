@@ -1,6 +1,7 @@
 package com.uniongoods.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ import com.example.services.databinding.OrderServiceItem2Binding
 import com.example.services.model.orders.OrdersListResponse
 import com.example.services.utils.BaseActivity
 import com.example.services.utils.Utils
+import com.example.services.views.chat.ChatActivity
 
 class OrderServicesListAdapter2(
     context: BaseActivity,
@@ -80,7 +82,7 @@ class OrderServicesListAdapter2(
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
-                        R.color.colorStatus
+                        R.color.colorPrimary
                     )
                 )
 
@@ -89,7 +91,7 @@ class OrderServicesListAdapter2(
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
-                        R.color.colorStatus
+                        R.color.colorPrimary
                     )
                 )
 
@@ -100,7 +102,7 @@ class OrderServicesListAdapter2(
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
-                        R.color.colorStatus
+                        R.color.colorPrimary
                     )
                 )
 
@@ -140,6 +142,12 @@ class OrderServicesListAdapter2(
             "HH:mm yyyy-MM-dd"
         )
 
+        holder.binding.btnHelp.setOnClickListener{
+            val intent = Intent(mContext, ChatActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            mContext.startActivity(intent)
+        }
+
         /*if (orderListActivity != null && addressList[position].trackStatus!!.equals("1")) {
             holder.binding!!.tvTrack.visibility = View.VISIBLE
         } else {
@@ -157,7 +165,7 @@ class OrderServicesListAdapter2(
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
-                        R.color.colorStatus
+                        R.color.colorPrimary
                     )
                 )
 
@@ -166,7 +174,7 @@ class OrderServicesListAdapter2(
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
-                        R.color.colorStatus
+                        R.color.colorPrimary
                     )
                 )
 
@@ -177,7 +185,7 @@ class OrderServicesListAdapter2(
                 holder.binding!!.tvCancel.isEnabled = true
                 holder.binding!!.tvCancel.setBackgroundTintList(
                     mContext.getResources().getColorStateList(
-                        R.color.colorStatus
+                        R.color.colorPrimary
                     )
                 )
 

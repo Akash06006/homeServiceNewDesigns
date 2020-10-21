@@ -52,8 +52,7 @@
                 android:button="@null"
                 android:gravity="center"
                 android:text="Pending"
-                android:textColor="@color/colorBlack"
-                app:font="@{`regular`}" />
+                android:textColor="@color/colorBlack" />
 
             <RadioButton
                 android:id="@+id/rdCancelled"
@@ -66,8 +65,7 @@
                 android:checked="false"
                 android:gravity="center"
                 android:text="Completed"
-                android:textColor="@color/white"
-                app:font="@{`regular`}" />
+                android:textColor="@color/white" />
         </RadioGroup>
 
         <RelativeLayout

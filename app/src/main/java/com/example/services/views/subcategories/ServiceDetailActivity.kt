@@ -18,7 +18,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.services.R
-import com.example.services.adapters.home.AddImagesActivity
 import com.example.services.application.MyApplication
 import com.example.services.common.UtilsFunctions
 import com.example.services.constants.GlobalConstants
@@ -34,6 +33,7 @@ import com.example.services.sharedpreference.SharedPrefClass
 import com.example.services.utils.DialogClass
 import com.example.services.utils.DialogssInterface
 import com.example.services.views.cart.CartListActivity
+import com.example.services.views.home.AddImagesActivity
 import com.example.services.views.ratingreviews.AddRatingReviewsListActivity
 import com.example.services.views.ratingreviews.ReviewsListActivity
 import com.google.gson.JsonObject
@@ -460,7 +460,7 @@ class ServiceDetailActivity : BaseActivity(), DialogssInterface {
 
     }
 
-    private fun callAddRemoveCartApi(isAdd: Boolean) {
+   private fun callAddRemoveCartApi(isAdd: Boolean) {
         /* if (serviceDetailBinding.AddCart.getText().toString().equals(getString(R.string.add_to_cart))) {
              isCart = "true"
          } else {

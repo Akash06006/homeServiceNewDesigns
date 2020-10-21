@@ -183,9 +183,8 @@
                     android:singleLine="true"
                     android:text="8 April 2020 10:30 AM"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/payumoney_black"
-                    android:textSize="12sp"
-                    app:font="@{`regular`}" />
+                    android:textColor="@color/colorGrey"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tv_service_date"
@@ -210,9 +209,8 @@
                     android:singleLine="true"
                     android:text="8 April 2020 10:30 AM"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/payumoney_black"
-                    android:textSize="12sp"
-                    app:font="@{`regular`}" />
+                    android:textColor="@color/colorGrey"
+                    android:textSize="12sp" />
 
 
                 <TextView
@@ -246,7 +244,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/colorBlack"
                         android:textSize="14sp"
-                        app:font="@{`regular`}" />
+                        android:textStyle="bold"/>
 
                     <View
                         android:layout_width="1dp"
@@ -265,9 +263,10 @@
                         android:layout_marginRight="@dimen/dp_5"
                         android:layout_marginBottom="@dimen/dp_5"
                         android:singleLine="true"
-                        android:text="@string/quantity"
+                        android:text="@string/items"
+                        android:textColor="@color/payumoney_black"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        app:font="@{`bold`}" />
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -329,7 +328,7 @@
                     android:layout_height="@dimen/dp_30"
                     android:background="@drawable/ic_rate_btn"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/dp_70"
+                    android:layout_marginLeft="@dimen/dp_90"
                     android:layout_marginRight="@dimen/dp_20"/>
 
                 <Button
