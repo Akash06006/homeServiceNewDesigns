@@ -142,12 +142,6 @@ class OrderServicesListAdapter2(
             "HH:mm yyyy-MM-dd"
         )
 
-        holder.binding.btnHelp.setOnClickListener{
-            val intent = Intent(mContext, ChatActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            mContext.startActivity(intent)
-        }
-
         /*if (orderListActivity != null && addressList[position].trackStatus!!.equals("1")) {
             holder.binding!!.tvTrack.visibility = View.VISIBLE
         } else {
@@ -240,10 +234,15 @@ class OrderServicesListAdapter2(
         mContext: BaseActivity,
         addressList: ArrayList<OrdersListResponse.Suborders>?
     ) : RecyclerView.ViewHolder(v) {
-        /*init {
-            binding.linAddress.setOnClickListener {
-                mContext.deleteAddress(adapterPosition)
+
+
+
+        init {
+            binding.orders1HelpBtn.setOnClickListener{
+                val intent = Intent(mContext, ChatActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                mContext.startActivity(intent)
             }
-        }*/
+        }
     }
 }

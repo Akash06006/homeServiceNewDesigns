@@ -381,6 +381,7 @@
 
 
                 <Button
+                    android:id="@+id/orders1HelpBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_40"
                     android:background="@drawable/ic_help_rect"

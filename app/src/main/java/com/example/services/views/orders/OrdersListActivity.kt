@@ -71,6 +71,9 @@ class OrdersListActivity : BaseActivity(), DialogssInterface {
                 GlobalConstants.SelectedAddressType
         ).toString()
 
+
+
+
         ordersViewModel.getOrdersListRes().observe(this,
                 Observer<OrdersListResponse> { response ->
                     stopProgressDialog()
@@ -142,6 +145,11 @@ class OrdersListActivity : BaseActivity(), DialogssInterface {
 
                     }
                 })
+
+
+
+
+
 
         ordersViewModel.isClick().observe(
                 this, Observer<String>(function =
