@@ -16,16 +16,15 @@
     </data>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_3"
-
         android:padding="@dimen/dp_5">
 
 
         <LinearLayout
             android:id="@+id/toLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:elevation="@dimen/dp_5"
@@ -38,6 +37,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:scaleType="centerCrop"
+                android:layout_gravity="center"
                 android:src="@drawable/ic_category"
                 card_view:riv_corner_radius_bottom_left="@dimen/dp_10"
                 card_view:riv_corner_radius_bottom_right="@dimen/dp_10"
@@ -52,17 +52,16 @@
         <TextView
             android:id="@+id/cat_header"
             android:layout_below="@+id/toLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/dp_2"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:singleLine="true"
             android:text="Facial"
             android:textAllCaps="false"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/sp_10"
-            app:font="@{`regular`}" />
+            android:textSize="@dimen/sp_10" />
 
         <!---->
         <androidx.cardview.widget.CardView

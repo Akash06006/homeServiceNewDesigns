@@ -36,7 +36,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="#FBFBFB"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -137,7 +137,7 @@
             android:text="@string/services_home"
             android:textSize="@dimen/sp_18"
             android:textColor="@color/colorBlack"
-            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_30"
             android:layout_marginRight="@dimen/dp_10"
             android:gravity="start"
             android:layout_marginTop="@dimen/dp_20"
@@ -151,7 +151,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginRight="@dimen/dp_10"
-            android:background="@color/colorWhite"
+            android:background="#FBFBFB"
             android:fadeScrollbars="false"
             android:horizontalSpacing="0dp"
             android:numColumns="3"

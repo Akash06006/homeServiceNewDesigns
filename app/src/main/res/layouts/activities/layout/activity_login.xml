@@ -56,9 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/splsh_image"
-            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_5"
             android:layout_marginTop="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_5"
             android:elevation="@dimen/dp_10"
             android:orientation="horizontal"
             android:padding="@dimen/dp_15"
@@ -95,7 +95,7 @@
                 android:paddingLeft="@dimen/dp_10"
                 android:textColor="@color/colorDeepGrn"
                 android:textColorHint="@color/colorDeepGrn"
-                android:textSize="@dimen/sp_14" />
+                android:textSize="@dimen/sp_20" />
 
         </LinearLayout>
 
