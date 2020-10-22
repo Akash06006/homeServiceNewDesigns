@@ -33,6 +33,7 @@ import com.example.services.viewmodels.profile.ProfileViewModel
 import com.example.services.views.address.AddAddressActivity
 import com.example.services.views.authentication.OTPVerificationActivity
 import com.google.gson.JsonObject
+import kotlinx.android.synthetic.main.activity_profile.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
@@ -246,11 +247,12 @@ class ProfileActivity : BaseActivity(), ChoiceCallBack {
         profileBinding.etPhone.isEnabled = false
         profileBinding.etAddress.isEnabled = isEnable
         if (!isEnable) {
-            profileBinding.ivEdit.visibility = View.VISIBLE
+            profileBinding.ivEdit.visibility = View.GONE
             profileBinding.btnSubmit.visibility = View.GONE
             profileBinding.commonToolBar.imgRight.visibility = View.VISIBLE
         } else {
             profileBinding.ivEdit.visibility = View.VISIBLE
+            profileBinding.imgProfile.visibility = View.GONE
             profileBinding.commonToolBar.imgRight.visibility = View.GONE
             profileBinding.btnSubmit.visibility = View.VISIBLE
         }

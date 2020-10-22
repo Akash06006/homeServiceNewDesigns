@@ -92,13 +92,13 @@
 
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/img_profile"
+                            android:id="@+id/imgProfile"
                             android:layout_width="@dimen/dp_100"
                             android:layout_height="@dimen/dp_100"
                             android:layout_gravity="center_horizontal"
                             android:contentDescription="@string/todo"
                             android:src="@{profileModel.image!=null ?  profileModel.image.toString():@string/todo,default=@drawable/sample_profile_picture}"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/iv_edit"
@@ -109,7 +109,8 @@
                             android:elevation="@dimen/dp_10"
                             android:onClick="@{(v) -> profileViewModel.clickListener(v)}"
                             android:padding="@dimen/dp_8"
-                            tools:targetApi="lollipop" />
+                            tools:targetApi="lollipop"
+                            android:visibility="gone"/>
 
                         <com.google.android.material.textfield.TextInputLayout
 

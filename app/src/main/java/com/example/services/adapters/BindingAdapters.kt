@@ -26,7 +26,7 @@ object BindingAdapters {
     @BindingAdapter("android:src")
     @JvmStatic
     fun setImageViewResource(imageView: ImageView, resource: String) {
-        var drawable1 = MyApplication.instance.resources.getDrawable(R.drawable.ic_person)
+        var drawable1 = MyApplication.instance.resources.getDrawable(R.drawable.sample_profile_picture)
 
         if (resource.contains("set_default")) {
             drawable1 = try {
@@ -36,7 +36,7 @@ object BindingAdapters {
                 MyApplication.instance.resources.getDrawable(id)
 
             } catch (e: Exception) {
-                MyApplication.instance.resources.getDrawable(R.drawable.ic_person)
+                MyApplication.instance.resources.getDrawable(R.drawable.sample_profile_picture)
             }
 
         }
