@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 <RelativeLayout
-    android:background="@color/white"
+    android:background="#FBFBFB"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.search.SearchActivity">
 
     <ImageButton
         android:id="@+id/icMenu"
-        android:src="@drawable/ic_back"
+        android:src="@drawable/ic_profileburger"
+        android:background="#FBFBFB"
         android:padding="@dimen/dp_10"
-        android:background="@drawable/round_background_layout"
         android:layout_marginTop="@dimen/dp_30"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
         android:layout_below="@id/topSeachText"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_10"
-        android:background="@color/colorWhite"
+        android:background="#FBFBFB"
         android:fadeScrollbars="false"
         android:horizontalSpacing="0dp"
         android:numColumns="3"

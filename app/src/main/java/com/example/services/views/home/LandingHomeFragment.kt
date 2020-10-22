@@ -204,6 +204,12 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
             }
 
 
+        fragmentHomeBinding.rltxtLoc.setOnClickListener {
+            var intent=Intent(activity,SearchActivity::class.java)
+            startActivity(intent)
+
+        }
+
         fragmentHomeBinding.txtLoc.setOnClickListener {
             var intent=Intent(activity,SearchActivity::class.java)
             startActivity(intent)

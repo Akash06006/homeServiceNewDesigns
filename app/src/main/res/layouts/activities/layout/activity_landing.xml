@@ -127,7 +127,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="25dp"
                         android:onClick="@{(v) -> dashboardViewModel.clickListener(v)}"
-                        android:src="@drawable/ic_user" />
+                        android:src="@drawable/sample_profile_picture" />
 
 
 

@@ -103,7 +103,7 @@ class LandingMainActivity : BaseActivity(),
         // ic_profile
         Glide.with(this)
             .load(image)
-            .placeholder(R.drawable.ic_person)
+            .placeholder(R.drawable.sample_profile_picture)
             .into(activityLandingBinding!!.icProfile)
         val name = SharedPrefClass().getPrefValue(
             MyApplication.instance.applicationContext,
@@ -218,7 +218,7 @@ class LandingMainActivity : BaseActivity(),
                         // ic_profile
                         Glide.with(this)
                             .load(image)
-                            .placeholder(R.drawable.ic_person)
+                            .placeholder(R.drawable.sample_profile_picture)
                             .into(activityLandingBinding!!.icProfile)
 
                         if (drawer!!.isDrawerOpen(GravityCompat.START)) {
@@ -391,7 +391,7 @@ class LandingMainActivity : BaseActivity(),
         // ic_profile
         Glide.with(this)
             .load(image)
-            .placeholder(R.drawable.ic_person)
+            .placeholder(R.drawable.sample_profile_picture)
             .into(activityLandingBinding!!.icProfile)
 
         val name = SharedPrefClass().getPrefValue(

@@ -71,6 +71,7 @@ class ProfileActivity : BaseActivity(), ChoiceCallBack {
             )*//*mContext.getResources().getColorStateList(R.color.colorOrange)*//*
         )*/
 
+
         val name = SharedPrefClass().getPrefValue(
             MyApplication.instance.applicationContext,
             getString(R.string.first_name)
@@ -245,7 +246,7 @@ class ProfileActivity : BaseActivity(), ChoiceCallBack {
         profileBinding.etPhone.isEnabled = false
         profileBinding.etAddress.isEnabled = isEnable
         if (!isEnable) {
-            profileBinding.ivEdit.visibility = View.GONE
+            profileBinding.ivEdit.visibility = View.VISIBLE
             profileBinding.btnSubmit.visibility = View.GONE
             profileBinding.commonToolBar.imgRight.visibility = View.VISIBLE
         } else {

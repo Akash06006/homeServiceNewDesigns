@@ -97,7 +97,8 @@
                             android:layout_height="@dimen/dp_100"
                             android:layout_gravity="center_horizontal"
                             android:contentDescription="@string/todo"
-                            android:src="@{profileModel.image!=null ?  profileModel.image.toString():@string/todo,default=@drawable/ic_person}" />
+                            android:src="@{profileModel.image!=null ?  profileModel.image.toString():@string/todo,default=@drawable/sample_profile_picture}"
+                            android:visibility="gone"/>
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/iv_edit"
