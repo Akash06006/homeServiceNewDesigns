@@ -124,8 +124,7 @@
                     android:padding="@dimen/dp_8"
                     android:singleLine="true"
                     android:textColor="@color/colorblack"
-                    android:textSize="@dimen/hint_size"
-                    app:font="@{`regular`}"/>
+                    android:textSize="@dimen/hint_size"/>
 
             </RelativeLayout>
 

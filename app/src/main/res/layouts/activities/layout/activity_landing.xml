@@ -252,7 +252,6 @@
                             android:textAllCaps="false"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_14"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
@@ -270,7 +269,6 @@
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_14"
                             android:visibility="gone"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
@@ -289,7 +287,6 @@
                             android:textAllCaps="false"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_14"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
 
@@ -311,7 +308,6 @@
                             android:textAllCaps="false"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_14"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
@@ -331,7 +327,6 @@
                             android:textAllCaps="false"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_14"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
 
@@ -351,7 +346,6 @@
                             android:textAllCaps="false"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_14"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
 
@@ -371,7 +365,6 @@
                             android:textAllCaps="false"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_14"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
 
@@ -390,7 +383,6 @@
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_18"
                             android:visibility="gone"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
@@ -409,7 +401,6 @@
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_18"
                             android:visibility="gone"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
                         <TextView
@@ -428,7 +419,6 @@
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/sp_18"
                             android:visibility="gone"
-                            app:font="@{`regular`}"
                             tools:ignore="RtlSymmetry" />
 
 
@@ -483,7 +473,6 @@
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/sp_14"
                         android:visibility="visible"
-                        app:font="@{`regular`}"
                         tools:ignore="RtlSymmetry" />
 
                     <View
@@ -505,7 +494,6 @@
                         android:textAllCaps="false"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/sp_14"
-                        app:font="@{`regular`}"
                         tools:ignore="RtlSymmetry" />
 
                 </LinearLayout>
