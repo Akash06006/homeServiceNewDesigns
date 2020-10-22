@@ -47,7 +47,7 @@ class ServiceDetailItemsListAdapter(
         holder.binding!!.tvItemTitle.text = dateList[position].title
         holder.binding!!.tvItemName.text = dateList[position].value
         if (dateList[position].title.equals("Excluded Services")) {
-            holder.binding!!.tvItemName.setTextColor(Color.RED)
+            holder.binding!!.tvItemName.setTextColor(Color.GRAY)
         }
 
     }

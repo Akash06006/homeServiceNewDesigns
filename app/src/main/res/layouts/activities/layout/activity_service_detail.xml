@@ -164,6 +164,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/addReview"
                                 android:layout_alignParentRight="true"
+                                android:layout_marginTop="@dimen/dp_5"
                                 android:layout_marginRight="@dimen/dp_10"
                                 android:layout_toLeftOf="@+id/rl_real_price"
                                 android:text=""
@@ -235,7 +236,6 @@
                             android:padding="@dimen/dp_5"
                             android:text="@{serviceDetail.description}"
                             android:textAllCaps="false"
-                            app:font="@{`regular`}"
                             tools:ignore="AllCaps" />
                     </RelativeLayout>
 

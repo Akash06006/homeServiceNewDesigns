@@ -55,8 +55,7 @@
                     android:singleLine="true"
                     android:text="Name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@android:color/black"
-                    app:font="@{`bold`}" />
+                    android:textColor="@android:color/black" />
 
                 <RatingBar
                     android:id="@+id/rBar"

@@ -67,8 +67,7 @@
                         android:text="Name"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        app:font="@{`bold`}" />
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/img_favourite"
@@ -89,8 +88,7 @@
                         android:singleLine="true"
                         android:text="Duration: 2 hrs"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        android:textColor="@color/colorGrey"
-                        app:font="@{`regular`}" />
+                        android:textColor="@color/colorGrey" />
 
                     <RatingBar
                         android:id="@+id/rBar"

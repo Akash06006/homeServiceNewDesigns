@@ -44,8 +44,7 @@
                     android:padding="@dimen/dp_5"
                     android:text="Duration"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@android:color/black"
-                    app:font="@{`regular`}" />
+                    android:textColor="@color/colorGrey" />
 
                 <TextView
                     android:id="@+id/tv_itemName"
@@ -59,9 +58,8 @@
                     android:padding="@dimen/dp_5"
                     android:text="2 hours"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/success"
-                    android:textSize="@dimen/sp_12"
-                    app:font="@{`regular`}" />
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/sp_12" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

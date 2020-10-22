@@ -95,8 +95,7 @@
                 android:paddingLeft="@dimen/dp_10"
                 android:textColor="@color/colorDeepGrn"
                 android:textColorHint="@color/colorDeepGrn"
-                android:textSize="@dimen/sp_14"
-                app:font="@{`regular`}" />
+                android:textSize="@dimen/sp_14" />
 
         </LinearLayout>
 
