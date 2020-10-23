@@ -61,7 +61,8 @@
             android:text="Facial"
             android:textAllCaps="false"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/sp_10" />
+            android:textSize="@dimen/sp_10"
+            app:font="@{`regular`}" />
 
         <!---->
         <androidx.cardview.widget.CardView

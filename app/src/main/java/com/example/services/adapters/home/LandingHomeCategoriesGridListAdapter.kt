@@ -61,6 +61,9 @@ class LandingHomeCategoriesGridListAdapter(
                 .placeholder(R.drawable.ic_category)
                 .into(holder.icon!!)
 
+        convertView.setBackgroundResource(R.drawable.gv_row_back)
+
+
         return convertView
     }
 

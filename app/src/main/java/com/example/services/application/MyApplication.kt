@@ -16,6 +16,12 @@ class MyApplication : MultiDexApplication() {
         customFontFamily!!.addFont("regular", "Poppins-Black.ttf")
         customFontFamily!!.addFont("semibold", "Poppins-Medium.ttf")
         customFontFamily!!.addFont("bold", "Poppins-Bold.ttf")
+        customFontFamily!!.addFont("normal", "Poppins-Regular.ttf")
+        customFontFamily!!.addFont("extrabold", "Poppins-ExtraBold.ttf")
+        customFontFamily!!.addFont("extralight", "Poppins-ExtraLight.ttf")
+        customFontFamily!!.addFont("light", "Poppins-Light.ttf")
+        customFontFamily!!.addFont("halfbold", "Poppins-SemiBold.ttf")
+        customFontFamily!!.addFont("thin", "Poppins-Thin.ttf")
     }
 
 

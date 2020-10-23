@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
@@ -19,6 +20,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat.setBackgroundTintList
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.services.R
@@ -189,6 +191,7 @@ LandingHomeFragment : BaseFragment(), DialogssInterface {
                     // showToastError("Clear Cart message")
                     showClearCartDialog()
                 } else {
+
                     /*GlobalConstants.COLOR_CODE =
                         "#" + categoriesList[position].colorCode.toString().trim()*/
                     val intent = Intent(activity!!, VendorsListActivity::class.java)
