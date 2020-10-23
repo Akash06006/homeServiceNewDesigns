@@ -8,7 +8,7 @@
     <item android:drawable="@color/colorDeepGrn" android:state_enabled="true" android:state_pressed="true"/>
 
     <!-- enabled and focused state -->
-    <item android:drawable="@drawable/shape_round_corner_grid" android:state_enabled="true" android:state_focused="true"/>
+    <item android:drawable="@color/colorDeepGrn" android:state_enabled="true" android:state_focused="true"/>
 
     <!-- enabled state -->
     <item android:drawable="@drawable/shape_round_corner_grid" android:state_enabled="true"/>

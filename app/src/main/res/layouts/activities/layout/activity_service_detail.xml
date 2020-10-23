@@ -322,7 +322,7 @@
                         android:id="@+id/tv_serviceDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginLeft="@dimen/dp_7"
                         android:gravity="left"
                         android:text="Details"
                         android:layout_marginTop="@dimen/dp_10"

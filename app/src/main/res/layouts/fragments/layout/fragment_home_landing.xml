@@ -164,14 +164,13 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginRight="@dimen/dp_10"
-            android:listSelector="@color/colorDeepGrn"
             android:background="#FBFBFB"
             android:fadeScrollbars="false"
-            android:horizontalSpacing="0dp"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
             android:numColumns="3"
             android:padding="@dimen/dp_10"
-            android:scrollbars="none"
-            android:verticalSpacing="0dp" />
+            android:scrollbars="none" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/offersViewpager"
