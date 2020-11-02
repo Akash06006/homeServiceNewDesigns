@@ -217,7 +217,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/dp_5"
                                 android:maxLines="3"
-                                android:text="We need your Address"
+                                android:text="Your Address"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/sp_16"
                                 app:font="@{`bold`}" />
@@ -289,7 +289,7 @@
                                         android:paddingLeft="@dimen/dp_3"
                                         android:text="Home"
                                         android:textAllCaps="false"
-                                        android:textColor="@color/colorGrey1"
+                                        android:textColor="@color/colorGrey"
                                         android:textSize="@dimen/sp_12"
                                         app:font="@{`bold`}" />
 
@@ -320,9 +320,8 @@
                                         android:layout_marginLeft="@dimen/dp_2"
                                         android:text="Facial and Clean up"
                                         android:textAllCaps="false"
-                                        android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/sp_12"
-                                        app:font="@{`regular`}" />
+                                        android:textColor="@color/colorGrey"
+                                        android:textSize="@dimen/sp_12" />
 
                                 </LinearLayout>
                             </RelativeLayout>

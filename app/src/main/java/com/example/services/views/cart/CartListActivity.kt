@@ -82,6 +82,13 @@ class CartListActivity : BaseActivity(), DialogssInterface {
             )/*mContext.getResources().getColorStateList(R.color.colorOrange)*/
         )
 
+        quantityCount = intent.getIntExtra("Quantity", quantityCount)
+        price = intent.getIntExtra("Price", price)
+
+       // cartBinding.tvOfferPrice.setText((quantityCount).toString())
+        price = quantityCount*price
+        //cartBinding.tvOfferPrice.setText(price.toString())
+
         cartBinding.commonToolBar.imgDelete.setOnClickListener {
 
             addRemoveToCart(0)
@@ -97,6 +104,9 @@ class CartListActivity : BaseActivity(), DialogssInterface {
 
                         imgPlusNew.setOnClickListener {
                             tv_quantityNew.setText((quantityCount++).toString())
+                            price = quantityCount*price
+                            //tv_offer_price.setText(price.toString())
+
                             /*startProgressDialog()
                             callAddRemoveCartApi(true, cartList.get(position).serviceId)
                             stopProgressDialog()*/
@@ -105,6 +115,8 @@ class CartListActivity : BaseActivity(), DialogssInterface {
                         imgMinusNew.setOnClickListener {
 
                             tv_quantityNew.setText((quantityCount--).toString())
+                            price = quantityCount*price
+                            //tv_offer_price.setText(price.toString())
                             if(quantityCount < 1) {
                                 addRemoveToCart(position)
                             }

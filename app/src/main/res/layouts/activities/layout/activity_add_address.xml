@@ -80,8 +80,7 @@
                         android:layout_margin="@dimen/dp_5"
                         android:text="@string/select_address"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/sp_16"
-                        app:font="@{`regular`}" />
+                        android:textSize="@dimen/sp_16" />
 
                     <View
                         android:layout_width="match_parent"
@@ -99,9 +98,7 @@
                         android:layout_marginTop="@dimen/dp_5"
                         android:text="@string/your_address"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/sp_15"
-                        android:textStyle="bold"
-                        app:font="@{`bold`}" />
+                        android:textSize="@dimen/sp_15" />
 
                     <TextView
                         android:id="@+id/tv_address"
@@ -114,8 +111,7 @@
                         android:drawablePadding="10dp"
                         android:maxLines="2"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/sp_14"
-                        app:font="@{`regular`}" />
+                        android:textSize="@dimen/sp_14" />
 
                     <View
                         android:layout_width="match_parent"
@@ -143,8 +139,7 @@
                         android:paddingRight="@dimen/dp_20"
                         android:text="@string/confirm_and_proceed"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        app:font="@{`regular`}" />
+                        android:textColor="@color/white" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -182,9 +177,7 @@
                             android:layout_marginLeft="@dimen/dp_5"
                             android:text="@string/complete_address"
                             android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/sp_16"
-                            android:textStyle="bold"
-                            app:font="@{`bold`}" />
+                            android:textSize="@dimen/sp_16" />
 
                         <ImageView
                             android:id="@+id/img_cross"
@@ -225,7 +218,6 @@
                             android:textColor="@color/colorBlack"
                             android:textColorHint="@color/colorGrey"
                             android:textSize="@dimen/sp_12"
-                            app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
 
                         <View
@@ -248,9 +240,7 @@
                         android:layout_marginTop="@dimen/dp_10"
                         android:text="@string/house_no"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/sp_16"
-                        android:textStyle="bold"
-                        app:font="@{`bold`}" />
+                        android:textSize="@dimen/sp_16" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -280,7 +270,6 @@
                             android:textColor="@color/colorblack"
                             android:textColorHint="@color/colorGrey"
                             android:textSize="@dimen/sp_12"
-                            app:font="@{`regular`}"
                             tools:ignore="MissingConstraints" />
 
                         <View
@@ -322,9 +311,7 @@
                         android:layout_marginTop="@dimen/dp_10"
                         android:text="@string/city"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/sp_16"
-                        android:textStyle="bold"
-                        app:font="@{`bold`}" />
+                        android:textSize="@dimen/sp_16" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -354,7 +341,6 @@
                             android:textColor="@color/colorblack"
                             android:textColorHint="@color/colorGrey"
                             android:textSize="@dimen/sp_12"
-                            app:font="@{`regular`}"
                             tools:ignore="MissingConstraints,TextFields" />
 
                         <View
@@ -378,9 +364,7 @@
                         android:paddingLeft="@dimen/dp_15"
                         android:text="@string/address_type"
                         android:textAllCaps="false"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"
-                        app:font="@{`bold`}" />
+                        android:textColor="@color/colorBlack" />
 
                     <RadioGroup
                         android:id="@+id/radio_group"
@@ -398,8 +382,7 @@
                             android:padding="10dp"
                             android:text="@string/home"
                             android:textColor="@color/colorBlack"
-                            android:textSize="12sp"
-                            app:font="@{`regular`}" />
+                            android:textSize="12sp" />
 
                         <RadioButton
                             android:id="@+id/rd_work"
@@ -410,8 +393,7 @@
                             android:padding="10dp"
                             android:text="@string/work"
                             android:textColor="@color/colorBlack"
-                            android:textSize="12sp"
-                            app:font="@{`regular`}" />
+                            android:textSize="12sp" />
 
                         <RadioButton
                             android:id="@+id/rd_other"
@@ -422,8 +404,7 @@
                             android:padding="10dp"
                             android:text="@string/other"
                             android:textColor="@color/colorBlack"
-                            android:textSize="12sp"
-                            app:font="@{`regular`}" />
+                            android:textSize="12sp" />
 
                     </RadioGroup>
 
@@ -442,8 +423,7 @@
                         android:paddingRight="@dimen/dp_20"
                         android:text="@string/save_address"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        app:font="@{`regular`}" />
+                        android:textColor="@color/white" />
 
 
                     <View

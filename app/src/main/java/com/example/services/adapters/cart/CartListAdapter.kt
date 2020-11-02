@@ -55,6 +55,7 @@ class CartListAdapter(
         holder.binding!!.tvOfferPrice.setText(
             GlobalConstants.Currency + " " + addressList[position].price.toString()
         )
+        holder.binding.tvQuantityNew.setText(addressList[position].quantity.toString())
         //holder.binding!!.rBar.setRating(addressList[position].rating?.toFloat())
         Glide.with(mContext)
             .load(addressList[position].service?.icon)

@@ -241,6 +241,8 @@ class ServiceDetailActivity : BaseActivity(), DialogssInterface {
                                     "true"
                                 )
                                 val intent = Intent(this, CartListActivity::class.java)
+                                intent.putExtra("Quantity", quantityCount)
+                                intent.putExtra("Price", price)
                                 startActivity(intent)
                             }
 
