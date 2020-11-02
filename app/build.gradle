@@ -67,6 +67,10 @@ dependencies {
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
+    implementation 'com.razorpay:checkout:1.5.16'
+
+
+
     //kotlin dependencies
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.multidex:multidex:2.0.1'

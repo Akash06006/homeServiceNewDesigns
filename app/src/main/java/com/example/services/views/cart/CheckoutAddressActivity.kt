@@ -47,6 +47,7 @@ import com.example.services.views.address.AddAddressActivity
 import com.example.services.views.home.DashboardActivity
 import com.example.services.views.home.LandingMainActivity
 import com.example.services.views.payment.PaymentActivity
+import com.example.services.views.payment.PaymentActivityFinal
 import com.example.services.views.promocode.PromoCodeActivity
 import com.google.gson.JsonObject
 import com.uniongoods.adapters.CartListAdapter
@@ -254,7 +255,7 @@ class CheckoutAddressActivity : BaseActivity(), DialogssInterface {
                             // showPaymentSuccessDialog()
                             orderId = response.data?.id!!
                             orderNo = response.data?.orderNo!!
-                            val intent = Intent(this, PaymentActivity::class.java)
+                            val intent = Intent(this, PaymentActivityFinal::class.java)
                             intent.putExtra("amount", payableAmount)
                             intent.putExtra("currency", GlobalConstants.Currency)
                             intent.putExtra("totalItems", cartList.size.toString())

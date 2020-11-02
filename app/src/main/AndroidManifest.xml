@@ -80,6 +80,11 @@
             android:name=".adapters.home.AddImagesActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".views.payment.PaymentActivityFinal"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".views.orders.OrdersListActivity"
             android:launchMode="singleTop"
@@ -240,6 +245,12 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
+
+        <!-- Add your API key here -->
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_live_ILgsfZCZoFIKMb"
+            />
     </application>
 
 </manifest>
